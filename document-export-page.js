@@ -24,7 +24,7 @@ H5P.DocumentExportPage = (function ($) {
 
     // Set default behavior.
     this.params = $.extend({}, {
-      title: '',
+      title: 'Document export',
       description: '',
       createDocumentButtonText: 'Create document',
       selectTextButtonText: 'Select all text',
@@ -41,6 +41,7 @@ H5P.DocumentExportPage = (function ($) {
   DocumentExportPage.prototype.attach = function ($container) {
     var self = this;
     this.$inner = $container.addClass(MAIN_CONTAINER);
+    this.exportTitle = this.params.title;
 
     var goalsTemplate =
         '<div class="export-title">{{title}}</div>' +
@@ -56,6 +57,10 @@ H5P.DocumentExportPage = (function ($) {
       var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
       exportDocument.attach(self.$inner);
     });
+  };
+
+  DocumentExportPage.prototype.getTitle = function () {
+    return this.exportTitle;
   };
 
   DocumentExportPage.prototype.setTitle = function (title) {

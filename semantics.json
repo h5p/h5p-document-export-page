@@ -4,7 +4,7 @@
     "label": "Title",
     "type": "text",
     "description": "Title for the goals page.",
-    "default": "Goals",
+    "default": "Document Export",
     "optional": true
   },
   {
