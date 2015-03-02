@@ -4,8 +4,7 @@
     "label": "Title",
     "type": "text",
     "description": "Title for the goals page.",
-    "default": "Document Export",
-    "optional": true
+    "default": "Document Export"
   },
   {
     "name": "description",
@@ -48,6 +47,13 @@
     "type": "text",
     "description": "Text that will be displayed on the \"Export text\"-button.",
     "default": "Export text"
+  },
+  {
+    "name": "helpTextLabel",
+    "label": "Label for help text",
+    "type": "text",
+    "description": "Label for showing additional helpful information to the user.",
+    "default": "Read more"
   },
   {
     "name": "helpText",

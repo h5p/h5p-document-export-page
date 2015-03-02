@@ -14,6 +14,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($) {
   // CSS subclasses:
   var COPY_BUTTON = 'exportable-copy-button';
   var EXPORT_BUTTON = 'exportable-export-button';
+  var RETURN_BUTTON = 'exportable-return-button';
 
   /**
    * Initialize module.
@@ -49,6 +50,13 @@ H5P.DocumentExportPage.CreateDocument = (function ($) {
     var $footer = $('<div>', {
       'class': FOOTER_CONTAINER
     }).appendTo(self.$inner);
+
+    $('<button>', {
+      'text': 'return',
+      'class': RETURN_BUTTON
+    }).click(function () {
+      console.log("CLICKED RETURN BUTTON; DOCUMENT POPUP");
+    }).appendTo($footer);
 
     $('<button>', {
       'text': self.params.selectTextButtonText,
@@ -99,7 +107,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($) {
     this.inputFields.forEach(function (inputPage) {
       if (inputPage.length) {
         inputPage.forEach(function (inputInstance) {
-          self.$exportableArea.append(Mustache.render(self.inputBlockTemplate, {description: inputInstance}))
+          self.$exportableArea.append(Mustache.render(self.inputBlockTemplate, {description: inputInstance}));
         });
       }
     });
