@@ -1,3 +1,4 @@
+/*global Mustache */
 var H5P = H5P || {};
 H5P.DocumentExportPage = H5P.DocumentExportPage || {};
 
@@ -5,17 +6,7 @@ H5P.DocumentExportPage = H5P.DocumentExportPage || {};
  * Create Document module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage.CreateDocument = (function ($) {
-  // CSS Classes:
-  var MAIN_CONTAINER = 'h5p-create-document';
-  var EXPORTABLE_AREA_CONTAINER = 'exportable-area';
-  var FOOTER_CONTAINER = 'exportable-footer';
-
-  // CSS subclasses:
-  var COPY_BUTTON = 'exportable-copy-button';
-  var EXPORT_BUTTON = 'exportable-export-button';
-  var RETURN_BUTTON = 'exportable-return-button';
-
+H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
   /**
    * Initialize module.
    * @param {Array} inputFields Array of input strings that should be exported
@@ -40,96 +31,43 @@ H5P.DocumentExportPage.CreateDocument = (function ($) {
    * @param {jQuery} $container The container which will be appended to.
    */
   CreateDocument.prototype.attach = function ($container) {
-    var self = this;
-    this.$inner = $container.addClass(MAIN_CONTAINER);
-
-    self.$exportableArea = $('<div>', {
-      'class': EXPORTABLE_AREA_CONTAINER
-    }).appendTo(self.$inner);
-
-    var $footer = $('<div>', {
-      'class': FOOTER_CONTAINER
-    }).appendTo(self.$inner);
-
-    $('<button>', {
-      'text': 'return',
-      'class': RETURN_BUTTON
-    }).click(function () {
-      console.log("CLICKED RETURN BUTTON; DOCUMENT POPUP");
-    }).appendTo($footer);
-
-    $('<button>', {
-      'text': self.params.selectTextButtonText,
-      'class': COPY_BUTTON
-    }).click(function () {
-      self.selectText(self.$exportableArea);
-    }).appendTo($footer);
-
-    $('<button>', {
-      'text': self.params.exportTextButtonText,
-      'class': EXPORT_BUTTON
-    }).click(function () {
-      self.saveText(self.$exportableArea.html());
-    }).appendTo($footer);
-
-    this.updatePage();
+    var exportString = this.getExportString();
+    var $joubelExportPage = JoubelUI.createExportPage(this.params.title,
+      exportString,
+      this.params.selectAllTextLabel,
+      this.params.exportTextLabel);
+    $joubelExportPage.appendTo($container);
   };
 
-  CreateDocument.prototype.selectText = function ($container) {
-    var doc = document;
-    var text = $container.get(0);
-    var range;
-    var selection;
+  /**
+   * Generate complete html string for export
+   * @returns {string} exportString Html string for export
+   */
+  CreateDocument.prototype.getExportString = function () {
+    var self = this;
+    var exportString = self.getInputBlocksString();
 
-    if (doc.body.createTextRange) {
-      range = document.body.createTextRange();
-      range.moveToElementText(text);
-      range.select();
-    } else if (window.getSelection) {
-      selection = window.getSelection();
-      range = document.createRange();
-      range.selectNodeContents(text);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
+    return exportString;
   };
 
-  CreateDocument.prototype.updatePage = function () {
+  /**
+   * Generates html string for input fields
+   * @returns {string} inputBlocksString Html string from input fields
+   */
+  CreateDocument.prototype.getInputBlocksString = function () {
     var self = this;
-    self.$exportableArea.children().remove();
-    self.$exportableArea.append(Mustache.render(self.exportedDocumentTemplate, {title: self.title}));
-    self.createInputBlocks();
-  };
-
-  CreateDocument.prototype.createInputBlocks = function () {
-    var self = this;
+    var inputBlocksString = '';
 
     this.inputFields.forEach(function (inputPage) {
       if (inputPage.length) {
         inputPage.forEach(function (inputInstance) {
-          self.$exportableArea.append(Mustache.render(self.inputBlockTemplate, {description: inputInstance}));
+          inputBlocksString += Mustache.render(self.inputBlockTemplate, {description: inputInstance});
         });
       }
     });
-  };
 
-  CreateDocument.prototype.saveText = function (html) {
-    // Save it as a file:
-    var blob = new Blob([this.createDocContent(html)], {
-      type: "application/msword;charset=utf-8"
-    });
-    saveAs(blob, 'exported-text.doc');
-  };
-
-  CreateDocument.prototype.createDocContent = function (html) {
-    var html = html;
-
-    // Create HTML:
-    // me + ta and other hacks to avoid that new relic injects script...
-    html = '<ht' + 'ml><he' + 'ad><me' + 'ta charset="UTF-8"></me' + 'ta></he' + 'ad><bo' + 'dy><p><a href="' + document.URL + '">' + document.URL + '</a></p>' + html + '</bo' + 'dy></ht' + 'ml>';
-
-    return html;
+    return inputBlocksString;
   };
 
   return CreateDocument;
-})(H5P.jQuery);
+}(H5P.jQuery, H5P.JoubelUI));

@@ -28,22 +28,22 @@
     "optional": true
   },
   {
-    "name": "createDocumentButtonText",
-    "label": "Create document button text",
+    "name": "createDocumentLabel",
+    "label": "Create document button label",
     "type": "text",
-    "description": "Text that will be displayed on the \"Create document\".",
+    "description": "Text that will be displayed on the \"Create document\"-button.",
     "default": "Create document"
   },
   {
-    "name": "selectTextButtonText",
-    "label": "Select all exportable text button",
+    "name": "selectAllTextLabel",
+    "label": "Select all exportable text button label",
     "type": "text",
     "description": "Text that will be displayed on the \"Select all text\"-button.",
     "default": "Select all text"
   },
   {
-    "name": "exportTextButtonText",
-    "label": "Export exportable text button",
+    "name": "exportTextLabel",
+    "label": "Export text button label",
     "type": "text",
     "description": "Text that will be displayed on the \"Export text\"-button.",
     "default": "Export text"

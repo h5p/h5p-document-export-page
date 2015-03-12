@@ -4,7 +4,7 @@ var H5P = H5P || {};
  * Document Export Page module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage = (function ($, Mustache) {
+H5P.DocumentExportPage = (function ($, Mustache, JoubelUI) {
   // CSS Classes:
   var MAIN_CONTAINER = 'h5p-document-export-page';
 
@@ -26,9 +26,9 @@ H5P.DocumentExportPage = (function ($, Mustache) {
     this.params = $.extend({}, {
       title: 'Document export',
       description: '',
-      createDocumentButtonText: 'Create document',
-      selectTextButtonText: 'Select all text',
-      exportTextButtonText: 'Export text',
+      createDocumentLabel: 'Create document',
+      selectAllTextLabel: 'Select all text',
+      exportTextLabel: 'Export text',
       helpTextLabel: 'Read more',
       helpText: 'Help text'
     }, params);
@@ -41,9 +41,12 @@ H5P.DocumentExportPage = (function ($, Mustache) {
    */
   DocumentExportPage.prototype.attach = function ($container) {
     var self = this;
+
+    this.$wrapper = $container;
+
     this.$inner = $('<div>', {
       'class': MAIN_CONTAINER
-    }).appendTo($container);
+    }).prependTo($container);
 
     this.exportTitle = this.params.title;
 
@@ -53,20 +56,27 @@ H5P.DocumentExportPage = (function ($, Mustache) {
         ' <div role="button" tabindex="1" class="export-help-text">{{helpTextLabel}}</div>' +
         '</div>' +
         '<div class="export-description">{{description}}</div>' +
-        '<div class="export-footer">' +
-        ' <button class="export-document-button" tabindex="1">{{createDocumentButtonText}}</button>' +
-        '</div>';
+        '<div class="export-footer"></div>';
 
     /*global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
 
     self.createHelpTextButton();
 
-    $('.export-document-button', self.$inner).click(function () {
-      self.$inner.children().remove();
-      var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
-      exportDocument.attach(self.$inner);
-    });
+    var $footer = $('.export-footer', self.$inner);
+    self.createDocumentExportButton().appendTo($footer);
+  };
+
+  DocumentExportPage.prototype.createDocumentExportButton = function () {
+    var self = this;
+    var $exportDocumentButton = JoubelUI.createSimpleRoundedButton(self.params.createDocumentLabel)
+      .addClass('export-document-button')
+      .click(function () {
+        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
+        exportDocument.attach(self.$wrapper.parent().parent());
+      });
+
+    return $exportDocumentButton;
   };
 
   /**
@@ -78,7 +88,7 @@ H5P.DocumentExportPage = (function ($, Mustache) {
     if (this.params.helpText !== undefined && this.params.helpText.length) {
       $('.export-help-text', this.$inner).click(function () {
         var $helpTextDialog = new H5P.JoubelUI.createHelpTextDialog(self.params.title, self.params.helpText);
-        $helpTextDialog.appendTo(self.$inner.parent().parent().parent());
+        $helpTextDialog.appendTo(self.$wrapper.parent().parent());
       });
     } else {
       $('.export-help-text', this.$inner).remove();
@@ -100,4 +110,4 @@ H5P.DocumentExportPage = (function ($, Mustache) {
   };
 
   return DocumentExportPage;
-}(H5P.jQuery, Mustache));
+}(H5P.jQuery, Mustache, H5P.JoubelUI));
