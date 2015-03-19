@@ -52,8 +52,8 @@ H5P.DocumentExportPage = (function ($, Mustache, JoubelUI) {
 
     var documentExportTemplate =
         '<div class="export-header">' +
-        ' <div class="export-title">{{title}}</div>' +
         ' <div role="button" tabindex="1" class="export-help-text">{{helpTextLabel}}</div>' +
+        ' <div class="export-title">{{title}}</div>' +
         '</div>' +
         '<div class="export-description">{{description}}</div>' +
         '<div class="export-footer"></div>';
