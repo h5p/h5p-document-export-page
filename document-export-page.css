@@ -3,7 +3,8 @@
 }
 
 .h5p-document-export-page .export-title {
-  padding: 0.25em 0;
+  padding: 0.5em 0;
+  font-size: 18px;
   border-bottom: 1px solid #E5E5E5;
 }
 
@@ -16,6 +17,7 @@
   color: #85B1E3;
   cursor: pointer;
   font-size: 0.8em;
+  line-height: 3.5em;
 }
 
 .h5p-document-export-page .export-document-button:before {

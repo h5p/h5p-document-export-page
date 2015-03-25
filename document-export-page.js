@@ -4,7 +4,7 @@ var H5P = H5P || {};
  * Document Export Page module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage = (function ($, Mustache, JoubelUI) {
+H5P.DocumentExportPage = (function ($, JoubelUI) {
   // CSS Classes:
   var MAIN_CONTAINER = 'h5p-document-export-page';
 
@@ -110,4 +110,4 @@ H5P.DocumentExportPage = (function ($, Mustache, JoubelUI) {
   };
 
   return DocumentExportPage;
-}(H5P.jQuery, Mustache, H5P.JoubelUI));
+}(H5P.jQuery, H5P.JoubelUI));
