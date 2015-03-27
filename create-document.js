@@ -36,7 +36,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel);
-    $joubelExportPage.appendTo($container);
+    $joubelExportPage.prependTo($container);
   };
 
   /**
