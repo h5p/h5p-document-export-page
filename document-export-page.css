@@ -3,7 +3,8 @@
 }
 
 .h5p-document-export-page .export-title {
-  padding: 0.5em 0;
+  padding: 0.5em 0 0;
+  margin-bottom: 0.5em;
   font-size: 18px;
   border-bottom: 1px solid #E5E5E5;
 }
@@ -14,7 +15,7 @@
 
 .h5p-document-export-page .export-help-text {
   float: right;
-  color: #85B1E3;
+  color: #20588F;
   cursor: pointer;
   font-size: 0.8em;
   line-height: 3.5em;
@@ -24,4 +25,10 @@
   font-family: "H5PFontAwesome4";
   content: "\f0f6";
   margin-right: 0.75em;
+  position: relative;
+}
+
+/* Active state */
+.h5p-document-export-page .export-document-button:active:before {
+  top: 2px;
 }
