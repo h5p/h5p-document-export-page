@@ -75,5 +75,12 @@
       "hr"
     ],
     "optional": true
+  },
+  {
+    "name": "requiresInputErrorMessage",
+    "label": "Required input missing text",
+    "type": "text",
+    "description": "An error message which will be displayed if one or more required input fields have not been filled.",
+    "default": "One or more required input fields need to be filled."
   }
 ]

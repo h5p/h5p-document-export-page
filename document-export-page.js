@@ -20,6 +20,7 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
 
     this.inputArray = [];
     this.exportTitle = '';
+    this.requiredInputsAreFilled = true;
 
 
     // Set default behavior.
@@ -29,6 +30,7 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       createDocumentLabel: 'Create document',
       selectAllTextLabel: 'Select all text',
       exportTextLabel: 'Export text',
+      requiresInputErrorMessage: 'One or more required input fields need to be filled.',
       helpTextLabel: 'Read more',
       helpText: 'Help text'
     }, params);
@@ -56,7 +58,8 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
         ' <div class="export-title">{{{title}}}</div>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
-        '<div class="export-footer"></div>';
+        '<div class="export-footer"></div>' +
+        '<div class="export-error-message">{{{requiresInputErrorMessage}}}</div>';
 
     /*global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
@@ -67,13 +70,20 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
     self.createDocumentExportButton().appendTo($footer);
   };
 
+  /**
+   * Creates button for creating a document from stored input array
+   * @returns {jQuery} $exportDocumentButton Button element
+   */
   DocumentExportPage.prototype.createDocumentExportButton = function () {
     var self = this;
     var $exportDocumentButton = JoubelUI.createSimpleRoundedButton(self.params.createDocumentLabel)
       .addClass('export-document-button')
       .click(function () {
-        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
-        exportDocument.attach(self.$wrapper.parent().parent());
+        // Check if all required input fields are filled
+        if (self.isRequiredInputsFilled()) {
+          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
+          exportDocument.attach(self.$wrapper.parent().parent());
+        }
       });
 
     return $exportDocumentButton;
@@ -117,6 +127,20 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
 
   DocumentExportPage.prototype.updateOutputFields = function (inputs) {
     this.inputArray = inputs;
+    return this;
+  };
+
+  DocumentExportPage.prototype.isRequiredInputsFilled = function () {
+    return this.requiredInputsAreFilled;
+  };
+
+  DocumentExportPage.prototype.updateRequiredInputsFilled = function (requiredInputsAreFilled) {
+    if (requiredInputsAreFilled) {
+      this.$inner.removeClass('required-inputs-not-filled');
+    } else {
+      this.$inner.addClass('required-inputs-not-filled');
+    }
+    this.requiredInputsAreFilled = requiredInputsAreFilled;
     return this;
   };
 

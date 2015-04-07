@@ -37,3 +37,18 @@
 .h5p-document-export-page .export-document-button:active:before {
   top: 2px;
 }
+
+/* --------------------------- Required inputs not filled ------------------- */
+.h5p-document-export-page .export-error-message {
+  display: none;
+  padding: 1em 0;
+  color: red;
+}
+
+.h5p-document-export-page.required-inputs-not-filled .export-error-message {
+  display: block;
+}
+
+.h5p-document-export-page.required-inputs-not-filled .export-document-button {
+  display: none;
+}
