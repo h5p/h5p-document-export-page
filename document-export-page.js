@@ -81,7 +81,7 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       .click(function () {
         // Check if all required input fields are filled
         if (self.isRequiredInputsFilled()) {
-          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray);
+          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray, self.inputGoals);
           exportDocument.attach(self.$wrapper.parent().parent());
         }
       });
@@ -127,6 +127,11 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
 
   DocumentExportPage.prototype.updateOutputFields = function (inputs) {
     this.inputArray = inputs;
+    return this;
+  };
+
+  DocumentExportPage.prototype.updateExportableGoals = function (newGoals) {
+    this.inputGoals = newGoals;
     return this;
   };
 
