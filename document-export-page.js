@@ -52,7 +52,7 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
 
     var documentExportTemplate =
         '<div class="export-header">' +
-        ' <div role="button" tabindex="1" class="export-help-text">{{{helpTextLabel}}}</div>' +
+        ' <div role="button" tabindex="0" class="export-help-text">{{{helpTextLabel}}}</div>' +
         ' <div class="export-title">{{{title}}}</div>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
@@ -90,9 +90,9 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       // Create help button
       $('.export-help-text', this.$inner)
         .click(function () {
-        var $helpTextDialog = new H5P.JoubelUI.createHelpTextDialog(self.params.title, self.params.helpText);
-        $helpTextDialog.appendTo(self.$wrapper.parent().parent());
-      }).keydown(function (e) {
+          var $helpTextDialog = new H5P.JoubelUI.createHelpTextDialog(self.params.title, self.params.helpText);
+          $helpTextDialog.appendTo(self.$wrapper.parent().parent());
+        }).keydown(function (e) {
           var keyPressed = e.which;
           // 32 - space
           if (keyPressed === 32) {
