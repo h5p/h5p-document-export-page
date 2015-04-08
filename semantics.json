@@ -3,7 +3,7 @@
     "name": "title",
     "label": "Title",
     "type": "text",
-    "description": "Title for the goals page.",
+    "description": "Title for the export page.",
     "default": "Document Export"
   },
   {
@@ -11,8 +11,8 @@
     "label": "Description",
     "type": "text",
     "widget": "html",
-    "description": "Description of the goals page.",
-    "default": "Insert the goals that you have chosen to work with.",
+    "description": "Description of the export page.",
+    "default": "On this page you can choose to export your text, goals and goals assessments.",
     "enterMode": "p",
     "tags": [
       "strong",
