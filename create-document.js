@@ -63,7 +63,9 @@ H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
     this.inputFields.forEach(function (inputPage) {
       if (inputPage.length) {
         inputPage.forEach(function (inputInstance) {
-          inputBlocksString += Mustache.render(self.inputBlockTemplate, {description: inputInstance});
+          if (inputInstance.length) {
+            inputBlocksString += Mustache.render(self.inputBlockTemplate, {description: inputInstance});
+          }
         });
       }
     });
