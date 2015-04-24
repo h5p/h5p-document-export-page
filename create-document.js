@@ -34,11 +34,46 @@ H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
   CreateDocument.prototype.attach = function ($container) {
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
+    var exportObject = this.getExportObject();
     var $joubelExportPage = JoubelUI.createExportPage(this.params.title,
       exportString,
       this.params.selectAllTextLabel,
-      this.params.exportTextLabel);
+      this.params.exportTextLabel,
+      'H5P.DocumentExportPage-1.0',
+      'exportTemplate.docx',
+      exportObject
+      );
     $joubelExportPage.prependTo($container);
+  };
+
+  /**
+   * Generate export object that will be applied to the export template
+   * @returns {Object} exportObject Exportable content for filling template
+   */
+  CreateDocument.prototype.getExportObject = function () {
+    var flatGoalsList = [];
+    this.inputGoals.forEach(function (inputGoalPage) {
+      inputGoalPage.forEach(function (inputGoal) {
+        if (inputGoal.goalText().length && inputGoal.getTextualAnswer().length) {
+          flatGoalsList.push({text: inputGoal.goalText(), answer: inputGoal.getTextualAnswer()});
+        }
+      });
+    });
+
+    var flatInputsList = [];
+    this.inputFields.forEach(function (inputFieldPage) {
+      inputFieldPage.forEach(function (inputField) {
+        flatInputsList.push({text: inputField});
+      });
+    });
+
+    var exportObject = {
+      title: this.title,
+      input_fields_list: flatInputsList,
+      input_goals_list: flatGoalsList
+    };
+
+    return exportObject;
   };
 
   /**
