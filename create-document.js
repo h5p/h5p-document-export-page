@@ -6,7 +6,7 @@ H5P.DocumentExportPage = H5P.DocumentExportPage || {};
  * Create Document module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
+H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
   /**
    * Initialize module.
    * @param {Array} inputFields Array of input strings that should be exported
@@ -35,7 +35,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();
-    var $joubelExportPage = JoubelUI.createExportPage(this.params.title,
+    var $joubelExportPage = new ExportPage(this.params.title,
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
@@ -148,4 +148,4 @@ H5P.DocumentExportPage.CreateDocument = (function ($, JoubelUI) {
   };
 
   return CreateDocument;
-}(H5P.jQuery, H5P.JoubelUI));
+}(H5P.jQuery, H5P.ExportPage));
