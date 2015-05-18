@@ -13,17 +13,12 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {Object} CreateDocument CreateDocument instance
    */
   function CreateDocument(params, title, inputFields, inputGoals) {
+    this.$ = $(this);
     this.inputFields = inputFields;
     this.inputGoals = inputGoals;
 
     this.params = params;
     this.title = title;
-
-    this.exportedDocumentTemplate =
-      '<p>{{{heading}}}</p>';
-
-    this.inputBlockTemplate =
-      '<p>{{{description}}}</p>';
   }
 
   /**
@@ -35,7 +30,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();
-    var $joubelExportPage = new ExportPage(this.params.title,
+    var $exportPage = new ExportPage(this.params.title,
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
@@ -43,7 +38,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
       'exportTemplate.docx',
       exportObject
       );
-    $joubelExportPage.prependTo($container);
+    $exportPage.prependTo($container);
   };
 
   /**
@@ -55,7 +50,12 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     this.inputGoals.forEach(function (inputGoalPage) {
       inputGoalPage.forEach(function (inputGoal) {
         if (inputGoal.goalText().length && inputGoal.getTextualAnswer().length) {
-          flatGoalsList.push({text: inputGoal.goalText(), answer: inputGoal.getTextualAnswer()});
+          var goalText = '';
+          if (inputGoal.getParent() !== undefined) {
+            goalText += inputGoal.getParent().goalText() + ' - ';
+          }
+          goalText += inputGoal.goalText();
+          flatGoalsList.push({text: goalText, answer: inputGoal.getTextualAnswer()});
         }
       });
     });
@@ -92,18 +92,25 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {string} inputBlocksString Html string from input fields
    */
   CreateDocument.prototype.getInputBlocksString = function () {
-    var self = this;
-    var inputBlocksString = '';
+    var inputBlocksString = '<div class="textfields-output">';
 
     this.inputFields.forEach(function (inputPage) {
       if (inputPage.length) {
         inputPage.forEach(function (inputInstance) {
-          if (inputInstance.length) {
-            inputBlocksString += Mustache.render(self.inputBlockTemplate, {description: inputInstance});
+          if (inputInstance) {
+            // remove paragraph tags
+            inputBlocksString +=
+              '<p>' +
+                inputInstance.description.replace(/(<p>|<\/p>)/img, "") +
+                '\n' +
+                inputInstance.value +
+              '</p>';
           }
         });
       }
     });
+
+    inputBlocksString += '</div>';
 
     return inputBlocksString;
   };
@@ -124,12 +131,17 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
       inputGoalPage.forEach(function (inputGoalInstance) {
         if (inputGoalInstance !== undefined && inputGoalInstance.goalAnswer() > -1) {
           // Sort goals on answer
-          var htmlString =
-            '<p>' + inputGoalInstance.text + '</p>';
+          var htmlString = '';
           if (goalOutputArray[inputGoalInstance.goalAnswer()] === undefined) {
             goalOutputArray[inputGoalInstance.goalAnswer()] = [];
             var answerStringTitle = '</br><p>' + inputGoalInstance.getTextualAnswer() + ':</p>';
             goalOutputArray[inputGoalInstance.goalAnswer()].push(answerStringTitle);
+          }
+          if (inputGoalInstance.getParent() !== undefined) {
+            var parentGoal = inputGoalInstance.getParent().goalText();
+            htmlString += '<p>' + parentGoal + ' - ' + inputGoalInstance.text + '</p>';
+          } else {
+            htmlString += '<p>' + inputGoalInstance.text + '</p>';
           }
           goalOutputArray[inputGoalInstance.goalAnswer()].push(htmlString);
         }
