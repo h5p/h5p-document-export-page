@@ -63,7 +63,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     var flatInputsList = [];
     this.inputFields.forEach(function (inputFieldPage) {
       inputFieldPage.forEach(function (inputField) {
-        flatInputsList.push({text: inputField});
+        flatInputsList.push({description: inputField.description, value: inputField.value});
       });
     });
 
@@ -101,7 +101,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
             // remove paragraph tags
             inputBlocksString +=
               '<p>' +
-                inputInstance.description.replace(/(<p>|<\/p>)/img, "") +
+                inputInstance.description +
                 '\n' +
                 inputInstance.value +
               '</p>';
