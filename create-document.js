@@ -46,31 +46,43 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {Object} exportObject Exportable content for filling template
    */
   CreateDocument.prototype.getExportObject = function () {
-    var flatGoalsList = [];
-    this.inputGoals.forEach(function (inputGoalPage) {
+    var sortedGoalsList = [];
+
+    this.inputGoals.inputArray.forEach(function (inputGoalPage) {
       inputGoalPage.forEach(function (inputGoal) {
+        if (!sortedGoalsList[inputGoal.goalAnswer()]) {
+          sortedGoalsList[inputGoal.goalAnswer()] = {label: inputGoal.getTextualAnswer(), goalArray: []};
+        }
         if (inputGoal.goalText().length && inputGoal.getTextualAnswer().length) {
           var goalText = '';
           if (inputGoal.getParent() !== undefined) {
             goalText += inputGoal.getParent().goalText() + ' - ';
           }
           goalText += inputGoal.goalText();
-          flatGoalsList.push({text: goalText, answer: inputGoal.getTextualAnswer()});
+          sortedGoalsList[inputGoal.goalAnswer()].goalArray.push(goalText);
         }
       });
     });
 
     var flatInputsList = [];
     this.inputFields.forEach(function (inputFieldPage) {
-      inputFieldPage.forEach(function (inputField) {
-        flatInputsList.push({description: inputField.description, value: inputField.value});
-      });
+      if (inputFieldPage.inputArray && inputFieldPage.inputArray.length) {
+        var standardPage = {title: '', inputArray: []};
+        if (inputFieldPage.title) {
+          standardPage.title = inputFieldPage.title;
+        }
+        inputFieldPage.inputArray.forEach(function (inputField) {
+          standardPage.inputArray.push({description: inputField.description, value: inputField.value});
+        });
+        flatInputsList.push(standardPage);
+      }
     });
 
     var exportObject = {
       title: this.title,
-      input_fields_list: flatInputsList,
-      input_goals_list: flatGoalsList
+      goalsTitle: this.inputGoals.title,
+      flatInputList: flatInputsList,
+      sortedGoalsList: sortedGoalsList
     };
 
     return exportObject;
@@ -95,13 +107,17 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     var inputBlocksString = '<div class="textfields-output">';
 
     this.inputFields.forEach(function (inputPage) {
-      if (inputPage.length) {
-        inputPage.forEach(function (inputInstance) {
+      if (inputPage.inputArray && inputPage.inputArray.length && inputPage.title.length) {
+        inputBlocksString +=
+          '<h2>' + inputPage.title + '</h2>';
+      }
+      if (inputPage.inputArray && inputPage.inputArray.length) {
+        inputPage.inputArray.forEach(function (inputInstance) {
           if (inputInstance) {
             // remove paragraph tags
             inputBlocksString +=
               '<p>' +
-                inputInstance.description +
+                '<strong>' + inputInstance.description + '</strong>' +
                 '\n' +
                 inputInstance.value +
               '</p>';
@@ -120,21 +136,32 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {string} goalsOutputString Html string from all goals
    */
   CreateDocument.prototype.createGoalsOutput = function () {
-    var goalOutputArray = [];
+
     var goalsOutputString = '<div class="goals-output">';
 
     if (this.inputGoals === undefined) {
       return;
     }
 
-    this.inputGoals.forEach(function (inputGoalPage) {
+    if (this.inputGoals.inputArray && this.inputGoals.inputArray.length && this.inputGoals.title.length) {
+      goalsOutputString +=
+        '<h2>' + this.inputGoals.title + '</h2>';
+    }
+
+    if (!this.inputGoals.inputArray) {
+      return;
+    }
+
+    this.inputGoals.inputArray.forEach(function (inputGoalPage) {
+      var goalOutputArray = [];
+
       inputGoalPage.forEach(function (inputGoalInstance) {
         if (inputGoalInstance !== undefined && inputGoalInstance.goalAnswer() > -1) {
           // Sort goals on answer
           var htmlString = '';
           if (goalOutputArray[inputGoalInstance.goalAnswer()] === undefined) {
             goalOutputArray[inputGoalInstance.goalAnswer()] = [];
-            var answerStringTitle = '</br><p>' + inputGoalInstance.getTextualAnswer() + ':</p>';
+            var answerStringTitle = '<p><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p>';
             goalOutputArray[inputGoalInstance.goalAnswer()].push(answerStringTitle);
           }
           if (inputGoalInstance.getParent() !== undefined) {
@@ -146,11 +173,11 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
           goalOutputArray[inputGoalInstance.goalAnswer()].push(htmlString);
         }
       });
-    });
 
-    goalOutputArray.forEach(function (goalOutput) {
-      goalOutput.forEach(function (goalString) {
-        goalsOutputString += goalString;
+      goalOutputArray.forEach(function (goalOutput) {
+        goalOutput.forEach(function (goalString) {
+          goalsOutputString += goalString;
+        });
       });
     });
 
