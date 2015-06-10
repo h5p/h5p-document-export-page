@@ -59,7 +59,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
             goalText += inputGoal.getParent().goalText() + ' - ';
           }
           goalText += inputGoal.goalText();
-          sortedGoalsList[inputGoal.goalAnswer()].goalArray.push(goalText);
+          sortedGoalsList[inputGoal.goalAnswer()].goalArray.push({text: goalText});
         }
       });
     });
