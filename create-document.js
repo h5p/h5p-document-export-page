@@ -178,14 +178,14 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
           var htmlString = '';
           if (goalOutputArray[inputGoalInstance.goalAnswer()] === undefined) {
             goalOutputArray[inputGoalInstance.goalAnswer()] = [];
-            var answerStringTitle = '<p class="category"><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p>';
+            var answerStringTitle = '<p class="category"><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p><ul>';
             goalOutputArray[inputGoalInstance.goalAnswer()].push(answerStringTitle);
           }
           if (inputGoalInstance.getParent() !== undefined) {
             var parentGoal = inputGoalInstance.getParent().goalText();
-            htmlString += '<p>' + parentGoal + ' - ' + inputGoalInstance.text + '</p>';
+            htmlString += '<li>' + parentGoal + ' - ' + inputGoalInstance.text + '</li>';
           } else {
-            htmlString += '<p>' + inputGoalInstance.text + '</p>';
+            htmlString += '<li>' + inputGoalInstance.text + '</li>';
           }
           goalOutputArray[inputGoalInstance.goalAnswer()].push(htmlString);
         }
@@ -195,6 +195,10 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
         goalOutput.forEach(function (goalString) {
           goalsOutputString += goalString;
         });
+        if (goalOutput.length) {
+          goalsOutputString += '</ul>';
+        }
+
       });
     });
 
