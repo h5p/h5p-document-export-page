@@ -50,9 +50,17 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
 
     this.inputGoals.inputArray.forEach(function (inputGoalPage) {
       inputGoalPage.forEach(function (inputGoal) {
-        if (!sortedGoalsList[inputGoal.goalAnswer()]) {
-          sortedGoalsList[inputGoal.goalAnswer()] = {label: inputGoal.getTextualAnswer(), goalArray: []};
+        // Do not include unassessed goals
+        if (inputGoal.goalAnswer() === -1) {
+          return;
         }
+        if (!sortedGoalsList[inputGoal.goalAnswer()]) {
+          sortedGoalsList[inputGoal.goalAnswer()] = {label: '', goalArray: []};
+          if (inputGoal.getTextualAnswer().length) {
+            sortedGoalsList[inputGoal.goalAnswer()].label = inputGoal.getTextualAnswer();
+          }
+        }
+
         if (inputGoal.goalText().length && inputGoal.getTextualAnswer().length) {
           var goalText = '';
           if (inputGoal.getParent() !== undefined) {
