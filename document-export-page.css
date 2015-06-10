@@ -54,10 +54,6 @@
 }
 
 /* Override export page styling */
-.joubel-exportable-area .goals-output p {
-  margin: 1.5em 0;
-}
-
 .joubel-exportable-area .goals-output p.category {
-  margin-bottom: -1.5em;
+  margin-bottom: 0;
 }
