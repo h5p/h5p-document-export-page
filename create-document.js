@@ -178,7 +178,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
           var htmlString = '';
           if (goalOutputArray[inputGoalInstance.goalAnswer()] === undefined) {
             goalOutputArray[inputGoalInstance.goalAnswer()] = [];
-            var answerStringTitle = '<p><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p>';
+            var answerStringTitle = '<p class="category"><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p>';
             goalOutputArray[inputGoalInstance.goalAnswer()].push(answerStringTitle);
           }
           if (inputGoalInstance.getParent() !== undefined) {
