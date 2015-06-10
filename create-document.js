@@ -54,10 +54,19 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
         if (inputGoal.goalAnswer() === -1) {
           return;
         }
-        if (!sortedGoalsList[inputGoal.goalAnswer()]) {
-          sortedGoalsList[inputGoal.goalAnswer()] = {label: '', goalArray: []};
+        var goalCategoryExists = false;
+        var listIndex = -1;
+        sortedGoalsList.forEach(function (sortedGoalEntry, entryIndex) {
+          if (inputGoal.goalAnswer() === sortedGoalEntry.goalAnswer) {
+            listIndex = entryIndex;
+            goalCategoryExists = true;
+          }
+        });
+        if (!goalCategoryExists) {
+          sortedGoalsList.push({label: '', goalArray: [], goalAnswer: inputGoal.goalAnswer()});
+          listIndex = sortedGoalsList.length - 1;
           if (inputGoal.getTextualAnswer().length) {
-            sortedGoalsList[inputGoal.goalAnswer()].label = inputGoal.getTextualAnswer();
+            sortedGoalsList[listIndex].label = inputGoal.getTextualAnswer();
           }
         }
 
@@ -67,7 +76,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
             goalText += inputGoal.getParent().goalText() + ' - ';
           }
           goalText += inputGoal.goalText();
-          sortedGoalsList[inputGoal.goalAnswer()].goalArray.push({text: goalText});
+          sortedGoalsList[listIndex].goalArray.push({text: goalText});
         }
       });
     });
