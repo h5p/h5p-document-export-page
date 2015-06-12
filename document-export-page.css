@@ -52,3 +52,14 @@
 .h5p-document-export-page.required-inputs-not-filled .export-document-button {
   display: none;
 }
+
+/* Override export page styling */
+.joubel-exportable-area .goals-output p.category {
+  margin-bottom: 0;
+}
+
+.joubel-exportable-area .goals-output ul {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
