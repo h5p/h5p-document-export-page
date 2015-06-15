@@ -30,7 +30,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();
-    var $exportPage = new ExportPage(this.params.title,
+    var $exportPage = new ExportPage(this.title,
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
