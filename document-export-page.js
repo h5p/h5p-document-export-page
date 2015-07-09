@@ -50,8 +50,6 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       'class': MAIN_CONTAINER
     }).prependTo($container);
 
-    this.exportTitle = this.params.title;
-
     var documentExportTemplate =
         '<div class="export-header">' +
         ' <div role="button" tabindex="0" class="export-help-text">{{{helpTextLabel}}}</div>' +
@@ -117,10 +115,10 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
   };
 
   DocumentExportPage.prototype.getTitle = function () {
-    return this.exportTitle;
+    return this.params.title;
   };
 
-  DocumentExportPage.prototype.setTitle = function (title) {
+  DocumentExportPage.prototype.setExportTitle = function (title) {
     this.exportTitle = title;
     return this;
   };
