@@ -2,8 +2,8 @@
   "title": "Document Export Page",
   "description": "A page you can export all input fields from parent application.",
   "majorVersion": 1,
-  "minorVersion": 0,
-  "patchVersion": 3,
+  "minorVersion": 1,
+  "patchVersion": 0,
   "runnable": 0,
   "author": "Joubel AS",
   "license": "MIT",
@@ -30,7 +30,7 @@
     {
       "machineName": "FontAwesome",
       "majorVersion": 4,
-      "minorVersion": 1
+      "minorVersion": 3
     },
     {
       "machineName": "filesaver",
@@ -40,7 +40,7 @@
     {
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
-      "minorVersion": 1
+      "minorVersion": 2
     },
     {
       "machineName": "H5P.ExportPage",
