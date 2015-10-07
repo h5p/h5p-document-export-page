@@ -12,10 +12,11 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @param {Array} inputFields Array of input strings that should be exported
    * @returns {Object} CreateDocument CreateDocument instance
    */
-  function CreateDocument(params, title, inputFields, inputGoals) {
+  function CreateDocument(params, title, inputFields, inputGoals, template) {
     this.$ = $(this);
     this.inputFields = inputFields;
     this.inputGoals = inputGoals;
+    this.template = template;
 
     this.params = params;
     this.title = title;
@@ -34,8 +35,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
-      'H5P.DocumentExportPage-1.0',
-      'exportTemplate.docx',
+      this.template,
       exportObject
       );
     $exportPage.prependTo($container);
