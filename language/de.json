@@ -1,48 +1,40 @@
 {
-  "semantics": [
-    {
-      "label": "Titel",
-      "description": "Titel für die Exportseite.",
-      "default": "Dokumentenexport"
-    },
-    {
-      "label": "Beschreibung",
-      "description": "Beschreibung der Exportseite.",
-      "default": "Auf dieser Seite können Texte, Ziele und Zieleinstufungen zum Exportieren ausgewählt werden.",
-      "tags": [
+	"semantics": [{
+		"label": "Titel",
+		"description": "Titel für die Exportseite.",
+		"default": "Dokumentenexport"
+	}, {
+		"label": "Beschreibung",
+		"description": "Beschreibung der Exportseite.",
+		"default": "Auf dieser Seite können Texte, Ziele und Zieleinstufungen zum Exportieren ausgewählt werden.",
+		"tags": [
 
-      ],
-    },
-    {
-      "label": "Button Label zum Erstellen eines neuen Dokumentes",
-      "description": "Text, der auf dem \"Dokument erstellen\"-Button steht.",
-      "default": "Dokument erstellen"
-    },
-    {
-      "label": "Button Label zum Auswählen aller Texte, die zu exportieren sind",
-      "description": "Text, der auf dem \"Gesamten Text wählen\"-Button angezeigt wird.",
-      "default": "Gesamten Text wählen"
-    },
-    {
-      "label": "Button Label zum Exportieren von Text",
-      "description": "Text, der auf dem \"Text exportieren\"-Button angezeigt wird.",
-      "default": "Text exportieren"
-    },
-    {
-      "label": "Label für den Hilfetext",
-      "description": "Label zum Anzeigen zusätzlicher hilfreicher Informationen für den Benutzer.",
-      "default": "Zusätzliche Informationen"
-    },
-    {
-      "label": "Einfügen zusätzlicher Hilfsinformationen",
-      "description": "Hier können zusätzliche hilfreiche Informationen für den Benutzer eingefügt werden.",
-      "tags": [
+		]
+	}, {
+		"label": "Button Label zum Erstellen eines neuen Dokumentes",
+		"description": "Text, der auf dem \"Dokument erstellen\"-Button steht.",
+		"default": "Dokument erstellen"
+	}, {
+		"label": "Button Label zum Auswählen aller Texte, die zu exportieren sind",
+		"description": "Text, der auf dem \"Gesamten Text wählen\"-Button angezeigt wird.",
+		"default": "Gesamten Text wählen"
+	}, {
+		"label": "Button Label zum Exportieren von Text",
+		"description": "Text, der auf dem \"Text exportieren\"-Button angezeigt wird.",
+		"default": "Text exportieren"
+	}, {
+		"label": "Label für den Hilfetext",
+		"description": "Label zum Anzeigen zusätzlicher hilfreicher Informationen für den Benutzer.",
+		"default": "Zusätzliche Informationen"
+	}, {
+		"label": "Einfügen zusätzlicher Hilfsinformationen",
+		"description": "Hier können zusätzliche hilfreiche Informationen für den Benutzer eingefügt werden.",
+		"tags": [
 
-      ],
-    },
-    {
-      "label": "Text der erforderlichen Eingabe fehlt",
-      "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden.",
-      "default": "Eines oder mehrere erforderliche Eingabefelder müssen ausgefüllt werden."
-    }
-  ]
+		]
+	}, {
+		"label": "Text der erforderlichen Eingabe fehlt",
+		"description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden.",
+		"default": "Eines oder mehrere erforderliche Eingabefelder müssen ausgefüllt werden."
+	}]
+}
