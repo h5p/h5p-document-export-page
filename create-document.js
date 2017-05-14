@@ -48,9 +48,10 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {Object} exportObject Exportable content for filling template
    */
   CreateDocument.prototype.getExportObject = function () {
+    var self = this;
     var sortedGoalsList = [];
 
-    this.inputGoals.inputArray.forEach(function (inputGoalPage) {
+    self.inputGoals.inputArray.forEach(function (inputGoalPage) {
       inputGoalPage.forEach(function (inputGoal) {
         // Do not include unassessed goals
         if (inputGoal.goalAnswer() === -1) {
@@ -84,7 +85,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     });
 
     var flatInputsList = [];
-    this.inputFields.forEach(function (inputFieldPage) {
+    self.inputFields.forEach(function (inputFieldPage) {
       if (inputFieldPage.inputArray && inputFieldPage.inputArray.length) {
         var standardPage = {title: '', inputArray: []};
         if (inputFieldPage.title) {
@@ -98,8 +99,8 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     });
 
     var exportObject = {
-      title: this.title,
-      goalsTitle: this.inputGoals.title,
+      title: self.title,
+      goalsTitle: self.inputGoals.title,
       flatInputList: flatInputsList,
       sortedGoalsList: sortedGoalsList,
       customGoalsList: self.customGoals
@@ -126,6 +127,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * @returns {string} inputBlocksString Html string from input fields
    */
   CreateDocument.prototype.getInputBlocksString = function () {
+    var self = this;
     var inputBlocksString = '<div class="textfields-output">';
     var applyCustomTemplate = function(template, inputFields) {
       var templateContent = template;
@@ -144,10 +146,10 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
       return templateContent;
     };
 
-    if (this.params.customHtmlTemplate && this.params.customHtmlTemplate !=='') {
-      inputBlocksString += applyCustomTemplate(this.params.customHtmlTemplate, this.inputFields);
+    if (self.params.customHtmlTemplate && self.params.customHtmlTemplate !=='') {
+      inputBlocksString += applyCustomTemplate(self.params.customHtmlTemplate, self.inputFields);
     } else {
-      this.inputFields.forEach(function (inputPage) {
+      self.inputFields.forEach(function (inputPage) {
         if (inputPage.inputArray && inputPage.inputArray.length && inputPage.title.length) {
           inputBlocksString +=
             '<h2>' + inputPage.title + '</h2>';
@@ -197,16 +199,16 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     }
 
     var goalsOutputString = '<div class="goals-output">';
-    if (this.inputGoals.inputArray && this.inputGoals.inputArray.length && this.inputGoals.title.length) {
+    if (self.inputGoals.inputArray && self.inputGoals.inputArray.length && self.inputGoals.title.length) {
       goalsOutputString +=
-        '<h2>' + this.inputGoals.title + '</h2>';
+        '<h2>' + self.inputGoals.title + '</h2>';
     }
 
-    if (!this.inputGoals.inputArray) {
+    if (!self.inputGoals.inputArray) {
       return;
     }
 
-    this.inputGoals.inputArray.forEach(function (inputGoalPage) {
+    self.inputGoals.inputArray.forEach(function (inputGoalPage) {
       var goalOutputArray = [];
 
       inputGoalPage.forEach(function (inputGoalInstance) {
