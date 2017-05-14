@@ -89,5 +89,33 @@
     "type": "text",
     "description": "An error message which will be displayed if one or more required input fields have not been filled.",
     "default": "One or more required input fields need to be filled."
+  },
+  {
+    "name": "customHtmlTemplate",
+    "label": "Custom Template",
+    "importance": "medium",
+    "type": "text",
+    "widget": "html",
+    "description": "Custom HTML template for preview of the document. Use Element IDs for placeholders.",
+    "default": "",
+    "enterMode": "p",
+    "tags": [
+      "strong",
+      "em",
+      "u",
+      "a",
+      "ul",
+      "ol",
+      "h2",
+      "h3",
+      "hr"
+    ],
+    "optional": true
+  },
+  {
+    "name": "customDocxTemplate",
+    "type": "file",
+    "label": "Upload a *.docx template file",
+    "description": "Custom *.docx template. Refer to http://javascript-ninja.fr/docxgenjs/examples/demo.html"
   }
 ]

@@ -17,9 +17,11 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     this.inputFields = inputFields;
     this.inputGoals = inputGoals;
     this.template = template;
-
     this.params = params;
     this.title = title;
+
+    this.customElements = {};
+    this.customGoals = [];
   }
 
   /**
@@ -29,7 +31,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    */
   CreateDocument.prototype.attach = function ($container) {
     var exportString = this.getExportString();
-    exportString += this.createGoalsOutput();
+    exportString = this.createGoalsOutput(exportString);
     var exportObject = this.getExportObject();
     var $exportPage = new ExportPage(this.title,
       exportString,
@@ -99,8 +101,11 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
       title: this.title,
       goalsTitle: this.inputGoals.title,
       flatInputList: flatInputsList,
-      sortedGoalsList: sortedGoalsList
+      sortedGoalsList: sortedGoalsList,
+      customGoalsList: self.customGoals
     };
+
+    Object.assign(exportObject, self.customElements);
 
     return exportObject;
   };
@@ -122,29 +127,47 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    */
   CreateDocument.prototype.getInputBlocksString = function () {
     var inputBlocksString = '<div class="textfields-output">';
+    var applyCustomTemplate = function(template, inputFields) {
+      var templateContent = template;
+      inputFields.forEach(function (inputPage) {
+        if (inputPage.inputArray && inputPage.inputArray.length) {
+          inputPage.inputArray.forEach(function (inputInstance) {
+            if (inputInstance && inputInstance.elementId !== '') {
+              elementId = inputInstance.elementId;  
+              templateContent = 
+                templateContent.replace("{" + elementId  + "}", inputInstance.value);
+              self.customElements[elementId] =  inputInstance.value;
+            }
+          });
+        }
+      });
+      return templateContent;
+    };
 
-    this.inputFields.forEach(function (inputPage) {
-      if (inputPage.inputArray && inputPage.inputArray.length && inputPage.title.length) {
-        inputBlocksString +=
-          '<h2>' + inputPage.title + '</h2>';
-      }
-      if (inputPage.inputArray && inputPage.inputArray.length) {
-        inputPage.inputArray.forEach(function (inputInstance) {
-          if (inputInstance) {
-            // remove paragraph tags
-            inputBlocksString +=
-              '<p>' +
-                '<strong>' + inputInstance.description + '</strong>' +
-                '\n' +
-                inputInstance.value +
-              '</p>';
-          }
-        });
-      }
-    });
-
+    if (this.params.customHtmlTemplate && this.params.customHtmlTemplate !=='') {
+      inputBlocksString += applyCustomTemplate(this.params.customHtmlTemplate, this.inputFields);
+    } else {
+      this.inputFields.forEach(function (inputPage) {
+        if (inputPage.inputArray && inputPage.inputArray.length && inputPage.title.length) {
+          inputBlocksString +=
+            '<h2>' + inputPage.title + '</h2>';
+        }
+        if (inputPage.inputArray && inputPage.inputArray.length) {
+          inputPage.inputArray.forEach(function (inputInstance) {
+            if (inputInstance) {
+              // remove paragraph tags
+              inputBlocksString +=
+                '<p>' +
+                  '<strong>' + inputInstance.description + '</strong>' +
+                  '\n' +
+                  inputInstance.value +
+                '</p>';
+            }
+          });
+        }
+      });
+    }
     inputBlocksString += '</div>';
-
     return inputBlocksString;
   };
 
@@ -152,14 +175,28 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
    * Generates html string for all goals
    * @returns {string} goalsOutputString Html string from all goals
    */
-  CreateDocument.prototype.createGoalsOutput = function () {
-
-    var goalsOutputString = '<div class="goals-output">';
-
-    if (this.inputGoals === undefined) {
+  CreateDocument.prototype.createGoalsOutput = function (exportString) {
+    var self = this;
+    if (self.inputGoals === undefined) {
       return;
     }
 
+    if (self.params.customHtmlTemplate && self.params.customHtmlTemplate !=='' &&
+      self.inputGoals.inputArray) {
+      var goalsList = '<ul>';
+      self.inputGoals.inputArray.forEach(function (inputGoalPage) {
+        inputGoalPage.forEach(function (inputGoalInstance) {
+          if (inputGoalInstance) {
+            goalsList += '<li>' + inputGoalInstance.text + '</li>';
+            self.customGoals.push({ value: inputGoalInstance.text });
+          }
+        });
+      });
+      goalsList += '</ul>'
+      return exportString.replace('{goalsList}', goalsList);
+    }
+
+    var goalsOutputString = '<div class="goals-output">';
     if (this.inputGoals.inputArray && this.inputGoals.inputArray.length && this.inputGoals.title.length) {
       goalsOutputString +=
         '<h2>' + this.inputGoals.title + '</h2>';
@@ -204,7 +241,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
 
     goalsOutputString += '</div>';
 
-    return goalsOutputString;
+    return exportString + goalsOutputString;
   };
 
   return CreateDocument;

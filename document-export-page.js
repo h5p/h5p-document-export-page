@@ -32,7 +32,8 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       exportTextLabel: 'Export text',
       requiresInputErrorMessage: 'One or more required input fields need to be filled.',
       helpTextLabel: 'Read more',
-      helpText: 'Help text'
+      helpText: 'Help text',
+      customHtmlTemplate: ''
     }, params);
   }
 
@@ -79,7 +80,13 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       .click(function () {
         // Check if all required input fields are filled
         if (self.isRequiredInputsFilled()) {
-          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
+          var docxTemplate = self.getLibraryFilePath('exportTemplate.docx');
+          if (self.params.customDocxTemplate) {
+            docxTemplate = 'sites/default/files/h5p/content/' + self.id + '/' + self.params.customDocxTemplate.path;
+          }
+ 
+          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, 
+            self.inputArray, self.inputGoals, docxTemplate);
           exportDocument.attach(self.$wrapper.parent().parent());
         }
       });
