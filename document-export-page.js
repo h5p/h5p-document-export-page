@@ -82,7 +82,7 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
         if (self.isRequiredInputsFilled()) {
           var docxTemplate = self.getLibraryFilePath('exportTemplate.docx');
           if (self.params.customDocxTemplate) {
-            docxTemplate = 'sites/default/files/h5p/content/' + self.id + '/' + self.params.customDocxTemplate.path;
+            docxTemplate = H5P.getPath(self.params.customDocxTemplate.path, self.id);
           }
  
           var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, 
