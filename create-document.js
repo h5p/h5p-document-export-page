@@ -185,17 +185,34 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
 
     if (self.params.customHtmlTemplate && self.params.customHtmlTemplate !=='' &&
       self.inputGoals.inputArray) {
-      var goalsList = '<ul>';
-      self.inputGoals.inputArray.forEach(function (inputGoalPage) {
-        inputGoalPage.forEach(function (inputGoalInstance) {
-          if (inputGoalInstance) {
-            goalsList += '<li>' + inputGoalInstance.text + '</li>';
-            self.customGoals.push({ value: inputGoalInstance.text });
+
+      self.customGoals = {};
+
+      var goalLists = self.inputGoals.inputArray;
+      var goalListItems;
+      var goalListId;
+      var goalListHtml;
+      
+      for(var listIndex=0; listIndex < goalLists.length; listIndex++) {
+        goalListItems = goalLists[listIndex];
+        
+        if (goalListItems.length) {
+          goalListId = goalListItems[0].goalListId;
+          self.customGoals[goalListId] = [];
+          goalListHtml = '<ul>';   // for preview template
+          
+          for(var itemIndex=0; itemIndex < goalListItems.length; itemIndex++) {
+            goalInstance = goalListItems[itemIndex];
+            self.customGoals[goalListId].push({ value: goalInstance.text });
+            goalListHtml += '<li>' +  goalInstance.text + '</li>';
           }
-        });
-      });
-      goalsList += '</ul>'
-      return exportString.replace('{goalsList}', goalsList);
+
+          goalListHtml += '</ul>'
+          exportString = exportString.replace('{' + goalListId + '}', goalListHtml);
+        }
+      }
+    
+      return exportString;
     }
 
     var goalsOutputString = '<div class="goals-output">';

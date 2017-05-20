@@ -116,6 +116,7 @@
     "name": "customDocxTemplate",
     "type": "file",
     "label": "Upload a *.docx template file",
-    "description": "Custom *.docx template. Refer to http://javascript-ninja.fr/docxgenjs/examples/demo.html"
+    "description": "Custom *.docx template. Refer to http://javascript-ninja.fr/docxgenjs/examples/demo.html",
+    "optional": true
   }
 ]
