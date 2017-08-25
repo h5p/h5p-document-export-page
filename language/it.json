@@ -27,17 +27,17 @@
     },
     {
       "label":"Etichetta per il testo di aiuto",
-      "description":"Label for showing additional helpful information to the user.",
-      "default":"More information"
+      "description":"Etichetta per mostrare informazioni utili aggiuntive all'utente.",
+      "default":"Più informazioni"
     },
     {
-      "label":"Fill in additional help information",
-      "description":"Here you can fill in additional helpful information for the user."
+      "label":"Riempi le informazioni aggiuntive di aiuto",
+      "description":"Qui puoi riempire informazioni di aiuto aggiuntive per l'utente."
     },
     {
-      "label":"Required input missing text",
-      "description":"An error message which will be displayed if one or more required input fields have not been filled.",
-      "default":"One or more required input fields need to be filled."
+      "label":"Testo di immissione mancante richiesto",
+      "description":"Un messaggio di errore che sarà visualizzato se uno o più dei campi di immissione obbligatori non sono stati compilati.",
+      "default":"Uno o più campi di immissione obbligatori devono essere riempiti."
     }
   ]
 }
