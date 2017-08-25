@@ -1,32 +1,32 @@
 {
   "semantics":[
     {
-      "label":"Title",
-      "description":"Title for the export page.",
-      "default":"Document Export"
+      "label":"Titolo",
+      "description":"Titolo della pagina di esportazione.",
+      "default":"Esportazione del documento"
     },
     {
-      "label":"Description",
-      "description":"Description of the export page.",
-      "default":"On this page you can choose to export your text, goals and goals assessments."
+      "label":"Descrizione",
+      "description":"Descrizione della pagina di esportazione.",
+      "default":"Su questa pagina puoi scegliere di esportare testo, obiettivi e valutazione degli obiettivi."
     },
     {
-      "label":"Create document button label",
-      "description":"Text that will be displayed on the \"Create document\"-button.",
-      "default":"Create document"
+      "label":"Etichetta del pulsante di creazione del documento",
+      "description":"Testo che sarà visualizzato sul pulsante \"Crea documento\".",
+      "default":"Crea documento"
     },
     {
-      "label":"Select all exportable text button label",
-      "description":"Text that will be displayed on the \"Select all text\"-button.",
-      "default":"Select all text"
+      "label":"Etichetta del pulsante per la selezione di tutto il testo esportabile",
+      "description":"Testo che sarà visualizzato sul pulsante \"Seleziona tutto il testo\".",
+      "default":"Seleziona tutto il testo"
     },
     {
-      "label":"Export text button label",
-      "description":"Text that will be displayed on the \"Export text\"-button.",
-      "default":"Export text"
+      "label":"Etichetta del pulsante di esportazione del testo",
+      "description":"Testo che sarà visualizzato sul pulsante \"Esporta testo\".",
+      "default":"Esporta testo"
     },
     {
-      "label":"Label for help text",
+      "label":"Etichetta per il testo di aiuto",
       "description":"Label for showing additional helpful information to the user.",
       "default":"More information"
     },
