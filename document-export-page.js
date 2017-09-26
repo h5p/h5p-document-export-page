@@ -53,9 +53,9 @@ H5P.DocumentExportPage = (function ($, JoubelUI, EventDispatcher) {
     }).prependTo($container);
 
     var documentExportTemplate =
-        '<div class="export-header">' +
-        ' <div class="export-title" role="heading" tabindex="-1">{{{title}}}</div>' +
-        ' <button class="export-help-text">{{{helpTextLabel}}}</button>' +
+        '<div class="page-header">' +
+        ' <div class="page-title" role="heading" tabindex="-1">{{{title}}}</div>' +
+        ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
         '<div class="export-footer">' +
@@ -68,8 +68,8 @@ H5P.DocumentExportPage = (function ($, JoubelUI, EventDispatcher) {
     /* global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
 
-    self.$pageTitle = self.$inner.find('.export-title');
-    self.$helpButton = self.$inner.find('.export-help-text');
+    self.$pageTitle = self.$inner.find('.page-title');
+    self.$helpButton = self.$inner.find('.page-help-text');
     self.$exportDocumentButton = self.$inner.find('.export-document-button');
 
     self.initHelpTextButton();
