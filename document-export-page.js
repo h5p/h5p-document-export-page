@@ -4,7 +4,7 @@ var H5P = H5P || {};
  * Document Export Page module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage = (function ($, JoubelUI) {
+H5P.DocumentExportPage = (function ($, EventDispatcher) {
   // CSS Classes:
   var MAIN_CONTAINER = 'h5p-document-export-page';
 
@@ -15,13 +15,12 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
    * @returns {Object} DocumentExportPage DocumentExportPage instance
    */
   function DocumentExportPage(params, id) {
-    this.$ = $(this);
+    EventDispatcher.call(this);
     this.id = id;
 
     this.inputArray = [];
     this.exportTitle = '';
     this.requiredInputsAreFilled = true;
-
 
     // Set default behavior.
     this.params = $.extend({}, {
@@ -35,6 +34,9 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
       helpText: 'Help text'
     }, params);
   }
+
+  DocumentExportPage.prototype = Object.create(EventDispatcher.prototype);
+  DocumentExportPage.prototype.constructor = DocumentExportPage;
 
   /**
    * Attach function called by H5P framework to insert H5P content into page.
@@ -51,66 +53,68 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
     }).prependTo($container);
 
     var documentExportTemplate =
-        '<div class="export-header">' +
-        ' <div role="button" tabindex="0" class="export-help-text">{{{helpTextLabel}}}</div>' +
-        ' <div class="export-title">{{{title}}}</div>' +
+        '<div class="page-header">' +
+        ' <div class="page-title" role="heading" tabindex="-1">{{{title}}}</div>' +
+        ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
-        '<div class="export-footer"></div>' +
-        '<div class="export-error-message">{{{requiresInputErrorMessage}}}</div>';
+        '<div class="export-footer">' +
+        '<div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}">' +
+        ' <span class="joubel-simple-rounded-button-text">{{{createDocumentLabel}}}</span>' +
+        '</div>' +
+        '</div>' +
+        '<div class="export-error-message" role="alert" aria-live="assertive">{{{requiresInputErrorMessage}}}</div>';
 
-    /*global Mustache */
+    /* global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
 
-    self.createHelpTextButton();
+    self.$pageTitle = self.$inner.find('.page-title');
+    self.$helpButton = self.$inner.find('.page-help-text');
+    self.$exportDocumentButton = self.$inner.find('.export-document-button');
 
-    var $footer = $('.export-footer', self.$inner);
-    self.createDocumentExportButton().appendTo($footer);
+    self.initHelpTextButton();
+    self.initDocumentExportButton();
   };
 
   /**
-   * Creates button for creating a document from stored input array
-   * @returns {jQuery} $exportDocumentButton Button element
+   * Setup button for creating a document from stored input array
    */
-  DocumentExportPage.prototype.createDocumentExportButton = function () {
+  DocumentExportPage.prototype.initDocumentExportButton = function () {
     var self = this;
-    var $exportDocumentButton = JoubelUI.createSimpleRoundedButton(self.params.createDocumentLabel)
-      .addClass('export-document-button')
-      .click(function () {
-        // Check if all required input fields are filled
-        if (self.isRequiredInputsFilled()) {
-          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
-          exportDocument.attach(self.$wrapper.parent().parent());
-        }
-      });
+    H5P.DocumentationTool.handleButtonClick(self.$exportDocumentButton, function () {
+      // Check if all required input fields are filled
+      if (self.isRequiredInputsFilled()) {
+        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
+        exportDocument.attach(self.$wrapper.parent().parent());
+        exportDocument.on('export-page-closed', function () {
+          self.trigger('export-page-closed');
 
-    return $exportDocumentButton;
+          // Set focus back on button
+          self.$exportDocumentButton.focus();
+        });
+
+        self.trigger('export-page-opened');
+      }
+    });
   };
 
   /**
-   * Create help text functionality for reading more about the task
+   * Setup help text functionality for reading more about the task
    */
-  DocumentExportPage.prototype.createHelpTextButton = function () {
+  DocumentExportPage.prototype.initHelpTextButton = function () {
     var self = this;
 
     if (this.params.helpText !== undefined && this.params.helpText.length) {
-
-      // Create help button
-      $('.export-help-text', this.$inner)
-        .click(function () {
-          var $helpTextDialog = new H5P.JoubelUI.createHelpTextDialog(self.params.title, self.params.helpText);
-          $helpTextDialog.appendTo(self.$wrapper.parent().parent());
-        }).keydown(function (e) {
-          var keyPressed = e.which;
-          // 32 - space
-          if (keyPressed === 32) {
-            $(this).click();
-            e.preventDefault();
-          }
-          $(this).focus();
+      // Handle help button action
+      self.$helpButton.on('click', function () {
+        self.trigger('open-help-dialog', {
+          title: self.params.title,
+          helpText: self.params.helpText
         });
-    } else {
-      $('.export-help-text', this.$inner).remove();
+      });
+    }
+    else {
+      self.$helpButton.remove();
     }
   };
 
@@ -138,14 +142,18 @@ H5P.DocumentExportPage = (function ($, JoubelUI) {
   };
 
   DocumentExportPage.prototype.updateRequiredInputsFilled = function (requiredInputsAreFilled) {
-    if (requiredInputsAreFilled) {
-      this.$inner.removeClass('required-inputs-not-filled');
-    } else {
-      this.$inner.addClass('required-inputs-not-filled');
-    }
+    this.$inner.toggleClass('required-inputs-not-filled', !requiredInputsAreFilled);
+
     this.requiredInputsAreFilled = requiredInputsAreFilled;
     return this;
   };
 
+  /**
+   * Sets focus on the page
+   */
+  DocumentExportPage.prototype.focus = function () {
+    this.$pageTitle.focus();
+  };
+
   return DocumentExportPage;
-}(H5P.jQuery, H5P.JoubelUI));
+}(H5P.jQuery, H5P.EventDispatcher));
