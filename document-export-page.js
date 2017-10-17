@@ -53,8 +53,8 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     }).prependTo($container);
 
     var documentExportTemplate =
-        '<div class="page-header">' +
-        ' <div class="page-title" role="heading" tabindex="-1">{{{title}}}</div>' +
+        '<div class="page-header" role="heading" tabindex="-1">' +
+        ' <div class="page-title">{{{title}}}</div>' +
         ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
@@ -68,7 +68,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     /* global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
 
-    self.$pageTitle = self.$inner.find('.page-title');
+    self.$pageTitle = self.$inner.find('.page-header');
     self.$helpButton = self.$inner.find('.page-help-text');
     self.$exportDocumentButton = self.$inner.find('.export-document-button');
 
