@@ -139,8 +139,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
             // remove paragraph tags
             inputBlocksString +=
               '<p>' +
-                '<strong>' + inputInstance.description + '</strong>' +
-                '\n' +
+                (inputInstance.description ? '<strong>' + inputInstance.description + '</strong>\n' : '') +
                 inputInstance.value +
               '</p>';
           }

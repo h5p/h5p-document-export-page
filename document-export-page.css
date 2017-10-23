@@ -43,3 +43,7 @@
   padding-top: 0;
   padding-bottom: 0;
 }
+
+.textfields-output > p {
+  min-height: 1px; /* Include margins for empty p tags */
+}
