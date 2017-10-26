@@ -1,4 +1,3 @@
-/*global Mustache */
 var H5P = H5P || {};
 H5P.DocumentExportPage = H5P.DocumentExportPage || {};
 
@@ -6,14 +5,15 @@ H5P.DocumentExportPage = H5P.DocumentExportPage || {};
  * Create Document module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
+H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatcher) {
   /**
    * Initialize module.
    * @param {Array} inputFields Array of input strings that should be exported
    * @returns {Object} CreateDocument CreateDocument instance
    */
   function CreateDocument(params, title, inputFields, inputGoals, template) {
-    this.$ = $(this);
+    EventDispatcher.call(this);
+
     this.inputFields = inputFields;
     this.inputGoals = inputGoals;
     this.template = template;
@@ -22,23 +22,33 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
     this.title = title;
   }
 
+    // Setting up inheritance
+  CreateDocument.prototype = Object.create(EventDispatcher.prototype);
+  CreateDocument.prototype.constructor = CreateDocument;
+
   /**
    * Attach function called by H5P framework to insert H5P content into page.
    *
    * @param {jQuery} $container The container which will be appended to.
    */
   CreateDocument.prototype.attach = function ($container) {
+    var self = this;
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();
-    var $exportPage = new ExportPage(this.title,
+    var exportPage = new ExportPage(this.title,
       exportString,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
       this.template,
       exportObject
-      );
-    $exportPage.prependTo($container);
+    );
+    exportPage.getElement().prependTo($container);
+    exportPage.focus();
+
+    exportPage.on('closed', function () {
+      self.trigger('export-page-closed');
+    });
   };
 
   /**
@@ -71,12 +81,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
         }
 
         if (inputGoal.goalText().length && inputGoal.getTextualAnswer().length) {
-          var goalText = '';
-          if (inputGoal.getParent() !== undefined) {
-            goalText += inputGoal.getParent().goalText() + ' - ';
-          }
-          goalText += inputGoal.goalText();
-          sortedGoalsList[listIndex].goalArray.push({text: goalText});
+          sortedGoalsList[listIndex].goalArray.push({text: inputGoal.goalText()});
         }
       });
     });
@@ -156,17 +161,13 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
 
     var goalsOutputString = '<div class="goals-output">';
 
-    if (this.inputGoals === undefined) {
+    if (this.inputGoals === undefined || !this.inputGoals.inputArray || this.inputGoals.inputArray.length === 0) {
       return;
     }
 
-    if (this.inputGoals.inputArray && this.inputGoals.inputArray.length && this.inputGoals.title.length) {
+    if (this.inputGoals.title.length) {
       goalsOutputString +=
         '<h2>' + this.inputGoals.title + '</h2>';
-    }
-
-    if (!this.inputGoals.inputArray) {
-      return;
     }
 
     this.inputGoals.inputArray.forEach(function (inputGoalPage) {
@@ -181,12 +182,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
             var answerStringTitle = '<p class="category"><strong>' + inputGoalInstance.getTextualAnswer() + ':</strong></p><ul>';
             goalOutputArray[inputGoalInstance.goalAnswer()].push(answerStringTitle);
           }
-          if (inputGoalInstance.getParent() !== undefined) {
-            var parentGoal = inputGoalInstance.getParent().goalText();
-            htmlString += '<li>' + parentGoal + ' - ' + inputGoalInstance.text + '</li>';
-          } else {
-            htmlString += '<li>' + inputGoalInstance.text + '</li>';
-          }
+          htmlString += '<li>' + inputGoalInstance.text + '</li>';
           goalOutputArray[inputGoalInstance.goalAnswer()].push(htmlString);
         }
       });
@@ -198,7 +194,6 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
         if (goalOutput.length) {
           goalsOutputString += '</ul>';
         }
-
       });
     });
 
@@ -208,4 +203,4 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage) {
   };
 
   return CreateDocument;
-}(H5P.jQuery, H5P.ExportPage));
+}(H5P.jQuery, H5P.ExportPage, H5P.EventDispatcher));
