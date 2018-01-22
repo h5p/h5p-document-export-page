@@ -26,9 +26,9 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     this.params = $.extend({}, {
       title: 'Document export',
       description: '',
-      createDocumentLabel: 'Create document',
-      selectAllTextLabel: 'Select all text',
-      exportTextLabel: 'Export text',
+      createDocumentLabel: 'Proceed',
+      selectAllTextLabel: 'Select',
+      exportTextLabel: 'Export',
       requiresInputErrorMessage: 'One or more required input fields need to be filled.',
       helpTextLabel: 'Read more',
       helpText: 'Help text'

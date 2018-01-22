@@ -33,6 +33,9 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
    */
   CreateDocument.prototype.attach = function ($container) {
     var self = this;
+
+    console.log(this.params);
+    
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();

@@ -43,7 +43,7 @@
     "importance": "low",
     "type": "text",
     "description": "Text that will be displayed on the \"Select all text\"-button.",
-    "default": "Select all text"
+    "default": "Select"
   },
   {
     "name": "exportTextLabel",
@@ -51,7 +51,7 @@
     "importance": "low",
     "type": "text",
     "description": "Text that will be displayed on the \"Export text\"-button.",
-    "default": "Export text"
+    "default": "Export"
   },
   {
     "name": "helpTextLabel",
@@ -89,5 +89,21 @@
     "type": "text",
     "description": "An error message which will be displayed if one or more required input fields have not been filled.",
     "default": "One or more required input fields need to be filled."
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings",
+    "importance": "low",
+    "description": "These options will let you control how the task behaves.",
+    "fields": [
+      {
+        "name": "enableSubmit",
+        "type": "boolean",
+        "label": "Enable \"Submit\" button",
+        "importance": "low",
+        "default": true
+      }
+    ]
   }
 ]
