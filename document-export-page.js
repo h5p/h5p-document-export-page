@@ -27,6 +27,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       title: 'Document export',
       description: '',
       createDocumentLabel: 'Proceed',
+      submitTextLabel: 'Your report was submitted successfully!',
       selectAllTextLabel: 'Select',
       exportTextLabel: 'Export',
       requiresInputErrorMessage: 'One or more required input fields need to be filled.',
@@ -84,7 +85,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     H5P.DocumentationTool.handleButtonClick(self.$exportDocumentButton, function () {
       // Check if all required input fields are filled
       if (self.isRequiredInputsFilled()) {
-        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
+        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.submitEnabled, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
         exportDocument.attach(self.$wrapper.parent().parent());
         exportDocument.on('export-page-closed', function () {
           self.trigger('export-page-closed');
@@ -124,6 +125,11 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
 
   DocumentExportPage.prototype.setExportTitle = function (title) {
     this.exportTitle = title;
+    return this;
+  };
+
+  DocumentExportPage.prototype.setSumbitEnabled = function (submitEnabled) {
+    this.submitEnabled = submitEnabled;
     return this;
   };
 

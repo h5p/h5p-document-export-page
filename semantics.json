@@ -38,6 +38,23 @@
     "default": "Create document"
   },
   {
+    "name": "submitTextLabel",
+    "state": "new",
+    "label": "Submit text button",
+    "importance": "low",
+    "type": "text",
+    "description": "Text that will be displayed on the \"Submit\"-button.",
+    "default": "Submit!"
+  },
+  {
+    "name": "submitSuccessTextLabel",
+    "state": "new",
+    "type": "text",
+    "label": "Submit success label",
+    "optional": false,
+    "default": "Your report was submitted successfully!"
+  },
+  {
     "name": "selectAllTextLabel",
     "label": "Select all exportable text button label",
     "importance": "low",
@@ -89,21 +106,5 @@
     "type": "text",
     "description": "An error message which will be displayed if one or more required input fields have not been filled.",
     "default": "One or more required input fields need to be filled."
-  },
-  {
-    "name": "behaviour",
-    "type": "group",
-    "label": "Behavioural settings",
-    "importance": "low",
-    "description": "These options will let you control how the task behaves.",
-    "fields": [
-      {
-        "name": "enableSubmit",
-        "type": "boolean",
-        "label": "Enable \"Submit\" button",
-        "importance": "low",
-        "default": true
-      }
-    ]
   }
 ]
