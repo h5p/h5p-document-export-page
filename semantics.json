@@ -39,7 +39,6 @@
   },
   {
     "name": "submitTextLabel",
-    "state": "new",
     "label": "Submit text button",
     "importance": "low",
     "type": "text",
@@ -48,7 +47,6 @@
   },
   {
     "name": "submitSuccessTextLabel",
-    "state": "new",
     "type": "text",
     "label": "Submit success label",
     "optional": false,

@@ -16,6 +16,15 @@
       "default": "Proceed"
     },
     {
+      "label": "Submit text button",
+      "description": "Text that will be displayed on the \"Submit\"-button.",
+      "default": "Submit!"
+    },
+    {
+      "label": "Submit success label",
+      "default": "Your report was submitted successfully!"
+    },
+    {
       "label": "Select all exportable text button label",
       "description": "Text that will be displayed on the \"Select\"-button.",
       "default": "Select"
