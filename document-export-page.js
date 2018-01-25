@@ -95,6 +95,10 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
         });
 
         self.trigger('export-page-opened');
+
+        exportDocument.on('submitted', function() {
+          self.trigger('submitted');
+        });
       }
     });
   };
