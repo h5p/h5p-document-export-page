@@ -55,8 +55,8 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
       self.trigger('export-page-closed');
     });
 
-    exportPage.on('submitted', function () {
-      self.trigger('submitted');
+    exportPage.on('submitted', function (event) {
+      self.trigger('submitted', event.data);
     });
   };
 
