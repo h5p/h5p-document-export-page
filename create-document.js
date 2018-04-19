@@ -11,7 +11,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
    * @param {Array} inputFields Array of input strings that should be exported
    * @returns {Object} CreateDocument CreateDocument instance
    */
-  function CreateDocument(params, title, inputFields, inputGoals, template) {
+  function CreateDocument(params, title, submitEnabled, inputFields, inputGoals, template) {
     EventDispatcher.call(this);
 
     this.inputFields = inputFields;
@@ -20,6 +20,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
 
     this.params = params;
     this.title = title;
+    this.submitEnabled = submitEnabled;
   }
 
     // Setting up inheritance
@@ -33,11 +34,15 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
    */
   CreateDocument.prototype.attach = function ($container) {
     var self = this;
+
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput();
     var exportObject = this.getExportObject();
     var exportPage = new ExportPage(this.title,
       exportString,
+      this.submitEnabled,
+      this.params.submitTextLabel,
+      this.params.submitSuccessTextLabel,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
       this.template,
@@ -48,6 +53,10 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
 
     exportPage.on('closed', function () {
       self.trigger('export-page-closed');
+    });
+
+    exportPage.on('submitted', function (event) {
+      self.trigger('submitted', event.data);
     });
   };
 
@@ -139,8 +148,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
             // remove paragraph tags
             inputBlocksString +=
               '<p>' +
-                '<strong>' + inputInstance.description + '</strong>' +
-                '\n' +
+                (inputInstance.description ? '<strong>' + inputInstance.description + '</strong>\n' : '') +
                 inputInstance.value +
               '</p>';
           }

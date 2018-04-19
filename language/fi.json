@@ -1,43 +1,52 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Otsikko",
-      "description":"Otsikko vientisivulle.",
-      "default":"Asiakirjan vienti"
+      "label": "Otsikko",
+      "description": "Otsikko vientisivulle.",
+      "default": "Asiakirjan vienti"
     },
     {
-      "label":"Kuvaus",
-      "description":"Kuvaus tai ohje asiakirjan vientiin.",
-      "default":"Tällä sivulla voit viedä kaiken tekstin, tavoitteet ja tavoitearvioinnit yhtenä asiakirjana."
+      "label": "Kuvaus",
+      "description": "Kuvaus tai ohje asiakirjan vientiin.",
+      "default": "Tällä sivulla voit viedä kaiken tekstin, tavoitteet ja tavoitearvioinnit yhtenä asiakirjana."
     },
     {
-      "label":"Painikkeen Luo asiakirja teksti",
-      "description":"Teksti näytetään \"Luo asiakirja\" -painikkeessa.",
-      "default":"Luo asiakirja"
+      "label": "Painikkeen Luo asiakirja teksti",
+      "description": "Teksti näytetään \"Luo asiakirja\" -painikkeessa.",
+      "default": "Luo asiakirja"
     },
     {
-      "label":"Teksti painikkeelle Valitse teksti",
-      "description":"Teksti näytetään \"Valitse teksti\" -painikkeessa.",
-      "default":"Valitse teksti"
+      "label": "Submit text button",
+      "description": "Text that will be displayed on the \"Submit\"-button.",
+      "default": "Submit!"
     },
     {
-      "label":"Teksti painikkeelle Vie teksti",
-      "description":"Teksti näytetään \"Vie teksti\" -painikkeessa.",
-      "default":"Vie teksti"
+      "label": "Submit success label",
+      "default": "Your report was submitted successfully!"
     },
     {
-      "label":"Teksti osoittamaan lisätietoa",
-      "description":"Lisätietoa ilmaiseva teksti käyttäjälle.",
-      "default":"Lisää tietoa"
+      "label": "Teksti painikkeelle Valitse teksti",
+      "description": "Teksti näytetään \"Valitse teksti\" -painikkeessa.",
+      "default": "Valitse teksti"
     },
     {
-      "label":"Lisätietoteksti",
-      "description":"Tähän voit täyttää tekstiä lisätietona käyttäjälle."
+      "label": "Teksti painikkeelle Vie teksti",
+      "description": "Teksti näytetään \"Vie teksti\" -painikkeessa.",
+      "default": "Vie teksti"
     },
     {
-      "label":"Vaadittava kenttä täytettävä",
-      "description":"Virhe näytetään, kun jokin vaadittava kenttä tai kentät on jätetty täyttämättä.",
-      "default":"Yksi tai useampi vaadittu kenttä on täytettävä."
+      "label": "Teksti osoittamaan lisätietoa",
+      "description": "Lisätietoa ilmaiseva teksti käyttäjälle.",
+      "default": "Lisää tietoa"
+    },
+    {
+      "label": "Lisätietoteksti",
+      "description": "Tähän voit täyttää tekstiä lisätietona käyttäjälle."
+    },
+    {
+      "label": "Vaadittava kenttä täytettävä",
+      "description": "Virhe näytetään, kun jokin vaadittava kenttä tai kentät on jätetty täyttämättä.",
+      "default": "Yksi tai useampi vaadittu kenttä on täytettävä."
     }
   ]
 }
