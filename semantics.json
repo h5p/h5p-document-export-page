@@ -43,7 +43,7 @@
     "importance": "low",
     "type": "text",
     "description": "Text that will be displayed on the \"Submit\"-button.",
-    "default": "Submit!"
+    "default": "Submit"
   },
   {
     "name": "submitSuccessTextLabel",
