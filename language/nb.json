@@ -3,7 +3,7 @@
     {
       "label": "Tittel",
       "description": "Tittel for Eksportsiden.",
-      "default": "Eksporter dokument"
+      "default": "Eksporter"
     },
     {
       "label": "Beskrivelse",
@@ -16,18 +16,18 @@
       "default": "Lag dokument"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "label": "Tekst for \"Send inn\"-knapp",
+      "description": "Tekst som vil vises på \"Send inn\"-knapp.",
+      "default": "Send inn!"
     },
     {
       "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "default": "Din rapport ble sendt inn!"
     },
     {
       "label": "Tekst for \"Marker eksporterbar tekst\"-knapp",
       "description": "Tekst som vil vises på \"Marker eksporterbar tekst\"-knapp.",
-      "default": "Marker eksporterbar tekst"
+      "default": "Marker tekst"
     },
     {
       "label": "Tekst for \"Eksporter dokument\"-knapp",
