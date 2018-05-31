@@ -1,43 +1,52 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Title",
-      "description":"Title for the export page.",
-      "default":"Document Export"
+      "label": "Titel",
+      "description": "Titel voor de exportpagina.",
+      "default": "Export document"
     },
     {
-      "label":"Description",
-      "description":"Description of the export page.",
-      "default":"On this page you can choose to export your text, goals and goals assessments."
+      "label": "Omschrijving",
+      "description": "Omschrijving van de exportpagina.",
+      "default": "Op deze pagina kun je er voor kiezen je tekst, je doelstellingen en je beoordeling van de doelstellingen te exporteren."
     },
     {
-      "label":"Create document button label",
-      "description":"Text that will be displayed on the \"Create document\"-button.",
-      "default":"Create document"
+      "label": "Maak een label voor een document knop",
+      "description": "Deze tekst wordt getoond op de \"Maak een document\"-knop.",
+      "default": "Maak een document"
     },
     {
-      "label":"Select all exportable text button label",
-      "description":"Text that will be displayed on the \"Select all text\"-button.",
-      "default":"Select all text"
+      "label": "Tekst verzend knop",
+      "description": "Deze tekst wordt getoond op de \"Verzend\"-knop.",
+      "default": "Verzend!"
     },
     {
-      "label":"Export text button label",
-      "description":"Text that will be displayed on the \"Export text\"-button.",
-      "default":"Export text"
+      "label": "Label verzending geslaagd",
+      "default": "Je document is succesvol verzonden!"
     },
     {
-      "label":"Label for help text",
-      "description":"Label for showing additional helpful information to the user.",
-      "default":"More information"
+      "label": "Label voor de knop selecteer alle exporteerbare tekst",
+      "description": "Deze tekst wordt getoond op de \"Selecteer alle tekst\"-knop.",
+      "default": "Selecteer alle tekst"
     },
     {
-      "label":"Fill in additional help information",
-      "description":"Here you can fill in additional helpful information for the user."
+      "label": "Label voor de knop exporteer tekst",
+      "description": "Deze tekst wordt getoond op de \"Exporteer tekst\"-knop.",
+      "default": "Exporteer tekst"
     },
     {
-      "label":"Required input missing text",
-      "description":"An error message which will be displayed if one or more required input fields have not been filled.",
-      "default":"One or more required input fields need to be filled."
+      "label": "Label voor de help tekst",
+      "description": "Label om aanvullende nuttige informatie aan de gebruiker te tonen.",
+      "default": "Meer informatie"
+    },
+    {
+      "label": "Vul aanvullende help informatie in",
+      "description": "Hier kun je aanvullende nuttige informatie invullen voor de gebruiker."
+    },
+    {
+      "label": "Vereiste invoer bij ontbrekende tekst",
+      "description": "Er wordt een fout bericht getoond als tekst ontbreekt in één of meer vereiste invoer velden.",
+      "default": "Eén of meerdere vereiste invoervelden moet worden ingevuld."
     }
   ]
 }
