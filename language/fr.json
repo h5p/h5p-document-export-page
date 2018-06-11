@@ -22,7 +22,6 @@
     },
     {
       "label": "Intitulé du bouton \"Exporter le document\"",
-      "description": "Texte qui apparaît sur le bouton \"Exporter le document\".",
       "default": "Exporter le document"
     },
     {
@@ -32,12 +31,22 @@
     },
     {
       "label": "Complétez l'information supplémentaire utile",
-      "description": "Ici vous pouvez saisir l'information complémentaire utile pour l'utilisateur."
+      "description": "Ici vous pouvez saisir l'information complémentaire utile pour l'utilisateur.",
+      "default": "Export"
     },
     {
       "label": "Texte d'un champ de saisie requis et non renseigné",
       "description": "Un message d'erreur qui est affiché si un ou plusieurs champs de saisie requis n'ont pas été renseignés par l'utilisateur.",
       "default": "Un ou plusieurs champs de saisie requis n'ont pas été renseignés."
+    },
+    {
+      "label": "Fill in additional help information",
+      "description": "Here you can fill in additional helpful information for the user."
+    },
+    {
+      "label": "Required input missing text",
+      "description": "An error message which will be displayed if one or more required input fields have not been filled.",
+      "default": "One or more required input fields need to be filled."
     }
   ]
 }
