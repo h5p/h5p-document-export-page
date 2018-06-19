@@ -1,0 +1,52 @@
+{
+  "semantics": [
+    {
+      "label": "العنوان",
+      "description": "عنوان لصفحة التصدير.",
+      "default": "Document Export"
+    },
+    {
+      "label": "الوصف",
+      "description": "وصف صفحة التصدير.",
+      "default": "On this page you can choose to export your text, goals and goals assessments."
+    },
+    {
+      "label": "تسمية زر انشاء مستند",
+      "description": "النص الذي سيتم عرضه على زر  \"انشاء مستند \" في صفحة التصدير.",
+      "default": "Proceed"
+    },
+    {
+      "label": "نص زر الارسال  .",
+      "description": "النص الذي سيتم عرضه على زر \" ارسال \" .",
+      "default": "Submit!"
+    },
+    {
+      "label": "تسمية نجاح الارسال",
+      "default": "Your report was submitted successfully!"
+    },
+    {
+      "label": "Select all exportable text button label",
+      "description": "النص الذي سيتم عرضه على زر \" تحديد \".",
+      "default": "Select"
+    },
+    {
+      "label": "تسمية زر تصدير",
+      "description": "النص الذي سيظهر على زر \" تصدير \".",
+      "default": "Export"
+    },
+    {
+      "label": "تسمية لنص مساعد",
+      "description": "تسمية لعرض معلومات مفيدة إضافية للمستخدم.",
+      "default": "More information"
+    },
+    {
+      "label": "املأ معلومات المساعدة الإضافية",
+      "description": "هنا يمكنك ملء معلومات مفيدة إضافية للمستخدم."
+    },
+    {
+      "label": "نص فقدان الادخال المطلوب",
+      "description": "رسالة خطأ يتم عرضها إذا لم يتم ملء حقل إدخال واحد مطلوب أو أكثر.",
+      "default": "One or more required input fields need to be filled."
+    }
+  ]
+}
