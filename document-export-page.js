@@ -14,9 +14,10 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
    * @param {Number} id Content identification
    * @returns {Object} DocumentExportPage DocumentExportPage instance
    */
-  function DocumentExportPage(params, id) {
+  function DocumentExportPage(params, id, extras) {
     EventDispatcher.call(this);
     this.id = id;
+    this.extras = extras;
 
     this.inputArray = [];
     this.exportTitle = '';
@@ -125,7 +126,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
   };
 
   DocumentExportPage.prototype.getTitle = function () {
-    return this.params.title;
+    return H5P.createTitle((this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export Page');
   };
 
   DocumentExportPage.prototype.setExportTitle = function (title) {
