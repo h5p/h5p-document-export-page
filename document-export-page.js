@@ -24,8 +24,8 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     this.requiredInputsAreFilled = true;
 
     // Set default behavior.
-    this.params = $.extend({}, {
-      title: 'Document export',
+    this.params = $.extend({
+      title: this.getTitle(),
       description: '',
       createDocumentLabel: 'Proceed',
       submitTextLabel: 'Submit',
@@ -126,7 +126,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
   };
 
   DocumentExportPage.prototype.getTitle = function () {
-    return H5P.createTitle((this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export Page');
+    return H5P.createTitle((this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export');
   };
 
   DocumentExportPage.prototype.setExportTitle = function (title) {

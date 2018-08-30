@@ -1,11 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Title",
-      "description": "Title for the export page.",
-      "default": "Document Export"
-    },
-    {
       "label": "Description",
       "description": "Description of the export page.",
       "default": "On this page you can choose to export your text, goals and goals assessments."
