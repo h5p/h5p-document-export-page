@@ -1,11 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Titel",
-      "description": "Titel für die Exportseite.",
-      "default": "Dokumentenexport"
-    },
-    {
       "label": "Beschreibung",
       "description": "Beschreibung der Exportseite.",
       "default": "Auf dieser Seite können Texte, Ziele und Zieleinstufungen zum Exportieren ausgewählt werden."

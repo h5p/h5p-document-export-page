@@ -1,11 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Tittel",
-      "description": "Tittel for Eksportsida.",
-      "default": "Eksporter dokument"
-    },
-    {
       "label": "Skildring",
       "description": "Skildring av Eksportsida.",
       "default": "På denne sida kan du velje å eksportera tekst, mål og måloppnåinga du har fylt inn."
