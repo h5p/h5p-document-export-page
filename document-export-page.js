@@ -98,7 +98,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
 
         self.trigger('export-page-opened');
 
-        exportDocument.on('submitted', function(event) {
+        exportDocument.on('submitted', function (event) {
           self.trigger('submitted', event.data);
         });
       }
