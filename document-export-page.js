@@ -14,17 +14,18 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
    * @param {Number} id Content identification
    * @returns {Object} DocumentExportPage DocumentExportPage instance
    */
-  function DocumentExportPage(params, id) {
+  function DocumentExportPage(params, id, extras) {
     EventDispatcher.call(this);
     this.id = id;
+    this.extras = extras;
 
     this.inputArray = [];
     this.exportTitle = '';
     this.requiredInputsAreFilled = true;
 
     // Set default behavior.
-    this.params = $.extend({}, {
-      title: 'Document export',
+    this.params = $.extend({
+      title: this.getTitle(),
       description: '',
       createDocumentLabel: 'Proceed',
       submitTextLabel: 'Submit',
@@ -97,7 +98,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
 
         self.trigger('export-page-opened');
 
-        exportDocument.on('submitted', function(event) {
+        exportDocument.on('submitted', function (event) {
           self.trigger('submitted', event.data);
         });
       }
@@ -125,7 +126,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
   };
 
   DocumentExportPage.prototype.getTitle = function () {
-    return this.params.title;
+    return H5P.createTitle((this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export');
   };
 
   DocumentExportPage.prototype.setExportTitle = function (title) {

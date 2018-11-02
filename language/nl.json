@@ -1,11 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Titel",
-      "description": "Titel voor de exportpagina.",
-      "default": "Export document"
-    },
-    {
       "label": "Omschrijving",
       "description": "Omschrijving van de exportpagina.",
       "default": "Op deze pagina kun je er voor kiezen je tekst, je doelstellingen en je beoordeling van de doelstellingen te exporteren."

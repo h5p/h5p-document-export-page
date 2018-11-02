@@ -1,11 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Otsikko",
-      "description": "Otsikko vientisivulle.",
-      "default": "Asiakirjan vienti"
-    },
-    {
       "label": "Kuvaus",
       "description": "Kuvaus tai ohje asiakirjan vientiin.",
       "default": "Tällä sivulla voit viedä kaiken tekstin, tavoitteet ja tavoitearvioinnit yhtenä asiakirjana."

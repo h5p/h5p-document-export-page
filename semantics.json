@@ -1,13 +1,5 @@
 [
   {
-    "name": "title",
-    "label": "Title",
-    "importance": "high",
-    "type": "text",
-    "description": "Title for the export page.",
-    "default": "Document Export"
-  },
-  {
     "name": "description",
     "label": "Description",
     "importance": "medium",

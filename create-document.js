@@ -23,7 +23,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
     this.submitEnabled = submitEnabled;
   }
 
-    // Setting up inheritance
+  // Setting up inheritance
   CreateDocument.prototype = Object.create(EventDispatcher.prototype);
   CreateDocument.prototype.constructor = CreateDocument;
 
