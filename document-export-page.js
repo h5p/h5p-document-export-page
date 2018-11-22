@@ -61,12 +61,12 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
         ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
         '</div>' +
         '<div class="export-description">{{{description}}}</div>' +
+        '<div class="export-error-message" role="alert" aria-live="assertive">{{{requiresInputErrorMessage}}}</div>' +
         '<div class="export-footer">' +
-        '<div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}">' +
-        ' <span class="joubel-simple-rounded-button-text">{{{createDocumentLabel}}}</span>' +
-        '</div>' +
-        '</div>' +
-        '<div class="export-error-message" role="alert" aria-live="assertive">{{{requiresInputErrorMessage}}}</div>';
+        '  <div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}">' +
+        '    <span class="joubel-simple-rounded-button-text">{{{createDocumentLabel}}}</span>' +
+        '  </div>' +
+        '</div>';        
 
     /* global Mustache */
     self.$inner.append(Mustache.render(documentExportTemplate, self.params));
