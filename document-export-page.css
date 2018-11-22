@@ -25,6 +25,10 @@
   color: red;
 }
 
+.h5p-document-export-page .export-error-message > ul:first-child {
+  margin-top: 0.5em;
+}
+
 .h5p-document-export-page.required-inputs-not-filled .export-error-message {
   display: block;
 }

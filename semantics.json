@@ -94,7 +94,7 @@
     "label": "Required input missing text",
     "importance": "low",
     "type": "text",
-    "description": "An error message which will be displayed if one or more required input fields have not been filled.",
-    "default": "One or more required input fields need to be filled."
+    "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
+    "default": "The following pages contain required input fields that need to be filled: @pages"
   }
 ]

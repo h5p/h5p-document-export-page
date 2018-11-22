@@ -40,8 +40,8 @@
     },
     {
       "label": "Beharrezkoa izan eta falta den testua",
-      "description": "Eremu bat edo gehiago betetzea falta dela abisatzen duen errore mezua.",
-      "default": "Eremu bat edo gehiago betetzea falta da."
+      "description": "Eremu bat edo gehiago betetzea falta dela abisatzen duen errore mezua. @pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required input fields that need to be filled: @pages"
     }
   ]
 }

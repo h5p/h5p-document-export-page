@@ -32,7 +32,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       submitSuccessTextLabel: 'Your report was submitted successfully!',
       selectAllTextLabel: 'Select',
       exportTextLabel: 'Export',
-      requiresInputErrorMessage: 'One or more required input fields need to be filled.',
+      requiresInputErrorMessage: 'The following pages contain required input fields that need to be filled: @pages',
       helpTextLabel: 'Read more',
       helpText: 'Help text'
     }, params);
@@ -153,10 +153,31 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     return this.requiredInputsAreFilled;
   };
 
-  DocumentExportPage.prototype.updateRequiredInputsFilled = function (requiredInputsAreFilled) {
+  /**
+   * Update the message for required fields.
+   * @param {object[]} pageTitles Page titles.
+   */
+  DocumentExportPage.prototype.updateRequiredInputsFilled = function (pageTitles) {
+    const requiredInputsAreFilled = pageTitles && pageTitles.length === 0;
     this.$inner.toggleClass('required-inputs-not-filled', !requiredInputsAreFilled);
 
+    // Update message text
+    let message = this.params.requiresInputErrorMessage;
+    if (!pageTitles || pageTitles.length === 0) {
+      message = message.replace('@pages', '-');
+    }
+    else {
+      let list = '<ul>';
+      pageTitles.forEach(function (title) {
+        list += '<li>' + title + '</li>';
+      });
+      list += '</ul>';
+      message = message.replace('@pages', list);
+    }
+
+    this.$inner.find('.export-error-message').html(message);
     this.requiredInputsAreFilled = requiredInputsAreFilled;
+
     return this;
   };
 

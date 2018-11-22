@@ -40,8 +40,8 @@
     },
     {
       "label": "Text der erforderlichen Eingabe fehlt",
-      "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden.",
-      "default": "Eines oder mehrere erforderliche Eingabefelder müssen ausgefüllt werden."
+      "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden. @pages wird durch die Titel betroffener Seiten ersetzt.",
+      "default": "Die folgenden Seiten enthalten erforderliche Eingabefelder, die ausgefüllt werden müssen: @pages"
     }
   ]
 }
