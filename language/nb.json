@@ -41,7 +41,7 @@
     {
       "label": "Melding til bruker om at obligatoriske felter mangler",
       "description": "Denne meldingen vil vises dersom et eller flere obligatoriske tekstfelter ikke er fylt inn. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required input fields that need to be filled: @pages"
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }

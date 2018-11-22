@@ -41,7 +41,7 @@
     {
       "label": "Vereiste invoer bij ontbrekende tekst",
       "description": "Er wordt een fout bericht getoond als tekst ontbreekt in één of meer vereiste invoer velden. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required input fields that need to be filled: @pages"
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }
