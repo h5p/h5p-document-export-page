@@ -23,6 +23,11 @@
   display: none;
   padding: 1em 0;
   color: red;
+  padding-top: 0;
+}
+
+.h5p-document-export-page .export-error-message > ul:first-child {
+  margin-top: 0.5em;
 }
 
 .h5p-document-export-page.required-inputs-not-filled .export-error-message {
@@ -30,7 +35,9 @@
 }
 
 .h5p-document-export-page.required-inputs-not-filled .export-document-button {
-  display: none;
+  background-color: #ccc;
+  cursor: inherit;
+  pointer-events: none;
 }
 
 /* Override export page styling */

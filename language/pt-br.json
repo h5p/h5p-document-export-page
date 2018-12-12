@@ -40,8 +40,8 @@
     },
     {
       "label": "Texto de entrada exigida ausente",
-      "description": "Mensagem de erro que seja exibida se um ou mais campos obrigatórios não forem preenchidos.",
-      "default": "Um ou mais campos obrigatórios precisam ser preenchidos."
+      "description": "Mensagem de erro que seja exibida se um ou mais campos obrigatórios não forem preenchidos. @pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }

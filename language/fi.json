@@ -40,8 +40,8 @@
     },
     {
       "label": "Vaadittava kenttä täytettävä",
-      "description": "Virhe näytetään, kun jokin vaadittava kenttä tai kentät on jätetty täyttämättä.",
-      "default": "Yksi tai useampi vaadittu kenttä on täytettävä."
+      "description": "Virhe näytetään, kun jokin vaadittava kenttä tai kentät on jätetty täyttämättä. @pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }
