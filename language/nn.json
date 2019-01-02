@@ -40,8 +40,8 @@
     },
     {
       "label": "Melding til bruker om at obligatoriske felt manglar",
-      "description": "Denne meldinga vil visast om eit eller fleire obligatoriske tekstfelt ikkje er fylt inn.",
-      "default": "Eit eller fleire obligatoriske felt er ikkje fylt inn."
+      "description": "Denne meldinga vil visast om eit eller fleire obligatoriske tekstfelt ikkje er fylt inn. @pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }

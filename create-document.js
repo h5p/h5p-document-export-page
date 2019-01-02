@@ -36,7 +36,7 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
     var self = this;
 
     var exportString = this.getExportString();
-    exportString += this.createGoalsOutput();
+    exportString += this.createGoalsOutput() || '';
     var exportObject = this.getExportObject();
     var exportPage = new ExportPage(this.title,
       exportString,
