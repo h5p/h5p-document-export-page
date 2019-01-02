@@ -40,8 +40,8 @@
     },
     {
       "label": "必填欄位未填寫訊息文字",
-      "description": "當用戶未填寫一些必填欄位時會跳出的警告訊息。",
-      "default": "有一個以上的必填欄位未完成，請填妥後再繼續。"
+      "description": "當用戶未填寫一些必填欄位時會跳出的警告訊息。@pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }

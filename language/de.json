@@ -39,9 +39,9 @@
       "description": "Hier können zusätzliche hilfreiche Informationen für den Benutzer eingefügt werden."
     },
     {
-      "label": "Text der erforderlichen Eingabe fehlt",
-      "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden.",
-      "default": "Eines oder mehrere erforderliche Eingabefelder müssen ausgefüllt werden."
+      "label": "Fehlende erforderliche Eingabe",
+      "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden. @pages wird durch den betreffenden Seitentitel ersetzt.",
+      "default": "Die folgenden Seiten enthalten erforderliche Felder, die ausgefüllt werden müssen, um die Eingaben zu begutachten oder abzusenden: @pages"
     }
   ]
 }
