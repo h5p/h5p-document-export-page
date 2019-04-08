@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Kirjeldus",
+      "description": "Ekspordilehe kirjeldus.",
+      "default": "Sellel lehel saad eksportida oma teksti, eesmärgid ja eesmärkide hindamised."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Loo dokument nupu silt",
+      "description": "Tekst, mida näidatakse \"Loo dokument\" nupul.",
+      "default": "Loo dokument"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "label": "Esita nupu silt",
+      "description": "Tekst, mida näidatakse \"Esita\" nupul.",
+      "default": "Esita!"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Esitamine õnnestus silt",
+      "default": "Sinu raport esitati edukalt!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select all text"
+      "label": "Vali kogu eksporditav tekst nupu silt",
+      "description": "Tekst, mida näidatakse \"Vali kogu tekst\" nupul.",
+      "default": "Vali kogu tekst"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export text"
+      "label": "Ekspordi tekst nupu silt",
+      "description": "Tekst, mida näidatakse \"Ekspordi tekst\" nupul.",
+      "default": "Ekspordi tekst"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Abiteksti silt",
+      "description": "Kasutajale täiendava abiteabe näitamise silt.",
+      "default": "Rohkem teavet"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Sisesta täiendav abiteave",
+      "description": "Siia saad sisestada kasutajat täiendavalt aitava teabe."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Nõutud sisestusväli on tühi",
+      "description": "Veateave, mida näidatakse, kui üks või mitu sisestusvälja on täitmata. @pages asendatakse mõjutatud lehekülgede pealkirjadega.",
+      "default": "Järgmistel lehekülgedel on väljad, mis tuleb täita enne selle dokumendi esitamist või ülevaatamist: @pages"
     }
   ]
 }
