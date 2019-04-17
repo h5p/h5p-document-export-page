@@ -63,7 +63,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
         '<div class="export-description">{{{description}}}</div>' +
         '<div class="export-error-message" role="alert" aria-live="assertive">{{{requiresInputErrorMessage}}}</div>' +
         '<div class="export-footer">' +
-        '  <div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}" aria-label="{{{createDocumentLabel}}}">' +
+        '  <div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}">' +
         '    <span class="joubel-simple-rounded-button-text">{{{createDocumentLabel}}}</span>' +
         '  </div>' +
         '</div>';
