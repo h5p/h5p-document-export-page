@@ -1,43 +1,47 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Title",
-      "description":"Title for the export page.",
-      "default":"Document Export"
+      "label": "Kuvaus",
+      "description": "Kuvaus tai ohje asiakirjan vientiin.",
+      "default": "Tällä sivulla voit viedä kaiken tekstin, tavoitteet ja tavoitearvioinnit yhtenä asiakirjana."
     },
     {
-      "label":"Description",
-      "description":"Description of the export page.",
-      "default":"On this page you can choose to export your text, goals and goals assessments."
+      "label": "Painikkeen Luo asiakirja teksti",
+      "description": "Teksti näytetään \"Luo asiakirja\" -painikkeessa.",
+      "default": "Luo asiakirja"
     },
     {
-      "label":"Create document button label",
-      "description":"Text that will be displayed on the \"Create document\"-button.",
-      "default":"Create document"
+      "label": "Submit text button",
+      "description": "Text that will be displayed on the \"Submit\"-button.",
+      "default": "Submit!"
     },
     {
-      "label":"Select all exportable text button label",
-      "description":"Text that will be displayed on the \"Select all text\"-button.",
-      "default":"Select all text"
+      "label": "Submit success label",
+      "default": "Your report was submitted successfully!"
     },
     {
-      "label":"Export text button label",
-      "description":"Text that will be displayed on the \"Export text\"-button.",
-      "default":"Export text"
+      "label": "Teksti painikkeelle Valitse teksti",
+      "description": "Teksti näytetään \"Valitse teksti\" -painikkeessa.",
+      "default": "Valitse teksti"
     },
     {
-      "label":"Label for help text",
-      "description":"Label for showing additional helpful information to the user.",
-      "default":"More information"
+      "label": "Teksti painikkeelle Vie teksti",
+      "description": "Teksti näytetään \"Vie teksti\" -painikkeessa.",
+      "default": "Vie teksti"
     },
     {
-      "label":"Fill in additional help information",
-      "description":"Here you can fill in additional helpful information for the user."
+      "label": "Teksti osoittamaan lisätietoa",
+      "description": "Lisätietoa ilmaiseva teksti käyttäjälle.",
+      "default": "Lisää tietoa"
     },
     {
-      "label":"Required input missing text",
-      "description":"An error message which will be displayed if one or more required input fields have not been filled.",
-      "default":"One or more required input fields need to be filled."
+      "label": "Lisätietoteksti",
+      "description": "Tähän voit täyttää tekstiä lisätietona käyttäjälle."
+    },
+    {
+      "label": "Vaadittava kenttä täytettävä",
+      "description": "Virhe näytetään, kun jokin vaadittava kenttä tai kentät on jätetty täyttämättä. @pages will be replaced with the titles of affected pages.",
+      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
     }
   ]
 }

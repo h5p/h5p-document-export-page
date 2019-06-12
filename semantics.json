@@ -1,13 +1,5 @@
 [
   {
-    "name": "title",
-    "label": "Title",
-    "importance": "high",
-    "type": "text",
-    "description": "Title for the export page.",
-    "default": "Document Export"
-  },
-  {
     "name": "description",
     "label": "Description",
     "importance": "medium",
@@ -38,12 +30,27 @@
     "default": "Create document"
   },
   {
+    "name": "submitTextLabel",
+    "label": "Submit text button",
+    "importance": "low",
+    "type": "text",
+    "description": "Text that will be displayed on the \"Submit\"-button.",
+    "default": "Submit"
+  },
+  {
+    "name": "submitSuccessTextLabel",
+    "type": "text",
+    "label": "Submit success label",
+    "optional": false,
+    "default": "Your report was submitted successfully!"
+  },
+  {
     "name": "selectAllTextLabel",
     "label": "Select all exportable text button label",
     "importance": "low",
     "type": "text",
     "description": "Text that will be displayed on the \"Select all text\"-button.",
-    "default": "Select all text"
+    "default": "Select"
   },
   {
     "name": "exportTextLabel",
@@ -51,7 +58,7 @@
     "importance": "low",
     "type": "text",
     "description": "Text that will be displayed on the \"Export text\"-button.",
-    "default": "Export text"
+    "default": "Export"
   },
   {
     "name": "helpTextLabel",
@@ -87,7 +94,7 @@
     "label": "Required input missing text",
     "importance": "low",
     "type": "text",
-    "description": "An error message which will be displayed if one or more required input fields have not been filled.",
-    "default": "One or more required input fields need to be filled."
+    "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
+    "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
   }
 ]

@@ -2,28 +2,8 @@
   padding: 0.5em 1em;
 }
 
-.h5p-document-export-page .export-title {
-  padding: 0.5em 0;
-  margin-bottom: 0.5em;
-  font-size: 18px;
-  border-bottom: 1px solid #ccc;
-  color: #333;
-}
-
 .h5p-document-export-page .export-description {
   padding: 1em 0em;
-}
-
-.h5p-document-export-page .export-help-text {
-  float: right;
-  color: #1a73d9;
-  cursor: pointer;
-  font-size: 0.8em;
-  line-height: 3.6em;
-}
-
-.h5p-document-export-page .export-help-text:hover {
-  color: #1a4773;
 }
 
 .h5p-document-export-page .export-document-button:before {
@@ -43,6 +23,11 @@
   display: none;
   padding: 1em 0;
   color: red;
+  padding-top: 0;
+}
+
+.h5p-document-export-page .export-error-message > ul:first-child {
+  margin-top: 0.5em;
 }
 
 .h5p-document-export-page.required-inputs-not-filled .export-error-message {
@@ -50,7 +35,9 @@
 }
 
 .h5p-document-export-page.required-inputs-not-filled .export-document-button {
-  display: none;
+  background-color: #ccc;
+  cursor: inherit;
+  pointer-events: none;
 }
 
 /* Override export page styling */
@@ -62,4 +49,8 @@
   margin: 0;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.textfields-output > p {
+  min-height: 1px; /* Include margins for empty p tags */
 }
