@@ -7,13 +7,13 @@
     },
     {
       "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button on the export page.",
-      "default": "Proceed"
+      "description": "Text that will be displayed on the \"Create document\"-button.",
+      "default": "Create document"
     },
     {
       "label": "Submit text button",
       "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "default": "Submit"
     },
     {
       "label": "Submit success label",
@@ -21,12 +21,12 @@
     },
     {
       "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select\"-button.",
+      "description": "Text that will be displayed on the \"Select all text\"-button.",
       "default": "Select"
     },
     {
       "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export\"-button.",
+      "description": "Text that will be displayed on the \"Export text\"-button.",
       "default": "Export"
     },
     {
