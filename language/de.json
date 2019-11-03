@@ -6,32 +6,32 @@
       "default": "Auf dieser Seite können Texte, Ziele und Zieleinstufungen zum Exportieren ausgewählt werden."
     },
     {
-      "label": "Button Label zum Erstellen eines neuen Dokumentes",
+      "label": "\"Dokument erstellen\"-Button",
       "description": "Text, der auf dem \"Dokument erstellen\"-Button steht.",
       "default": "Dokument erstellen"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "label": "\"Text absenden\"-Button",
+      "description": "Text, der auf dem \"Text absenden\"-Button steht.",
+      "default": "Absenden"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "\"Absenden erfolgreich\"-Hinweis",
+      "default": "Dein Bericht wurde erfolgreich abgesendet!"
     },
     {
-      "label": "Button Label zum Auswählen aller Texte, die zu exportieren sind",
-      "description": "Text, der auf dem \"Gesamten Text wählen\"-Button angezeigt wird.",
-      "default": "Gesamten Text wählen"
+      "label": "\"Gesamten Text auswählen\"-Button",
+      "description": "Text, der auf dem \"Gesamten Text auswählen\"-Button angezeigt wird.",
+      "default": "Gesamten Text auswählen"
     },
     {
-      "label": "Button Label zum Exportieren von Text",
+      "label": "\"Text exportieren\"-Button",
       "description": "Text, der auf dem \"Text exportieren\"-Button angezeigt wird.",
       "default": "Text exportieren"
     },
     {
-      "label": "Label für den Hilfetext",
-      "description": "Label zum Anzeigen zusätzlicher hilfreicher Informationen für den Benutzer.",
+      "label": "\"Zusätzliche Informationen\"-Hinweis",
+      "description": "Hinweistext zum Anzeigen zusätzlicher hilfreicher Informationen für den Benutzer.",
       "default": "Zusätzliche Informationen"
     },
     {
