@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label":"Περιγραφή",
+      "description":"Περιγραφή της σελίδας εξαγωγής.",
+      "default":"Σε αυτή τη σελίδα μπορείτε να επιλέξετε να εξαγάγετε το κείμενό σας, τους στόχους και τις αξιολογήσεις των στόχων σας."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label":"Ετικέτα κουμπιού δημιουργίας εγγράφου",
+      "description":"Κείμενο που θα εμφανίζεται στο κουμπί δημιουργίας εγγράφου.",
+      "default":"Δημιουργία εγγράφου"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "label": "Ετικέτα κουμπιού υποβολής κειμένου",
+      "description": "Κείμενο που θα εμφανίζεται στο κουμπί υποβολής.",
+      "default": "Υποβολή!"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Ετικέτα επιτυχημένης υποβολής",
+      "default": "Επιτυχημένη υποβολή!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select all text"
+      "label":"Ετικέτα κουμπιού επιλογής όλου του εξαγώγιμου κειμένου",
+      "description":"Κείμενο που θα εμφανίζεται στο κουμπί επιλογής όλου του κειμένου.",
+      "default":"Όλο το κείμενο"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export text"
+      "label":"Ετικέτα κουμπιού εξαγωγής κειμένου",
+      "description":"Κείμενο που θα εμφανίζεται στο κουμπί εξαγωγής κειμένου.",
+      "default":"Εξαγωγή κειμένου"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label":"Ετικέτα βοηθητικού κειμένου",
+      "description":"Ετικέτα για την εμφάνιση πρόσθετων χρήσιμων πληροφοριών στον χρήστη.",
+      "default":"Περισσότερες πληροφορίες"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label":"Συμπληρώστε πρόσθετες χρήσιμες πληροφορίες",
+      "description":"Εδώ μπορείτε να συμπληρώσετε πρόσθετες χρήσιμες πληροφορίες για τον χρήστη."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label":"Κείμενο για μη συμπληρωμένο απαιτούμενο πεδίο εισαγωγής",
+      "description":"Ένα μήνυμα σφάλματος που θα εμφανιστεί αν δεν έχουν συμπληρωθεί ένα ή περισσότερα απαιτούμενα πεδία εισαγωγής.",
+      "default":"Πρέπει να συμπληρωθούν ένα ή περισσότερα απαιτούμενα πεδία εισαγωγής."
     }
   ]
 }
