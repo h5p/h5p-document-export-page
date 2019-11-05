@@ -13,7 +13,7 @@
     {
       "label": "Submit text button",
       "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "default": "Submit"
     },
     {
       "label": "Submit success label",
@@ -22,12 +22,12 @@
     {
       "label": "Select all exportable text button label",
       "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select all text"
+      "default": "Select"
     },
     {
       "label": "Export text button label",
       "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export text"
+      "default": "Export"
     },
     {
       "label": "Label for help text",
