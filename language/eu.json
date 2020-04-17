@@ -8,12 +8,12 @@
     {
       "label": "Sortu dokumentu botoiaren etiketa",
       "description": "Esportazio orriaren \"Sortu dokumentua\"-botoian bistaratuko den testua.",
-      "default": "Ekin"
+      "default": "Sortu dokumentua"
     },
     {
       "label": "Bidali testua botoia",
       "description": "\"Bidali\"-botoian bistaratuko den testua.",
-      "default": "Bidali!"
+      "default": "Bidali"
     },
     {
       "label": "Bidalketa arrakastatsuaren etiketa",
