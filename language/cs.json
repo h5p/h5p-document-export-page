@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Popis",
+      "description": "Popis exportní stránky.",
+      "default": "Na této stránce si můžete vybrat export textu, cílů a hodnocení cílů."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Popisek tlačítka vytvořit dokument",
+      "description": "Text, který bude zobrazen na tlačítku \"Vytvořit dokument\".",
+      "default": "Vytvořit dokument"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Popisek tlačítka Odeslat text",
+      "description": "Text, který bude zobrazen na tlačítku \"Odeslat\".",
+      "default": "Odeslat"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Popisek úspěšně odesláno",
+      "default": "Vaše zpráva byla úspěšně odeslána!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Popisek tlačítka Vyberte všechny exportovatelné",
+      "description": "Text, který bude zobrazen na tlačítku \"Vybrat celý text\".",
+      "default": "Vybrat"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Popisek tlačítka Exportovat text",
+      "description": "Text, který bude zobrazen na tlačítku \"Exportovat text\".",
+      "default": "Exportovat"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Popisek pro text nápovědy",
+      "description": "Popisek pro zobrazení dalších užitečných informací uživateli.",
+      "default": "Více informací"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Vyplnit další informace o nápovědě",
+      "description": "Zde můžete vyplnit další užitečné informace pro uživatele."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Chybí požadovaný text",
+      "description": "Chybová zpráva, která se zobrazí, pokud nebylo vyplněno jedno nebo více požadovaných vstupních polí. @pages budou nahrazeny názvy dotčených stránek.",
+      "default": "Následující stránky obsahují povinná pole, která je třeba vyplnit, abyste mohli dokument zkontrolovat nebo odeslat: @pages"
     }
   ]
 }
