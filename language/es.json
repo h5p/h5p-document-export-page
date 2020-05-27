@@ -20,8 +20,8 @@
       "default": "¡Su reporte fue enviado exitosamente!"
     },
     {
-      "label": "Etiqueta botón Seleccionar todo eltexto exportable",
-      "description": "Texto que será mostrado en el botón \"Seleccionar todo eltexto\".",
+      "label": "Etiqueta botón Seleccionar todo el texto exportable",
+      "description": "Texto que será mostrado en el botón \"Seleccionar todo el texto\".",
       "default": "Select"
     },
     {
