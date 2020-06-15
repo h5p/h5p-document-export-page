@@ -3,7 +3,7 @@
     {
       "label": "Skildring",
       "description": "Skildring av Eksportsida.",
-      "default": "På denne sida kan du velje å eksportera tekst, mål og måloppnåinga du har fylt inn."
+      "default": "På denne sida kan du velje å eksportere tekst, mål og måloppnåinga du har fylt inn."
     },
     {
       "label": "Tekst for \"Lag dokument\"-knapp ",
@@ -13,11 +13,11 @@
     {
       "label": "Submit text button",
       "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit!"
+      "default": "Lever inn!"
     },
     {
       "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "default": "Rapporten din blei vellukka innlevert!"
     },
     {
       "label": "Tekst for \"Marker eksporterbar tekst\"-knapp",
@@ -41,7 +41,7 @@
     {
       "label": "Melding til bruker om at obligatoriske felt manglar",
       "description": "Denne meldinga vil visast om eit eller fleire obligatoriske tekstfelt ikkje er fylt inn. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "default": "Dei følgande sidene inneheld obligatoriske felt som må bli fylte inn for å kunne gjennomgå dokumentet: @pages"
     }
   ]
 }
