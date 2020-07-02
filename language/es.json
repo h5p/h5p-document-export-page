@@ -22,7 +22,7 @@
     {
       "label": "Etiqueta botón Seleccionar todo el texto exportable",
       "description": "Texto que será mostrado en el botón \"Seleccionar todo el texto\".",
-      "default": "Select"
+      "default": "Seleccionar"
     },
     {
       "label": "Etiqueta botón Exportar texto",
