@@ -20,7 +20,7 @@
       "default": "¡Su reporte fue enviado exitosamente!"
     },
     {
-      "label": "Etiqueta botón Seleccionar todo eltexto exportable",
+      "label": "Etiqueta botón Seleccionar todo el texto exportable",
       "description": "Texto que será mostrado en el botón \"Seleccionar todo eltexto\".",
       "default": "Seleccionar"
     },
@@ -40,7 +40,7 @@
     },
     {
       "label": "Texto Falta entrada requerida",
-      "description": "Unmensaje de error que será mostrado si uno o más campos de entrada no han sido llenados. @pages será remplazado con los títulos de páginas afectadas.",
+      "description": "Un mensaje de error que será mostrado si uno o más campos de entrada no han sido llenados. @pages será remplazado con los títulos de páginas afectadas.",
       "default": "Las páginas siguientes contienen campos requeridos que necesitan ser llenados para poder revisar o enviar este documento: @pages"
     }
   ]
