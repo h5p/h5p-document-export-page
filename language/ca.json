@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Descripció",
+      "description": "Descripció de la pàgina d’exportació.",
+      "default": "En aquesta pàgina, podeu optar per exportar el text, els objectius i les avaluacions dels objectius."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Etiqueta del botó \"Crea un document\"",
+      "description": "Text que es mostrarà al botó \"Crea un document\".",
+      "default": "Crea un document"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Text del botó \"Envia\"",
+      "description": "Text que es mostrarà al botó \"Envia\".",
+      "default": "Envia"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Etiqueta \"Enviament correcte\"",
+      "default": "L’informe s’ha enviat correctament."
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Etiqueta del botó \"Selecciona tot el text exportable\"",
+      "description": "Text que es mostrarà al botó \"Selecciona tot el text\".",
+      "default": "Selecciona"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Etiqueta del botó \"Exporta el text\"",
+      "description": "Text que es mostrarà al botó \"Exporta el text\".",
+      "default": "Exporta"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Etiqueta per al text d’ajuda",
+      "description": "Etiqueta per mostra la informació addicional útil per l’usuari.",
+      "default": "Més informació"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Omple la informació addicional d’ajuda",
+      "description": "Aquí pots completar la informació addicional útil per l’usuari."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Text per indicar que falta introduir text obligatori",
+      "description": "Missatge d’error que es mostrarà si no s’emplenen un o més camps d’entrada obligatoris @pages se substituirà pel títol de les pàgines en qüestió.",
+      "default": "Les pàgines següents contenen camps obligatoris que s’han d’emplenar perquè aquest document es pugui revisar o enviar: @pages."
     }
   ]
 }
