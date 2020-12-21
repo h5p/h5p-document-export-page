@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Beskrywing",
+      "description": "Beskrywing van die uitvoer bladsy.",
+      "default": "Op hierdie bladsy kan jy kies om jou teks, doelwitte en doelwitassessering uit te voer."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Skep 'n dokument knoppie etiket",
+      "description": "Teks wat vertoon sal word by die \"Skep dokument\"-knoppie.",
+      "default": "Skep dokument"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Handig in teksknoppie",
+      "description": "Teks wat vertoon sal word by die \"Handig in\"-knoppie.",
+      "default": "Handig in"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Handig in sukses etiket",
+      "default": "Jou verslag was suksesvol ingehandig!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Kies alle uitvoerbare teksknoppie etiket",
+      "description": "Teks wat vertoon sal word by die \"Kies alle teks\"-knoppie.",
+      "default": "Kies"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Voer teksknoppie uit etiket",
+      "description": "Teks wat vertoon sal word by die \"Voer teks uit\"-knoppie.",
+      "default": "Voer uit"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Hulpteksetiket",
+      "description": "Etiket wat addisionele nuttige inligting vir die gebruiker wys.",
+      "default": "Meer inligting"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Vul die addisionele hulp informasie in",
+      "description": "Hier kan jy additionele behulpsame informasie vir die gebruiker invul."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Vereisde invoer ontbreek teks",
+      "description": "'n Foutboodskap wat vertoon sal word indien een of meer vereisde velde nie ingevul is nie. @pages sal vervang word met die titels van die betrokke bladsye.",
+      "default": "Die volgende bladye bevat vereisde velde wat ingevul moet word om hierdie dokument te hersien of in te handig : @pages"
     }
   ]
 }
