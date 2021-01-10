@@ -3,12 +3,12 @@
     {
       "label": "Description",
       "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "default": "בעמוד זה ביכולתכם לבחור את תוכן הייצור, המטרות והערכת המטרות."
     },
     {
       "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "description": "תוכן שיוצג על כפתור \"יצירת מסמך\".",
+      "default": "יצירת מסמך"
     },
     {
       "label": "Submit text button",
@@ -21,12 +21,12 @@
     },
     {
       "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
+      "description": "תוכן שיוצג על כפתור \"בחירה בהכול\".",
       "default": "Select"
     },
     {
       "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
+      "description": "תוכן שיוצג על כפתור \"ייצוא תוכן\".",
       "default": "Export"
     },
     {
