@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Beskrivning",
+      "description": "Beskrivning av exportsidan.",
+      "default": "På denna sida så kan du välja att exportera din text, dina mål och målbedömningar."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Etikett för knappen \"Skapa dokument\"",
+      "description": "Text som kommer att visas på knappen \"Skapa dokument\".",
+      "default": "Skapa dokument"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Text för skicka in-knapp",
+      "description": "Text som kommer att visas på knappen \"Skicka in\".",
+      "default": "Skicka in"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Etikett för inskickat",
+      "default": "Din rapport har skickats in!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Etikett för knapp \"Välj all exporterbar text\"",
+      "description": "Text som kommer att visas på knappen \"Välj all text\".",
+      "default": "Välj"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Etikett för knapp \"Exportera text\"",
+      "description": "Text som kommer att visas på knappen \"Export text\".",
+      "default": "Exportera"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Etikett för hjälptext",
+      "description": "Etikett för att visa ytterligare hjälpfull information för användaren.",
+      "default": "Mer information"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Fyll i ytterligare hjälpinformation",
+      "description": "Här kan du fylla i ytterligare hjälpfull information till användaren."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Obligatoriskt text saknas",
+      "description": "Ett felmeddelande som visas om ett eller flera obligatoriska fält inte har fyllts i. @pages kommer att bytas ut till titlarna på berörda sidor.",
+      "default": "Följande sidor innehåller obligatoriska fält som behöver fyllas i för att kunna granska eller skicka in detta dokument: @pages"
     }
   ]
 }
