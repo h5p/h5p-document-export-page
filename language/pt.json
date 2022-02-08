@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Descrição",
+      "description": "Descrição da página de exportação.",
+      "default": "Nesta página pode escolher exportar o seu texto, os objetivos e a avaliação dos objetivos."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Rótulo do botão criar documento",
+      "description": "Texto que será exibido no botão \"Criar documento\" na página de exportação.",
+      "default": "Criar documento"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Texto do botão Enviar",
+      "description": "Texto que será exibido no botão \"Enviar\".",
+      "default": "Enviar"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Rótulo de enviado com sucesso",
+      "default": "O seu relatório foi enviado com sucesso!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Rótulo do botão de selecionar todos os exportáveis",
+      "description": "Texto exibido no botão de selecionar tudo.",
+      "default": "Selecionar"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Rótulo do botão Exportar",
+      "description": "Texto exibido no botão \"Exportar\".",
+      "default": "Exportar"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Rótulo para o texto de ajuda",
+      "description": "Rótulo para a exibição de informações úteis adicionais ao utilizador.",
+      "default": "Mais informações"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Preencha com as informações adicionais",
+      "description": "Aqui pode preencher as informações úteis adicionais para o utilizador."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Texto para entrada obrigatória em falta",
+      "description": "Mensagem de erro que será exibida se um ou mais campos obrigatórios não forem preenchidos. @pages será substituído pelos títulos das páginas afetadas.",
+      "default": "As páginas a seguir contêm campos obrigatórios que devem ser preenchidos para rever ou enviar este documento: @pages"
     }
   ]
 }
