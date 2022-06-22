@@ -95,8 +95,9 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
 
           // Set focus back on button
           self.$exportDocumentButton.focus();
+          self.parent.$mainContent.removeAttr("aria-live");
         });
-
+        self.parent.$mainContent.attr("aria-live", "polite");
         self.trigger('export-page-opened');
 
         exportDocument.on('submitted', function (event) {
