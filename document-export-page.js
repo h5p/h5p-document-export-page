@@ -26,6 +26,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     // Set default behavior.
     this.params = $.extend({
       title: this.getTitle(),
+      a11yFriendlyTitle: this.getTitle(false),
       description: '',
       createDocumentLabel: 'Proceed',
       submitTextLabel: 'Submit',
@@ -56,7 +57,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     }).prependTo($container);
 
     var documentExportTemplate =
-        '<div class="page-header" role="heading" tabindex="-1">' +
+        '<div class="page-header" role="heading" tabindex="-1" aria-label="{{{a11yFriendlyTitle}}}">' +
         ' <div class="page-title">{{{title}}}</div>' +
         ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
         '</div>' +
@@ -125,8 +126,14 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     }
   };
 
-  DocumentExportPage.prototype.getTitle = function () {
-    return H5P.createTitle((this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export');
+  /**
+   * Get page title
+   * @param {boolean} turncatedTitle turncate title flag
+   * @returns {String} page title
+   */
+  DocumentExportPage.prototype.getTitle = function (turncatedTitle = true) {
+    const pageTitle = (this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Document Export';
+    return turncatedTitle ? H5P.createTitle(pageTitle) : pageTitle;
   };
 
   DocumentExportPage.prototype.setExportTitle = function (title) {
