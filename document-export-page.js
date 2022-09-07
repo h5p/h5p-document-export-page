@@ -60,7 +60,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       'class': 'page-header',
       role: 'heading',
       tabindex: -1,
-      ariaLabel: self.params.a11yFriendlyTitle,
+      'aria-label': self.params.a11yFriendlyTitle,
       append: $('<div>', {
         class: 'page-title',
         html: self.params.title
@@ -91,7 +91,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     $('<div>', {
       class: 'export-error-message',
       role: 'alert',
-      ariaLive: 'assertive',
+      'aria-live': 'assertive',
       html: self.params.requiresInputErrorMessage,
       appendTo: self.$inner
     });
