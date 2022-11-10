@@ -68,7 +68,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       appendTo: self.$inner
     });
 
-    if (self.params.helpTextLabel !== undefined && self.params.helpTextLabel.length !== 0) {
+    if (self.params.helpText !== undefined && self.params.helpText.length !== 0) {
       self.$helpButton = $('<button>', {
         'class': 'page-help-text',
         html: self.params.helpTextLabel,
