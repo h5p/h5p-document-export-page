@@ -50,33 +50,71 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
   DocumentExportPage.prototype.attach = function ($container) {
     var self = this;
 
-    this.$wrapper = $container;
+    self.$wrapper = $container;
 
-    this.$inner = $('<div>', {
+    self.$inner = $('<div>', {
       'class': MAIN_CONTAINER
-    }).prependTo($container);
+    });
 
-    var documentExportTemplate =
-        '<div class="page-header" role="heading" tabindex="-1" aria-label="{{{a11yFriendlyTitle}}}">' +
-        ' <div class="page-title">{{{title}}}</div>' +
-        ' <button class="page-help-text">{{{helpTextLabel}}}</button>' +
-        '</div>' +
-        '<div class="export-description">{{{description}}}</div>' +
-        '<div class="export-error-message" role="alert" aria-live="assertive">{{{requiresInputErrorMessage}}}</div>' +
-        '<div class="export-footer">' +
-        '  <div role="button" tabindex="0" class="joubel-simple-rounded-button export-document-button" title="{{{createDocumentLabel}}}">' +
-        '    <span class="joubel-simple-rounded-button-text">{{{createDocumentLabel}}}</span>' +
-        '  </div>' +
-        '</div>';
+    self.$pageTitle = $('<div>', {
+      'class': 'page-header',
+      role: 'heading',
+      tabindex: -1,
+      'aria-label': self.params.a11yFriendlyTitle,
+      append: $('<div>', {
+        class: 'page-title',
+        html: self.params.title
+      }),
+      appendTo: self.$inner
+    });
 
-    /* global Mustache */
-    self.$inner.append(Mustache.render(documentExportTemplate, self.params));
+    if (self.params.helpText !== undefined && self.params.helpText.length !== 0) {
+      self.$helpButton = $('<button>', {
+        'class': 'page-help-text',
+        html: self.params.helpTextLabel,
+        click: function () {
+          self.trigger('open-help-dialog', {
+            title: self.params.title,
+            helpText: self.params.helpText
+          });
+        },
+        appendTo: self.$pageTitle
+      });
+    }
 
-    self.$pageTitle = self.$inner.find('.page-header');
-    self.$helpButton = self.$inner.find('.page-help-text');
-    self.$exportDocumentButton = self.$inner.find('.export-document-button');
+    $('<div>', {
+      class: 'export-description',
+      html: self.params.description,
+      appendTo: self.$inner
+    });
 
-    self.initHelpTextButton();
+    $('<div>', {
+      class: 'export-error-message',
+      role: 'alert',
+      'aria-live': 'assertive',
+      html: self.params.requiresInputErrorMessage,
+      appendTo: self.$inner
+    });
+
+    self.$exportDocumentButton = $('<div>', {
+      class: 'joubel-simple-rounded-button export-document-button',
+      role: 'button',
+      tabindex: '0',
+      title: self.params.createDocumentLabel,
+      append: $('<span>', {
+        class: 'joubel-simple-rounded-button-text',
+        html: self.params.createDocumentLabel
+      })
+    });
+
+    $('<div>', {
+      class: 'export-footer',
+      append: self.$exportDocumentButton,
+      appendTo: self.$inner
+    });
+
+    this.$inner.prependTo($container);
+
     self.initDocumentExportButton();
   };
 
@@ -105,26 +143,6 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
         });
       }
     });
-  };
-
-  /**
-   * Setup help text functionality for reading more about the task
-   */
-  DocumentExportPage.prototype.initHelpTextButton = function () {
-    var self = this;
-
-    if (this.params.helpText !== undefined && this.params.helpText.length) {
-      // Handle help button action
-      self.$helpButton.on('click', function () {
-        self.trigger('open-help-dialog', {
-          title: self.params.title,
-          helpText: self.params.helpText
-        });
-      });
-    }
-    else {
-      self.$helpButton.remove();
-    }
   };
 
   /**
