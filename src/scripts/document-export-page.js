@@ -1,5 +1,3 @@
-var H5P = H5P || {};
-
 /**
  * Document Export Page module
  * @external {jQuery} $ H5P.jQuery
@@ -126,7 +124,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     H5P.DocumentationTool.handleButtonClick(self.$exportDocumentButton, function () {
       // Check if all required input fields are filled
       if (self.isRequiredInputsFilled()) {
-        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.submitEnabled, self.inputArray, self.inputGoals, self.getLibraryFilePath('exportTemplate.docx'));
+        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.submitEnabled, self.inputArray, self.inputGoals);
         exportDocument.attach(self.$wrapper.parent().parent());
         exportDocument.on('export-page-closed', function () {
           self.trigger('export-page-closed');
@@ -216,3 +214,5 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
 
   return DocumentExportPage;
 }(H5P.jQuery, H5P.EventDispatcher));
+
+export default H5P.DocumentExportPage;
