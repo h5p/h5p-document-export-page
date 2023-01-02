@@ -1,22 +1,18 @@
-var H5P = H5P || {};
-H5P.DocumentExportPage = H5P.DocumentExportPage || {};
-
 /**
  * Create Document module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatcher) {
+H5P.DocumentExportPage.CreateDocument = (function ($, EventDispatcher) {
   /**
    * Initialize module.
    * @param {Array} inputFields Array of input strings that should be exported
    * @returns {Object} CreateDocument CreateDocument instance
    */
-  function CreateDocument(params, title, submitEnabled, inputFields, inputGoals, template) {
+  function CreateDocument(params, title, submitEnabled, inputFields, inputGoals) {
     EventDispatcher.call(this);
 
     this.inputFields = inputFields;
     this.inputGoals = inputGoals;
-    this.template = template;
 
     this.params = params;
     this.title = title;
@@ -46,14 +42,13 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
     var exportString = this.getExportString();
     exportString += this.createGoalsOutput() || '';
     var exportObject = this.getExportObject();
-    var exportPage = new ExportPage(this.title,
+    var exportPage = new H5P.DocumentExportPage.ExportPage(this.title,
       exportString,
       this.submitEnabled,
       this.params.submitTextLabel,
       this.params.submitSuccessTextLabel,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
-      this.template,
       exportObject
     );
     exportPage.getElement().prependTo($container);
@@ -229,4 +224,4 @@ H5P.DocumentExportPage.CreateDocument = (function ($, ExportPage, EventDispatche
   };
 
   return CreateDocument;
-}(H5P.jQuery, H5P.ExportPage, H5P.EventDispatcher));
+}(H5P.jQuery, H5P.EventDispatcher));
