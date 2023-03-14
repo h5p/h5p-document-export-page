@@ -6,27 +6,27 @@
       "default": "Nesta página você pode escolher exportar seu texto, objetivos e avaliação de objetivos."
     },
     {
-      "label": "Rótulo do botão Criar documento",
-      "description": "Texto que será exibido no botão \"Create document\" na páginad e exportação.",
-      "default": "Continuar"
+      "label": "Rótulo do botão Criar Documento",
+      "description": "Texto que será exibido no botão \"Criar Documento\" na página de exportação.",
+      "default": "Criar Documento"
     },
     {
       "label": "Texto do botão Enviar",
       "description": "Texto que será exibido no botão \"Enviar\".",
-      "default": "Enviar!"
+      "default": "Enviar"
     },
     {
-      "label": "Rótulo de envio bem sucedido",
+      "label": "Rótulo de enviado com sucesso",
       "default": "Seu relatório foi enviado com sucesso!"
     },
     {
-      "label": "Rótulo do botão Selecionar todos os exportáveis",
-      "description": "Texto exibido no botão \"Selecionar\".",
+      "label": "Rótulo do botão Selecione todo o texto exportável",
+      "description": "Texto que será exibido no botão \"Selecionar\".",
       "default": "Selecionar"
     },
     {
-      "label": "Rótulo de botão Exportar",
-      "description": "Texto exibido no botão \"Exportar\".",
+      "label": "Rótulo do botão Exportar Texto",
+      "description": "Texto que será exibido no botão \"Exportar\".",
       "default": "Exportar"
     },
     {
@@ -36,12 +36,12 @@
     },
     {
       "label": "Preencha com informações adicionais",
-      "description": "Aqui você pode preencher as informações úteis adicionais para o usuário."
+      "description": "Aqui você pode preencher as informações adicionais úteis para o usuário."
     },
     {
-      "label": "Texto de entrada exigida ausente",
-      "description": "Mensagem de erro que seja exibida se um ou mais campos obrigatórios não forem preenchidos. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Entrada obrigatória de texto requerida",
+      "description": "Uma mensagem de erro que será exibida se um ou mais campos de entrada obrigatórios não tiverem sido preenchidos. @pages serão substituídas pelos títulos das páginas afetadas.",
+      "default": "As páginas seguintes contêm campos obrigatórios que precisam ser preenchidos a fim de revisar ou apresentar este documento: @pages"
     }
   ]
 }

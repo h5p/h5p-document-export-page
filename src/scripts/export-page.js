@@ -1,10 +1,11 @@
+import { saveAs } from "file-saver";
 import {HeadingLevel, Paragraph, Document, TextRun, Packer} from "docx";
 
 /**
  * Class responsible for creating an export page
  */
 H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
-  
+
   function ExportPage(header, $body, enableSubmit, submitTextLabel, submitSuccessTextLabel, selectAllTextLabel, exportTextLabel, templateContent) {
     EventDispatcher.call(this);
     var self = this;
@@ -204,7 +205,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
         }
       ]
     });
-  
+
     Packer.toBlob(doc).then((blob) => {
       // saveAs from FileSaver will download the file
       saveAs(blob, "exported-text.docx");
@@ -337,7 +338,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
         }
       });
     }
-    
+
     if (self.templateContent.goalsTitle) {
       page[index] = new Paragraph({
         text: self.templateContent.goalsTitle,
