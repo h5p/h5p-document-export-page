@@ -2,46 +2,46 @@
   "semantics": [
     {
       "label": "תיאור",
-      "description": "Description of the export page.",
+      "description": "תיאור דף הייצוא.",
       "default": "בעמוד זה ביכולתכם לבחור את תוכן הייצור, המטרות והערכת המטרות."
     },
     {
-      "label": "Create document button label",
+      "label": "יצירת תווית לחצן מסמך",
       "description": "תוכן שיוצג על כפתור \"יצירת מסמך\".",
       "default": "יצירת מסמך"
     },
     {
-      "label": "תוית כפתור שמירה",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "שליחה"
+      "label": "תווית כפתור שמירה",
+      "description": "תוכן שיוצג על כפתור \"יצירת מסמך\".",
+      "default": "הגשה"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "תווית הגשה הצליחה",
+      "default": "הדוח שלך נשלח בהצלחה!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "תוכן שיוצג על כפתור \"בחירה בהכול\".",
-      "default": "Select"
+      "label": "בחירת תווית כפתור ייצוא כל התוכן",
+      "description": "תוכן שיוצג על כפתור \"בחירת הכול\".",
+      "default": "בחירה"
     },
     {
-      "label": "Export text button label",
+      "label": "תווית לחצן ייצוא טקסט",
       "description": "תוכן שיוצג על כפתור \"ייצוא תוכן\".",
       "default": "יצוא"
     },
     {
       "label": "תווית למלל עזרה",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "description": "תווית להצגת מידע מועיל נוסף למשתמש.",
+      "default": "מידע נוסף"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "הזנת מידע עזרה נוסף",
+      "description": "כאן ניתן למלא מידע שימושי נוסף עבור המשתמש."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "קלט נדרש כאשר חסר תוכן",
+      "description": "הודעת שגיאה שתוצג אם שדה קלט נדרש אחד או יותר לא מולאו. @pages יוחלפו בכותרות של הדפים המושפעים.",
+      "default": "הדפים הבאים מכילים שדות חובה שיש למלא על מנת לעיין או לשלוח מסמך זה: @pages"
     }
   ]
 }
