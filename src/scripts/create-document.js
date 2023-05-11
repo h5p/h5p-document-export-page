@@ -167,30 +167,40 @@ H5P.DocumentExportPage.CreateDocument = (function ($, EventDispatcher) {
    * @returns {string} inputBlocksString Html string from input fields
    */
   CreateDocument.prototype.getInputBlocksString = function () {
-    var inputBlocksString = '<div class="textfields-output">';
+    const inputBlocksString = $('<div>', {
+      class: 'textfields-output'
+    });
 
     this.inputFields.forEach(function (inputPage) {
-      if (inputPage.inputArray && inputPage.inputArray.length && inputPage.title.length) {
-        inputBlocksString +=
-          '<h2>' + inputPage.title + '</h2>';
-      }
       if (inputPage.inputArray && inputPage.inputArray.length) {
+        if (inputPage.title.length) {
+          inputBlocksString.append($('<h2>', {
+            html: inputPage.title
+          }));
+        }
+
         inputPage.inputArray.forEach(function (inputInstance) {
           if (inputInstance) {
-            // remove paragraph tags
-            inputBlocksString +=
-              '<p>' +
-                (inputInstance.description ? '<strong>' + inputInstance.description + '</strong>\n' : '') +
-                inputInstance.value +
-              '</p>';
+            const inputParagraph = $('<p>', {
+              appendTo: inputBlocksString
+            });
+
+            if (inputInstance.description) {
+              inputParagraph.append($('<strong>', {
+                html: inputInstance.description
+              }));
+            }
+
+            inputBlocksString.append($('<span>', {
+              // Using text, since this comes from end-user input
+              text: inputInstance.value
+            }));
           }
         });
       }
     });
 
-    inputBlocksString += '</div>';
-
-    return inputBlocksString;
+    return inputBlocksString.html();
   };
 
   /**
@@ -202,25 +212,35 @@ H5P.DocumentExportPage.CreateDocument = (function ($, EventDispatcher) {
       return '';
     }
 
-    let output = '<div class="goals-output">';
+    const output = $('<div>', {
+      class: 'goals-output'
+    });
 
     if (this.inputGoals.title !== undefined && this.inputGoals.title.length) {
-      output += '<h2>' + this.inputGoals.title + '</h2>';
+      output.append($('<h2>', {
+        html: this.inputGoals.title
+      }));
     }
 
     this.exportableGoalsList.forEach(function (page) {
       if (page.label !== undefined && page.label.length) {
-        output += '<p class="category"><strong>' + page.label + ':</strong></p>';
+        output.append('<p>', {
+          class: 'category',
+          html: '<strong>' + page.label + ':</strong>'
+        });
       }
-      output += '<ul>';
-      page.goalArray.forEach(function (goal) {
-        output += '<li>' + goal.text + '</li>';
+      const list = $('<ul>', {
+        appendTo: output
       });
-      output += '</ul>';
+      page.goalArray.forEach(function (goal) {
+        list.append($('<li>', {
+          // Using text, since this comes from end-user input
+          text: goal.text
+        }));
+      });
     });
 
-    output += '</div>';
-    return output;
+    return output.html();
   };
 
   return CreateDocument;
