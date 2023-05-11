@@ -3,7 +3,7 @@
   "description": "A page you can export all input fields from parent application.",
   "majorVersion": 1,
   "minorVersion": 5,
-  "patchVersion": 14,
+  "patchVersion": 15,
   "runnable": 0,
   "coreApi": {
     "majorVersion": 1,
