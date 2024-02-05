@@ -28,7 +28,6 @@ npm run watch
 
 ## License
 
-
 (The MIT License)
 
 Copyright (c) 2015 Joubel AS
