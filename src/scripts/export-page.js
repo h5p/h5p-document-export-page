@@ -97,7 +97,9 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    * Sets focus on page
    */
   ExportPage.prototype.focus = function () {
-    this.$submitButton ? this.$submitButton.focus() : this.$exportButton.focus();
+    this.$submitButton.length ?
+      this.$submitButton.focus() :
+      this.$exportButton.focus();
   };
 
   /**
