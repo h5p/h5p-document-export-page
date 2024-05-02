@@ -370,27 +370,36 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     return page;
   };
 
+  /**
+   * Strips a string of html tags, but keeps the expected whitespace etc.
+   * 
+   * @param {String} html String with html tags
+   * @returns {String} string without html tags
+   */
   function htmlToText(html){
+    let newString = html;
+
     //keep html brakes and tabs
-    html = html.replace(/<\/td>/g, '\t');
-    html = html.replace(/<\/table>/g, '\n');
-    html = html.replace(/<\/tr>/g, '\n');
-    html = html.replace(/<\/p>/g, '\n\n');
-    html = html.replace(/<p>/g, '\n');
-    html = html.replace(/<\/div>/g, '\n');
-    html = html.replace(/<\/h.?>/g, '\n\n');
-    html = html.replace(/<ol>|<ul>/g, '\n');
-    html = html.replace(/<\/li>/g, '\n');
-    html = html.replace(/<br>/g, '\n');
-    html = html.replace(/<br( )*\/>/g, '\n');
+    newString = newString.replace(/<\/td>/g, '\t');
+    newString = newString.replace(/<\/table>/g, '\n');
+    newString = newString.replace(/<\/tr>/g, '\n');
+    newString = newString.replace(/<\/p><p>/g, '\n\n');
+    newString = newString.replace(/<\/p>/g, '\n\n');
+    newString = newString.replace(/<p>/g, '\n');
+    newString = newString.replace(/<\/div>/g, '\n');
+    newString = newString.replace(/<\/h.?>/g, '\n\n');
+    newString = newString.replace(/<ol>|<ul>/g, '\n');
+    newString = newString.replace(/<\/li>/g, '\n');
+    newString = newString.replace(/<br>/g, '\n');
+    newString = newString.replace(/<br( )*\/>/g, '\n');
 
     //parse html into text
-    var dom = (new DOMParser()).parseFromString('<!doctype html><body>' + html, 'text/html');
+    var dom = (new DOMParser()).parseFromString('<!doctype html><body>' + newString, 'text/html');
 
     // Strip leading and trailing newlines
-    html = dom.body.textContent.replace(/^\s*|\s*$/g, '');
+    newString = dom.body.textContent.replace(/^\s*|\s*$/g, '');
 
-    return html;
+    return newString;
   }
 
   return ExportPage;
