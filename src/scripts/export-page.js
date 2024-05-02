@@ -196,6 +196,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    */
   ExportPage.prototype.saveText = function () {
     const page = this.generateDocxObject();
+
     // Generate document
     const doc = new Document({
       sections: [
@@ -327,7 +328,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
         index++;
         if (content.inputArray) {
           content.inputArray.forEach(function (field) {
-            const fieldDescription = field.description.split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), bold: true, size: 28}));
+            const fieldDescription = htmlToText(field.description).split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), bold: true, size: 28}));
             const fieldValue = field.value.split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), size: 28}));
             const standardPage = [...fieldDescription, ...fieldValue]
             page[index] = new Paragraph({
@@ -368,6 +369,29 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     }
     return page;
   };
+
+  function htmlToText(html){
+    //keep html brakes and tabs
+    html = html.replace(/<\/td>/g, '\t');
+    html = html.replace(/<\/table>/g, '\n');
+    html = html.replace(/<\/tr>/g, '\n');
+    html = html.replace(/<\/p>/g, '\n\n');
+    html = html.replace(/<p>/g, '\n');
+    html = html.replace(/<\/div>/g, '\n');
+    html = html.replace(/<\/h.?>/g, '\n\n');
+    html = html.replace(/<ol>|<ul>/g, '\n');
+    html = html.replace(/<\/li>/g, '\n');
+    html = html.replace(/<br>/g, '\n');
+    html = html.replace(/<br( )*\/>/g, '\n');
+
+    //parse html into text
+    var dom = (new DOMParser()).parseFromString('<!doctype html><body>' + html, 'text/html');
+
+    // Strip leading and trailing newlines
+    html = dom.body.textContent.replace(/^\s*|\s*$/g, '');
+
+    return html;
+  }
 
   return ExportPage;
 }(H5P.jQuery, H5P.EventDispatcher));
