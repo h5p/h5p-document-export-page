@@ -224,10 +224,10 @@ H5P.DocumentExportPage.CreateDocument = (function ($, EventDispatcher) {
 
     this.exportableGoalsList.forEach(function (page) {
       if (page.label !== undefined && page.label.length) {
-        output.append($('<p>', {
+        output.append('<p>', {
           class: 'category',
           html: '<strong>' + page.label + ':</strong>'
-        }));
+        });
       }
       const list = $('<ul>', {
         appendTo: output
