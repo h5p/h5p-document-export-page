@@ -196,6 +196,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    */
   ExportPage.prototype.saveText = function () {
     const page = this.generateDocxObject();
+
     // Generate document
     const doc = new Document({
       sections: [
@@ -327,7 +328,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
         index++;
         if (content.inputArray) {
           content.inputArray.forEach(function (field) {
-            const fieldDescription = field.description.split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), bold: true, size: 28}));
+            const fieldDescription = htmlToText(field.description).split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), bold: true, size: 28}));
             const fieldValue = field.value.split("\n").map(line=>new TextRun({break: 1,text: line.replace(/(\r\t|\t|\r)/gm, ""), size: 28}));
             const standardPage = [...fieldDescription, ...fieldValue]
             page[index] = new Paragraph({
@@ -368,6 +369,38 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     }
     return page;
   };
+
+  /**
+   * Strips a string of html tags, but keeps the expected whitespace etc.
+   * 
+   * @param {String} html String with html tags
+   * @returns {String} string without html tags
+   */
+  function htmlToText(html){
+    let newString = html;
+
+    //keep html brakes and tabs
+    newString = newString.replace(/<\/td>/g, '\t');
+    newString = newString.replace(/<\/table>/g, '\n');
+    newString = newString.replace(/<\/tr>/g, '\n');
+    newString = newString.replace(/<\/p><p>/g, '\n\n');
+    newString = newString.replace(/<\/p>/g, '\n\n');
+    newString = newString.replace(/<p>/g, '\n');
+    newString = newString.replace(/<\/div>/g, '\n');
+    newString = newString.replace(/<\/h.?>/g, '\n\n');
+    newString = newString.replace(/<ol>|<ul>/g, '\n');
+    newString = newString.replace(/<\/li>/g, '\n');
+    newString = newString.replace(/<br>/g, '\n');
+    newString = newString.replace(/<br( )*\/>/g, '\n');
+
+    //parse html into text
+    var dom = (new DOMParser()).parseFromString('<!doctype html><body>' + newString, 'text/html');
+
+    // Strip leading and trailing newlines
+    newString = dom.body.textContent.replace(/^\s*|\s*$/g, '');
+
+    return newString;
+  }
 
   return ExportPage;
 }(H5P.jQuery, H5P.EventDispatcher));
