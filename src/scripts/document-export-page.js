@@ -4,7 +4,7 @@
  */
 H5P.DocumentExportPage = (function ($, EventDispatcher) {
   // CSS Classes:
-  var MAIN_CONTAINER = 'h5p-document-export-page';
+  var MAIN_CONTAINER = 'h5p-document-export-page h5p-theme';
 
   /**
    * Initialize module.
@@ -95,7 +95,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     });
 
     self.$exportDocumentButton = $('<div>', {
-      class: 'joubel-simple-rounded-button export-document-button',
+      class: 'joubel-simple-rounded-button export-document-button h5p-theme-primary-cta',
       role: 'button',
       tabindex: '0',
       title: self.params.createDocumentLabel,
