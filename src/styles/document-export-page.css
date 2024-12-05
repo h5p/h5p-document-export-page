@@ -1,5 +1,5 @@
 .h5p-document-export-page {
-  padding: 0.5em 1em;
+
 }
 
 .h5p-document-export-page .export-description {
@@ -20,9 +20,12 @@
 /* --------------------------- Required inputs not filled ------------------- */
 .h5p-document-export-page .export-error-message {
   display: none;
-  padding: 1em 0;
-  color: red;
-  padding-top: 0;
+  padding: var(--h5p-theme-spacing-xs);
+  color: var(--h5p-theme-feedback-incorrect-main);
+   border:solid 1px var(--h5p-theme-feedback-incorrect-third);
+   background-color: var(--h5p-theme-feedback-incorrect-secondary);
+  margin-bottom: var(--h5p-theme-spacing-xs);
+  border-radius: var(--h5p-theme-border-radius-medium);
 }
 
 .h5p-document-export-page .export-error-message > ul:first-child {
@@ -163,7 +166,7 @@
   margin: 0em 1em;
   padding: 1.5em 2em;
   color: #626262;
-  background-color: #FFF;
+  background-color: var(--h5p-theme-ui-base);
   box-shadow: 0 0 5px 1px #CCC;
 
   overflow: auto;
@@ -198,7 +201,7 @@
 /* ----------------------------- Responsive Design -------------------------- */
 
 .joubel-create-document.responsive {
-  background: #FFF;
+  background: var(--h5p-theme-ui-base);
 }
 
 .joubel-create-document.responsive .joubel-exportable-area {
