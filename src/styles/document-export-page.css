@@ -62,7 +62,7 @@
   position: absolute;
   width: 100%;
   left: 0;
-  background: #EEEEEE;
+  background: var(--h5p-theme-alternative-base);
   z-index: 3;
   height: 100%;
   overflow: hidden;
@@ -72,9 +72,9 @@
 
 .joubel-exportable-header {
   height: 3.5em;
-  color: #555;
-  background-color: #fafafa;
-  border-bottom: 1px solid #ccc;
+  color: var(--h5p-theme-text-primary);
+  background-color: var(--h5p-theme-ui-base);
+  border-bottom: 1px solid var(--h5p-theme-stroke-1);
 }
 
 .joubel-exportable-body {
@@ -165,9 +165,9 @@
 .joubel-exportable-area {
   margin: 0em 1em;
   padding: 1.5em 2em;
-  color: #626262;
+  color: var(--h5p-theme-text-third);
   background-color: var(--h5p-theme-ui-base);
-  box-shadow: 0 0 5px 1px #CCC;
+  box-shadow: 0 0 5px 1px var(--h5p-theme-alternative-darker);
 
   overflow: auto;
   position: relative;
