@@ -12,11 +12,6 @@
   position: relative;
 }
 
-/* Active state */
-.h5p-document-export-page .export-document-button:active:before {
-  top: 2px;
-}
-
 /* --------------------------- Required inputs not filled ------------------- */
 .h5p-document-export-page .export-error-message {
   display: none;
