@@ -32,7 +32,7 @@
 }
 
 .h5p-document-export-page.required-inputs-not-filled .export-document-button {
-  background-color: #ccc;
+  opacity: 0.5;
   cursor: inherit;
   pointer-events: none;
 }
