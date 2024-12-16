@@ -38,6 +38,17 @@
 }
 
 /* Override export page styling */
+
+.joubel-exportable-area h2{
+  color: var(--h5p-theme-text-primary);
+}
+.joubel-exportable-area p{
+  color: var(--h5p-theme-text-secondary);
+}
+.joubel-exportable-area span{
+  color: var(--h5p-theme-text-third);
+}
+
 .joubel-exportable-area .goals-output p.category {
   margin-bottom: 0;
 }
@@ -63,10 +74,18 @@
   overflow: hidden;
 }
 
+/*popup when inside column*/
+.joubel-create-document {
+  width: calc(100% - var(--h5p-theme-spacing-m));
+  left: calc(var(--h5p-theme-spacing-m)/2);
+  background: var(--h5p-theme-alternative-base);
+  height: calc(100% - var(--h5p-theme-spacing-m));
+}
+
 /* ------------------------------- main elements ---------------------------- */
 
 .joubel-exportable-header {
-  height: 3.5em;
+  height: calc(var(--h5p-theme-spacing-s) * 3.5);
   color: var(--h5p-theme-text-primary);
   background-color: var(--h5p-theme-ui-base);
   border-bottom: 1px solid var(--h5p-theme-stroke-1);
@@ -79,6 +98,11 @@
 
 .joubel-exportable-header-inner {
   height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .joubel-exportable-body {
@@ -97,85 +121,90 @@
 .joubel-exportable-header-text {
   float: left;
   margin-left: 1em;
-  font-size: 1.3em;
-  height: 100%;
-  line-height: 2.5em;
+  line-height: calc(var(--h5p-theme-font-size-xl-large)*2);
+  font-size: var(--h5p-theme-font-size-xl-large);
 }
+
+
 
 /* Buttons */
 .joubel-create-document .joubel-exportable-header-inner button {
   float: right;
   cursor: pointer;
-  padding: 0 1em !important;
-  height: 100%;
-  border-left: 1px solid #eee !important;
+  padding: var(--h5p-theme-spacing-xs) var(--h5p-theme-spacing-s) !important;
+  margin: 0 calc(var(--h5p-theme-spacing-xxs)/2);
   box-sizing: border-box;
-  line-height: 3.5em;
-  color: #555;
+  line-height: 1.5;
+  color: var(--h5p-theme-text-primary);
+  font-size: var(--h5p-theme-font-size-s);
+  background-color: var(--h5p-theme-alternative-base);
+  border-radius: var(--h5p-theme-border-radius-medium);
+  font-weight: 600;
+  border: solid 1px var(--h5p-theme-alternative-dark);
 }
 
 .joubel-create-document .joubel-exportable-header-inner button:before {
-  font-family: 'H5PFontAwesome4';
+  font-family: 'h5p-theme';
 }
 
 /* Hover effects on buttons */
 .joubel-create-document .joubel-exportable-header-inner button:hover {
-  color: #333;
-  background-color: #e8e8e8;
+  color: var(--h5p-theme-text-primary);
+  background-color: var(--h5p-theme-alternative-light);
 }
 
 .joubel-create-document .joubel-exportable-header-inner button:active {
-  background-color: #d4d4d4;
+   background-color: var(--h5p-theme-alternative-dark);
 }
 
 .joubel-create-document .joubel-exportable-header-inner button.joubel-export-page-close {
   position: relative;
-  margin-right: 1em;
-  margin-right: 1em;
-  border-right: 1px solid #eee;
 }
 
 .joubel-create-document .joubel-exportable-submit-button:before {
   content: "\f058";
-  margin-right: 0.5em;
+  margin-right: var(--h5p-theme-spacing-xxs);
 }
+.joubel-create-document .header-buttons{
+  order: 2;
+  }
 
 .joubel-create-document .joubel-exportable-export-button:before {
-  content: "\f019";
-  margin-right: 0.5em;
+  content: "\e911";
+  margin-right: var(--h5p-theme-spacing-xxs);
 }
 
 .joubel-create-document .joubel-exportable-copy-button:before {
-  content: "\f246";
-  margin-right: 0.5em;
+  content: "\e91d";
+  margin-right: var(--h5p-theme-spacing-xxs);
 }
 
 .joubel-create-document .joubel-export-page-close:before {
-  content: '\f00d';
-  font-size: 1.3em;
+  content: '\e910';
 }
 
 /* ----------------------------- body elements ------------------------------ */
 
 .joubel-exportable-area {
-  margin: 0em 1em;
-  padding: 1.5em 2em;
+  margin: 0em var(--h5p-theme-spacing-s);
+  padding: calc(var(--h5p-theme-spacing-s) * 1.5) calc(var(--h5p-theme-spacing-s) * 2);
   color: var(--h5p-theme-text-third);
   background-color: var(--h5p-theme-ui-base);
   box-shadow: 0 0 5px 1px var(--h5p-theme-alternative-darker);
 
   overflow: auto;
-  position: relative;
   box-sizing: border-box;
-  height: 100%;
   max-width: 800px;
+  position: absolute;
+  height: 100%;
+  width: calc(100% - calc(2*var(--h5p-theme-spacing-s)));
 }
 
 .joubel-exportable-success-message {
   margin-top: 0;
-  margin-right: 1em;
-  margin-bottom: 1em;
-  margin-left: 1em;
+  margin-right: var(--h5p-theme-spacing-s);
+  margin-bottom: var(--h5p-theme-spacing-s);
+  margin-left: var(--h5p-theme-spacing-s);
   text-align: center;
   background: #e0f9e3;
   padding: 0.6em;
@@ -206,7 +235,6 @@
 
   margin: 0;
   width: 100%;
-  height: 100%;
 }
 
 .joubel-create-document.responsive .joubel-exportable-body {
@@ -235,4 +263,5 @@
 
 .joubel-create-document.responsive.no-title .joubel-exportable-header-text {
   display: none;
+  order: 1;
 }

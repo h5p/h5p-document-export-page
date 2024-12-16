@@ -27,7 +27,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       '     <div class="joubel-exportable-header-text" tabindex="-1">' +
       '       <span>' + header + '</span>' +
       '     </div>' +
-      '     <button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
+      '     <div class="header-buttons"><button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
       '     <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="2">' +
       '       <span>' + standardSelectAllTextLabel + '</span>' +
       '     </button>' +
@@ -37,7 +37,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
             (enableSubmit ?
               '     <button class="joubel-exportable-submit-button" title="' + standardSubmitTextLabel + '" tabindex="1">' +
       '       <span>' + standardSubmitTextLabel + '</span>' +
-      '     </button>'
+      '     </button></div>'
               : '') +
       '   </div>' +
       ' </div>' +
