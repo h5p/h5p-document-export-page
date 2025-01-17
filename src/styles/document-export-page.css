@@ -1,7 +1,3 @@
-.h5p-document-export-page {
-
-}
-
 .h5p-document-export-page .export-description {
   padding: var(--h5p-theme-spacing-s) 0em;
 }
@@ -71,7 +67,6 @@
   background: var(--h5p-theme-alternative-base);
   z-index: 3;
   height: 100%;
-  overflow: hidden;
 }
 
 /*popup when inside column*/
@@ -208,7 +203,7 @@
   box-sizing: border-box;
   max-width: 800px;
   position: absolute;
-  height: 100%;
+  height: calc(100% - 7.5em);
   width: calc(100% - calc(2*var(--h5p-theme-spacing-s)));
 }
 
