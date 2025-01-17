@@ -89,6 +89,7 @@
   color: var(--h5p-theme-text-primary);
   background-color: var(--h5p-theme-ui-base);
   border-bottom: 1px solid var(--h5p-theme-stroke-1);
+  padding: var(--h5p-theme-spacing-xxs);
 }
 
 .joubel-exportable-body {
@@ -111,7 +112,7 @@
 
 
 .joubel-exportable-body {
-  padding-top: calc(var(--h5p-theme-spacing-s)*1.2);
+  padding-top: calc(var(--h5p-theme-spacing-s)*2);
   padding-bottom: var(--h5p-theme-spacing-l);
   width: 100%;
   height: calc(100% - 7.5em);
@@ -156,6 +157,12 @@
 .joubel-create-document .joubel-exportable-header-inner button:hover {
   color: var(--h5p-theme-text-primary);
   background-color: var(--h5p-theme-alternative-light);
+}
+
+.joubel-create-document .joubel-exportable-header-inner button:focus {
+  outline: 2px ridge var(--h5p-theme-main-cta-base);
+  border-radius: 4px;
+  outline-offset: 2px;
 }
 
 .joubel-create-document .joubel-exportable-header-inner button:active {
