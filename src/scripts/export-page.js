@@ -27,11 +27,11 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       '     <div class="joubel-exportable-header-text" tabindex="-1">' +
       '       <span>' + header + '</span>' +
       '     </div>' +
-      '     <button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
-      '     <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="2">' +
+      '     <button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="4"></button>' +
+      '     <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="3">' +
       '       <span>' + standardSelectAllTextLabel + '</span>' +
       '     </button>' +
-      '     <button class="joubel-exportable-export-button" title="' + standardExportTextLabel + '" tabindex="1">' +
+      '     <button class="joubel-exportable-export-button" title="' + standardExportTextLabel + '" tabindex="2">' +
       '       <span>' + standardExportTextLabel + '</span>' +
       '     </button>' +
             (enableSubmit ?
@@ -97,7 +97,9 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    * Sets focus on page
    */
   ExportPage.prototype.focus = function () {
-    this.$submitButton ? this.$submitButton.focus() : this.$exportButton.focus();
+    this.$submitButton.length ?
+      this.$submitButton.focus() :
+      this.$exportButton.focus();
   };
 
   /**
@@ -110,6 +112,9 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
 
       self.$submitButton.attr('disabled','disabled');
       self.$submitButton.addClass('joubel-exportable-button-disabled');
+
+      // Prevent losing focus when submit button gets disabled
+      self.$exportButton.focus();
 
       // Trigger a submit event so the report can be saved via xAPI at the
       // documentation tool level
