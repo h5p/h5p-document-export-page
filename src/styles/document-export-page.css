@@ -183,7 +183,6 @@
 
 .joubel-create-document .joubel-exportable-copy-button:before {
   content: "\e91d";
-  margin-right: var(--h5p-theme-spacing-xxs);
 }
 
 .joubel-create-document .joubel-export-page-close:before {
