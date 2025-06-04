@@ -35,7 +35,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       '       <span>' + standardExportTextLabel + '</span>' +
       '     </button>' +
             (enableSubmit ?
-              '     <button class="joubel-exportable-submit-button" title="' + standardSubmitTextLabel + '" tabindex="1">' +
+              '     <button class="joubel-exportable-submit-button h5p-theme-show-results" title="' + standardSubmitTextLabel + '" tabindex="1">' +
       '       <span>' + standardSubmitTextLabel + '</span>' +
       '     </button></div>'
               : '') +
