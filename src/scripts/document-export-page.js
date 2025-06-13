@@ -4,7 +4,7 @@
  */
 H5P.DocumentExportPage = (function ($, EventDispatcher) {
   // CSS Classes:
-  var MAIN_CONTAINER = 'h5p-document-export-page';
+  var MAIN_CONTAINER = 'h5p-document-export-page h5p-theme';
 
   /**
    * Initialize module.
@@ -69,7 +69,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     if (self.params.helpText !== undefined && self.params.helpText.length !== 0) {
       self.$helpButton = $('<button>', {
         'class': 'page-help-text',
-        html: self.params.helpTextLabel,
+        'aria-label': self.params.helpTextLabel,
         click: function () {
           self.trigger('open-help-dialog', {
             title: self.params.title,
@@ -78,6 +78,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
         },
         appendTo: self.$pageTitle
       });
+      H5P.Tooltip(self.$helpButton[0]);
     }
 
     $('<div>', {
@@ -95,7 +96,7 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
     });
 
     self.$exportDocumentButton = $('<div>', {
-      class: 'joubel-simple-rounded-button export-document-button',
+      class: 'joubel-simple-rounded-button export-document-button h5p-theme-primary-cta',
       role: 'button',
       tabindex: '0',
       title: self.params.createDocumentLabel,
