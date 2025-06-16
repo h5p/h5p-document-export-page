@@ -95,53 +95,39 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       appendTo: self.$inner
     });
 
-    self.$exportDocumentButton = $('<div>', {
-      class: 'joubel-simple-rounded-button export-document-button h5p-theme-primary-cta',
-      role: 'button',
-      tabindex: '0',
-      title: self.params.createDocumentLabel,
-      append: $('<span>', {
-        class: 'joubel-simple-rounded-button-text',
-        html: self.params.createDocumentLabel
-      })
+    self.exportDocumentButton = H5P.Components.Button({
+      label: self.params.createDocumentLabel,
+      icon: 'show-results',
+      classes: 'export-document-button',
+      onClick: () => {
+        // Check if all required input fields are filled
+        if (self.isRequiredInputsFilled()) {
+          var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.submitEnabled, self.inputArray, self.inputGoals);
+          exportDocument.attach(self.$wrapper.parent().parent());
+          exportDocument.on('export-page-closed', function () {
+            self.trigger('export-page-closed');
+
+            // Set focus back on button
+            self.exportDocumentButton.focus();
+            self.parent.$mainContent.removeAttr("aria-live");
+          });
+          self.parent.$mainContent.attr("aria-live", "polite");
+          self.trigger('export-page-opened');
+
+          exportDocument.on('submitted', function (event) {
+            self.trigger('submitted', event.data);
+          });
+        }
+      }
     });
 
     $('<div>', {
       class: 'export-footer',
-      append: self.$exportDocumentButton,
+      append: self.exportDocumentButton,
       appendTo: self.$inner
     });
 
     this.$inner.prependTo($container);
-
-    self.initDocumentExportButton();
-  };
-
-  /**
-   * Setup button for creating a document from stored input array
-   */
-  DocumentExportPage.prototype.initDocumentExportButton = function () {
-    var self = this;
-    H5P.DocumentationTool.handleButtonClick(self.$exportDocumentButton, function () {
-      // Check if all required input fields are filled
-      if (self.isRequiredInputsFilled()) {
-        var exportDocument = new H5P.DocumentExportPage.CreateDocument(self.params, self.exportTitle, self.submitEnabled, self.inputArray, self.inputGoals);
-        exportDocument.attach(self.$wrapper.parent().parent());
-        exportDocument.on('export-page-closed', function () {
-          self.trigger('export-page-closed');
-
-          // Set focus back on button
-          self.$exportDocumentButton.focus();
-          self.parent.$mainContent.removeAttr("aria-live");
-        });
-        self.parent.$mainContent.attr("aria-live", "polite");
-        self.trigger('export-page-opened');
-
-        exportDocument.on('submitted', function (event) {
-          self.trigger('submitted', event.data);
-        });
-      }
-    });
   };
 
   /**
