@@ -1,47 +1,47 @@
 {
   "semantics": [
     {
-      "label": "Description",
-      "description": "Description of the export page.",
-      "default": "On this page you can choose to export your text, goals and goals assessments."
+      "label": "Descriere",
+      "description": "Descrierea paginii de export.",
+      "default": "Pe această pagină puteți alege să exportați textul, obiectivele și evaluările obiectivelor."
     },
     {
-      "label": "Create document button label",
-      "description": "Text that will be displayed on the \"Create document\"-button.",
-      "default": "Create document"
+      "label": "Eticheta butonului Creare document",
+      "description": "Textul care va fi afișat pe butonul „Creare document”.",
+      "default": "Creare document"
     },
     {
-      "label": "Submit text button",
-      "description": "Text that will be displayed on the \"Submit\"-button.",
-      "default": "Submit"
+      "label": "Butonul Trimite text",
+      "description": "Textul care va fi afișat pe butonul „Trimite”.",
+      "default": "Trimite"
     },
     {
-      "label": "Submit success label",
-      "default": "Your report was submitted successfully!"
+      "label": "Eticheta de succes la trimitere",
+      "default": "Raportul dumneavoastră a fost trimis cu succes!"
     },
     {
-      "label": "Select all exportable text button label",
-      "description": "Text that will be displayed on the \"Select all text\"-button.",
-      "default": "Select"
+      "label": "Eticheta butonului de selectare a întregului text exportabil",
+      "description": "Textul care va fi afișat pe butonul „Selectare tot textul”.",
+      "default": "Selectare"
     },
     {
-      "label": "Export text button label",
-      "description": "Text that will be displayed on the \"Export text\"-button.",
-      "default": "Export"
+      "label": "Eticheta butonului de exportare a textului",
+      "description": "Textul care va fi afișat pe butonul „Exportare text”.",
+      "default": "Exportare"
     },
     {
-      "label": "Label for help text",
-      "description": "Label for showing additional helpful information to the user.",
-      "default": "More information"
+      "label": "Etichetă pentru textul de ajutor",
+      "description": "Etichetă pentru afișarea de informații suplimentare utile utilizatorului.",
+      "default": "Mai multe informații"
     },
     {
-      "label": "Fill in additional help information",
-      "description": "Here you can fill in additional helpful information for the user."
+      "label": "Completați informații suplimentare de ajutor",
+      "description": "Aici puteți completa informații suplimentare utile pentru utilizator."
     },
     {
-      "label": "Required input missing text",
-      "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
-      "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+      "label": "Text pentru câmpuri obligatorii necompletate",
+      "description": "Un mesaj de eroare care va fi afișat dacă unul sau mai multe câmpuri obligatorii nu au fost completate. @pages va fi înlocuit cu titlurile paginilor afectate.",
+      "default": "Următoarele pagini conțin câmpuri obligatorii care trebuie completate pentru a putea revizui sau trimite acest document: @pages"
     }
   ]
 }
