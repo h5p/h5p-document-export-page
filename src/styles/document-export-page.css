@@ -105,10 +105,8 @@
   padding-bottom: var(--h5p-theme-spacing-l);
   width: 100%;
   height: calc(100% - 7.5em);
-}
-
-.joubel-exportable-body.joubel-has-success {
-  height: calc(100% - 10em);
+  display: flex;
+  flex-direction: column;
 }
 
 /* ----------------------------- header elements ---------------------------- */
@@ -200,8 +198,6 @@
   overflow: auto;
   box-sizing: border-box;
   max-width: 800px;
-  position: absolute;
-  height: calc(100% - 7.5em);
   width: calc(100% - calc(2*var(--h5p-theme-spacing-s)));
 }
 

@@ -121,8 +121,6 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       });
 
       self.$exportableBody.prepend(self.$successDiv);
-
-      self.$exportableBody.addClass('joubel-has-success');
     });
   };
 
@@ -372,7 +370,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
 
   /**
    * Strips a string of html tags, but keeps the expected whitespace etc.
-   * 
+   *
    * @param {String} html String with html tags
    * @returns {String} string without html tags
    */
