@@ -20,30 +20,33 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     var announceExportPageTextLabel = 'You are on the export page';
     self.standardSubmitSuccessTextLabel = submitSuccessTextLabel || 'Your report was submitted successfully!';
 
-    var exportPageTemplate =
+    const exportPageTemplate =
       '<div class="joubel-create-document" role="dialog" title="' + announceExportPageTextLabel + '">' +
-      ' <div class="joubel-exportable-header">' +
-      '   <div class="joubel-exportable-header-inner" role="toolbar">' +
-      '     <div class="joubel-exportable-header-text" tabindex="-1">' +
-      '       <span>' + header + '</span>' +
-      '     </div>' +
-      '     <div class="header-buttons"><button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
-      '     <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="2">' +
-      '       <span>' + standardSelectAllTextLabel + '</span>' +
-      '     </button>' +
-      '     <button class="joubel-exportable-export-button" title="' + standardExportTextLabel + '" tabindex="1">' +
-      '       <span>' + standardExportTextLabel + '</span>' +
-      '     </button>' +
-            (enableSubmit ?
-              '     <button class="joubel-exportable-submit-button h5p-theme-show-results" title="' + standardSubmitTextLabel + '" tabindex="1">' +
-      '       <span>' + standardSubmitTextLabel + '</span>' +
-      '     </button></div>'
-              : '') +
-      '   </div>' +
-      ' </div>' +
-      ' <div class="joubel-exportable-body">' +
-      '   <div class="joubel-exportable-area" tabindex="0"></div>' +
-      ' </div>' +
+      '  <div class="joubel-exportable-header">' +
+      '    <div class="joubel-exportable-header-inner" role="toolbar">' +
+      '      <div class="joubel-exportable-header-text" tabindex="-1">' +
+      '        <span>' + header + '</span>' +
+      '      </div>' +
+      '      <div class="header-buttons">' +
+      '        <button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
+      '        <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="2">' +
+      '          <span>' + standardSelectAllTextLabel + '</span>' +
+      '        </button>' +
+      '        <button class="joubel-exportable-export-button" title="' + standardExportTextLabel + '" tabindex="1">' +
+      '          <span>' + standardExportTextLabel + '</span>' +
+      '        </button>' +
+               (enableSubmit ?
+      '        <button class="joubel-exportable-submit-button h5p-theme-show-results" title="' + standardSubmitTextLabel + '" tabindex="1">' +
+      '          <span>' + standardSubmitTextLabel + '</span>' +
+      '        </button>' :
+               ''
+               ) +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="joubel-exportable-body">' +
+      '    <div class="joubel-exportable-area" tabindex="0"></div>' +
+      '  </div>' +
       '</div>';
 
     this.$inner = $(exportPageTemplate);
