@@ -167,6 +167,14 @@
 .joubel-create-document .header-buttons button {
   display: flex;
   align-items: center;
+  background-color: var(--h5p-theme-main-cta-base);
+  color: var(--h5p-theme-contrast-cta);
+}
+
+.joubel-create-document .header-buttons button:hover {
+  background-color: var(--h5p-theme-main-cta-light);
+  border-color: var(--h5p-theme-main-cta-light);
+  color: var(--h5p-theme-contrast-cta);
 }
 
 .joubel-create-document .header-buttons button:before {
