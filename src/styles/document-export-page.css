@@ -1,3 +1,9 @@
+.joubel-create-document {
+  --header-height: calc(var(--h5p-theme-spacing-s) * 3.5);
+  --header-padding: var(--h5p-theme-spacing-xxs);
+  --header-bottom-width: 1px;
+}
+
 .h5p-document-export-page .export-description {
   padding: var(--h5p-theme-spacing-s) 0em;
 }
@@ -74,11 +80,11 @@
 /* ------------------------------- main elements ---------------------------- */
 
 .joubel-exportable-header {
-  height: calc(var(--h5p-theme-spacing-s) * 3.5);
+  height: var(--header-height);
   color: var(--h5p-theme-text-primary);
   background-color: var(--h5p-theme-ui-base);
-  border-bottom: 1px solid var(--h5p-theme-stroke-1);
-  padding: var(--h5p-theme-spacing-xxs);
+  border-bottom: var(--header-bottom-width) solid var(--h5p-theme-stroke-1);
+  padding: var(--header-padding);
 }
 
 .joubel-exportable-body {
@@ -101,10 +107,12 @@
 
 
 .joubel-exportable-body {
-  padding-top: calc(var(--h5p-theme-spacing-s)*2);
-  padding-bottom: var(--h5p-theme-spacing-l);
+  --body-padding: var(--h5p-theme-spacing-m);
+  --header-extra-height: 2 * var(--header-padding) - var(--header-bottom-width);
+
+  padding-top: var(--body-padding);
   width: 100%;
-  height: calc(100% - 7.5em);
+  height: calc(100% - var(--header-height) - var(--header-extra-height) - 2 * var(--body-padding));
   display: flex;
   flex-direction: column;
 }
