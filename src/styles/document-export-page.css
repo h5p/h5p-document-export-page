@@ -127,12 +127,14 @@
   margin: 0 calc(var(--h5p-theme-spacing-xxs)/2);
   box-sizing: border-box;
   line-height: 1.5;
-  color: var(--h5p-theme-text-primary);
   font-size: var(--h5p-theme-font-size-s);
-  background-color: var(--h5p-theme-alternative-base);
   border-radius: var(--h5p-theme-border-radius-medium);
   font-weight: 600;
   border: solid 1px var(--h5p-theme-alternative-dark);
+  display: flex;
+  align-items: center;
+  background-color: var(--h5p-theme-main-cta-base);
+  color: var(--h5p-theme-contrast-cta);
 }
 
 .joubel-create-document .joubel-exportable-header-inner button:before {
@@ -142,8 +144,9 @@
 
 /* Hover effects on buttons */
 .joubel-create-document .joubel-exportable-header-inner button:hover {
-  color: var(--h5p-theme-text-primary);
-  background-color: var(--h5p-theme-alternative-light);
+  background-color: var(--h5p-theme-main-cta-light);
+  border-color: var(--h5p-theme-main-cta-light);
+  color: var(--h5p-theme-contrast-cta);
 }
 
 .joubel-create-document .joubel-exportable-header-inner button:focus {
@@ -162,19 +165,6 @@
 
 .joubel-create-document .header-buttons {
   order: 2;
-}
-
-.joubel-create-document .header-buttons button {
-  display: flex;
-  align-items: center;
-  background-color: var(--h5p-theme-main-cta-base);
-  color: var(--h5p-theme-contrast-cta);
-}
-
-.joubel-create-document .header-buttons button:hover {
-  background-color: var(--h5p-theme-main-cta-light);
-  border-color: var(--h5p-theme-main-cta-light);
-  color: var(--h5p-theme-contrast-cta);
 }
 
 .joubel-create-document .header-buttons button:before {
