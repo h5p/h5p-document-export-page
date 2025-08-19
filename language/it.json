@@ -42,6 +42,16 @@
       "label": "Input testuale obbligatorio mancante",
       "description": "Messaggio di errore che sarà visualizzato se uno o più campi di input obbligatori non sono stati compilati. @pages saranno sostituite con i titoli delle pagine interessate",
       "default": "Le seguenti pagine contengono campi obbligatori che devono essere riempiti per poter esaminare o inviare questo documento: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

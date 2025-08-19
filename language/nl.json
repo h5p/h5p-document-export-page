@@ -42,6 +42,16 @@
       "label": "Vereiste invoer bij ontbrekende tekst",
       "description": "Er wordt een foutbericht getoond als tekst ontbreekt in één of meer vereiste invoervelden. @pages wordt vervangen door de titels van de betreffende pagina's.",
       "default": "De volgende pagina's bevatten vereiste velden die ingevoerd moeten worden om dit document te kunnen beoordelen/inzenden: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

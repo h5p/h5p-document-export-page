@@ -42,6 +42,16 @@
       "label": "Задължително въвеждане на липсващ текст",
       "description": "Съобщение за грешка, което ще се покаже, ако едно или повече полета за въвеждане не са попълнени. @pages ще бъдат заменени със заглавията на засегнатите страници.",
       "default": "Следните страници съдържат необходимите полета, които трябва да бъдат попълнени, за да се прегледа или изпрати този документ: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

@@ -42,6 +42,16 @@
       "label": "Шаардлагатай оролт дутуу текст",
       "description": "Нэг буюу хэд хэдэн шаардлагатай оролтын талбарыг бөглөөгүй тохиолдолд гарч ирэх алдааны мэдэгдэл. @pages -ыг нөлөөлөлд өртсөн хуудсуудын гарчигаар солино",
       "default": "Дараах хуудсууд нь энэ баримт бичгийг шалгах эсвэл илгээхийн тулд бөглөх шаардлагатай талбаруудыг агуулна: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

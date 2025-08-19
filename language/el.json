@@ -42,6 +42,16 @@
       "label":"Κείμενο για μη συμπληρωμένο απαιτούμενο πεδίο εισαγωγής",
       "description":"Ένα μήνυμα σφάλματος που θα εμφανιστεί αν δεν έχουν συμπληρωθεί ένα ή περισσότερα απαιτούμενα πεδία εισαγωγής.",
       "default":"Πρέπει να συμπληρωθούν ένα ή περισσότερα απαιτούμενα πεδία εισαγωγής."
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

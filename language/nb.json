@@ -42,6 +42,16 @@
       "label": "Melding til bruker om at obligatoriske felter mangler",
       "description": "Denne meldingen vil vises dersom et eller flere obligatoriske tekstfelter ikke er fylt inn. @pages vil erstattes med titlene på de berørte sidene.",
       "default": "Følgende sider inneholder obligatoriske felter som må fylles ut for å kunne gjennomgå eller sende inn dette dokumentet: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

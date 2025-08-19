@@ -42,6 +42,16 @@
       "label": "Beharrezkoa izan eta falta den testua",
       "description": "Eremu bat edo gehiago betetzea falta dela abisatzen duen errore mezua. @pages eragindako orrien izenburuekin ordezkatuko da.",
       "default": "Hurrengo orriek dokumentu hau berrikusi edo bidaltzeko osatu beharreko eremuak dituzte: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

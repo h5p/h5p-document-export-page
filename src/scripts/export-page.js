@@ -6,7 +6,7 @@ import {HeadingLevel, Paragraph, Document, TextRun, Packer} from "docx";
  */
 H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
 
-  function ExportPage(header, $body, enableSubmit, submitTextLabel, submitSuccessTextLabel, selectAllTextLabel, exportTextLabel, templateContent) {
+  function ExportPage(header, $body, enableSubmit, submitTextLabel, submitSuccessTextLabel, selectAllTextLabel, exportTextLabel, tooltipExitText, ariaLabelExitText, templateContent) {
     EventDispatcher.call(this);
     var self = this;
 
@@ -27,21 +27,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       '      <div class="joubel-exportable-header-text" tabindex="-1">' +
       '        <span>' + header + '</span>' +
       '      </div>' +
-      '      <div class="header-buttons">' +
-      '        <button class="joubel-export-page-close" title="Exit" aria-label="Exit" tabindex="3"></button>' +
-      '        <button class="joubel-exportable-copy-button" title ="' + standardSelectAllTextLabel + '" tabindex="2">' +
-      '          <span>' + standardSelectAllTextLabel + '</span>' +
-      '        </button>' +
-      '        <button class="joubel-exportable-export-button" title="' + standardExportTextLabel + '" tabindex="1">' +
-      '          <span>' + standardExportTextLabel + '</span>' +
-      '        </button>' +
-               (enableSubmit ?
-      '        <button class="joubel-exportable-submit-button h5p-theme-show-results" title="' + standardSubmitTextLabel + '" tabindex="1">' +
-      '          <span>' + standardSubmitTextLabel + '</span>' +
-      '        </button>' :
-               ''
-               ) +
-      '      </div>' +
+      '      <div class="header-buttons"></div>' +
       '    </div>' +
       '  </div>' +
       '  <div class="joubel-exportable-body">' +
@@ -50,6 +36,79 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       '</div>';
 
     this.$inner = $(exportPageTemplate);
+    this.headerButtons = this.$inner.find('.header-buttons').get(0);
+
+    this.headerButtons.appendChild(
+      H5P.Components.Button({
+        classes: 'joubel-exportable-submit-button',
+        icon: 'submit',
+        label: standardSubmitTextLabel,
+        tooltip: standardSubmitTextLabel,
+        tooltipPosition: 'bottom',
+        onClick: () => {
+          this.$submitButton.attr('disabled','disabled');
+          this.$submitButton.addClass('joubel-exportable-button-disabled');
+
+          // Trigger a submit event so the report can be saved via xAPI at the
+          // documentation tool level
+          this.trigger('submitted');
+
+          this.$successDiv = $('<div/>', {
+            text: this.standardSubmitSuccessTextLabel,
+            'class': 'joubel-exportable-success-message'
+          });
+
+          this.$exportableBody.prepend(this.$successDiv);
+        }
+      })
+    );
+
+    this.headerButtons.appendChild(
+      H5P.Components.Button({
+        classes: 'joubel-exportable-export-button',
+        icon: 'export',
+        label: standardExportTextLabel,
+        tooltip: standardExportTextLabel,
+        tooltipPosition: 'bottom',
+        styleType: 'secondary',
+        onClick: () => {
+          this.saveText();
+        }
+      })
+    );
+
+    this.headerButtons.appendChild(
+      H5P.Components.Button({
+        classes: 'joubel-exportable-copy-button',
+        icon: 'select',
+        label: standardSelectAllTextLabel,
+        tooltip: standardSelectAllTextLabel,
+        tooltipPosition: 'bottom',
+        tabIndex: '2',
+        styleType: 'secondary',
+        onClick: () => {
+          this.selectText(this.$exportableArea);
+        }
+      })
+    );
+
+    console.log('init: ', this.ariaLabelExitText)
+    this.headerButtons.appendChild(
+      H5P.Components.Button({
+        classes: 'joubel-exportable-page-close',
+        icon: 'close',
+        styleType: 'secondary',
+        ariaLabel: ariaLabelExitText,
+        tooltip: tooltipExitText,
+        tooltipPosition: 'bottom',
+        onClick: () => {
+          // Remove export page.
+          this.$inner.remove();
+          this.trigger('closed');
+        }
+      })
+    );
+
     this.$exportableBody = this.$inner.find('.joubel-exportable-body');
     this.$submitButton = this.$inner.find('.joubel-exportable-submit-button');
     this.$exportButton = this.$inner.find('.joubel-exportable-export-button');
@@ -61,11 +120,6 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
 
     // Append body to exportable area
     self.$exportableArea = $('.joubel-exportable-area', self.$inner).append($bodyReplacedLineBreaks);
-
-    self.initExitExportPageButton();
-    self.initSubmitButton();
-    self.initExportButton();
-    self.initSelectAllTextButton();
 
     // Initialize resize listener for responsive design
     this.initResizeFunctionality();
@@ -84,70 +138,10 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
   };
 
   /**
-   * Initialize exit export page button
-   */
-   ExportPage.prototype.initExitExportPageButton = function () {
-    var self = this;
-
-    self.$exportCloseButton.on('click', function () {
-      // Remove export page.
-      self.$inner.remove();
-      self.trigger('closed');
-    });
-  };
-
-  /**
    * Sets focus on page
    */
   ExportPage.prototype.focus = function () {
     this.$submitButton ? this.$submitButton.focus() : this.$exportButton.focus();
-  };
-
-  /**
-   * Initialize Submit button interactions
-   */
-  ExportPage.prototype.initSubmitButton = function () {
-    var self = this;
-    // Submit document button event
-    self.$submitButton.on('click', function () {
-
-      self.$submitButton.attr('disabled','disabled');
-      self.$submitButton.addClass('joubel-exportable-button-disabled');
-
-      // Trigger a submit event so the report can be saved via xAPI at the
-      // documentation tool level
-      self.trigger('submitted');
-
-      self.$successDiv = $('<div/>', {
-        text: self.standardSubmitSuccessTextLabel,
-        'class': 'joubel-exportable-success-message'
-      });
-
-      self.$exportableBody.prepend(self.$successDiv);
-    });
-  };
-
-  /**
-   * Initialize export button interactions
-   */
-  ExportPage.prototype.initExportButton = function () {
-    var self = this;
-    // Export document button event
-    self.$exportButton.on('click', function () {
-      self.saveText();
-    });
-  };
-
-
-  /**
-   * Initialize select all text button interactions
-   */
-  ExportPage.prototype.initSelectAllTextButton = function () {
-    var self = this;
-    // Select all text button event
-    self.$exportCopyButton.on('click', function () {
-      self.selectText(self.$exportableArea);
-    });
   };
 
   /**

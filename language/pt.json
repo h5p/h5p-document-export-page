@@ -42,6 +42,16 @@
       "label": "Texto para entrada obrigatória em falta",
       "description": "Mensagem de erro que será exibida se um ou mais campos obrigatórios não forem preenchidos. @pages será substituído pelos títulos das páginas afetadas.",
       "default": "As páginas a seguir contêm campos obrigatórios que devem ser preenchidos para rever ou enviar este documento: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

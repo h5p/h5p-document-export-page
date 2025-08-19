@@ -128,71 +128,15 @@
 
 
 /* Buttons */
-.joubel-create-document .joubel-exportable-header-inner button {
-  float: right;
-  cursor: pointer;
-  padding: var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-s) !important;
-  margin: 0 calc(var(--h5p-theme-spacing-xxs)/2);
-  box-sizing: border-box;
-  line-height: 1.5;
-  color: var(--h5p-theme-text-primary);
-  font-size: var(--h5p-theme-font-size-s);
-  background-color: var(--h5p-theme-alternative-base);
-  border-radius: var(--h5p-theme-border-radius-medium);
-  font-weight: 600;
-  border: solid 1px var(--h5p-theme-alternative-dark);
-}
-
-.joubel-create-document .joubel-exportable-header-inner button:before {
-  font-family: 'h5p-theme';
-  font-size: var(--h5p-theme-font-size-m);
-}
-
-/* Hover effects on buttons */
-.joubel-create-document .joubel-exportable-header-inner button:hover {
-  color: var(--h5p-theme-text-primary);
-  background-color: var(--h5p-theme-alternative-light);
-}
-
-.joubel-create-document .joubel-exportable-header-inner button:focus {
-  outline: 2px ridge var(--h5p-theme-main-cta-base);
-  border-radius: 4px;
-  outline-offset: 2px;
-}
-
-.joubel-create-document .joubel-exportable-header-inner button:active {
-   background-color: var(--h5p-theme-alternative-dark);
-}
-
-.joubel-create-document .joubel-exportable-header-inner button.joubel-export-page-close {
-  position: relative;
-}
-
 .joubel-create-document .header-buttons {
-  order: 2;
-}
-
-.joubel-create-document .header-buttons button {
   display: flex;
-  align-items: center;
+  flex-flow: row;
+  gap: var(--h5p-theme-spacing-xxs);
 }
 
-.joubel-create-document .header-buttons button:before {
-  margin-right: var(--h5p-theme-spacing-xxs);
-}
-
-.joubel-create-document .joubel-exportable-export-button:before {
-  content: "\e911";
-}
-
-.joubel-create-document .joubel-exportable-copy-button:before {
-  content: "\e91d";
-}
-
-.joubel-create-document .header-buttons .joubel-export-page-close:before {
-  content: '\e910';
+.joubel-create-document .header-buttons .joubel-exportable-page-close:before {
   margin-right: 0;
-}
+} 
 
 /* ----------------------------- body elements ------------------------------ */
 
