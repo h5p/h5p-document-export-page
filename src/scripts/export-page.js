@@ -92,7 +92,6 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       })
     );
 
-    console.log('init: ', this.ariaLabelExitText)
     this.headerButtons.appendChild(
       H5P.Components.Button({
         classes: 'joubel-exportable-page-close',
