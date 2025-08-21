@@ -42,6 +42,16 @@
       "label": "Obligātai ievadei trūkst teksta",
       "description": "Kļūdas ziņojums, kas tiks parādīts, ja nav aizpildīts viens vai vairāki obligātie ievades lauki. @pages tiks aizstāts ar ietekmēto lapu nosaukumiem.",
       "default": "Sekojošās lapās ir obligātie lauki, kas jāaizpilda, lai pārskatītu vai iesniegtu šo dokumentu: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

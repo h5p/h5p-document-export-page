@@ -100,5 +100,21 @@
     "type": "text",
     "description": "An error message which will be displayed if one or more required input fields have not been filled. @pages will be replaced with the titles of affected pages.",
     "default": "The following pages contain required fields that need to be filled in order to review or submit this document: @pages"
+  },
+  {
+    "name": "tooltipExitText",
+    "label": "Tooltip text for exit document button",
+    "importance": "low",
+    "type": "text",
+    "description": "Tooltip text when hovering over the exit (X-) button",
+    "default": "Exit"
+  },
+  {
+    "name": "ariaLabelExitText",
+    "label": "Aria-label for exit document button",
+    "importance": "low",
+    "type": "text",
+    "description": "Aria label to be read when reading the exit (X-) button",
+    "default": "Exit"
   }
 ]

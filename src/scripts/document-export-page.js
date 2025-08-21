@@ -33,7 +33,9 @@ H5P.DocumentExportPage = (function ($, EventDispatcher) {
       exportTextLabel: 'Export',
       requiresInputErrorMessage: 'The following pages contain required input fields that need to be filled: @pages',
       helpTextLabel: 'Read more',
-      helpText: 'Help text'
+      helpText: 'Help text',
+      tooltipExitText: 'Exit',
+      ariaLabelExitText: 'Exit',
     }, params);
   }
 

@@ -49,6 +49,8 @@ H5P.DocumentExportPage.CreateDocument = (function ($, EventDispatcher) {
       this.params.submitSuccessTextLabel,
       this.params.selectAllTextLabel,
       this.params.exportTextLabel,
+      this.params.tooltipExitText,
+      this.params.ariaLabelExitText,
       exportObject
     );
     exportPage.getElement().prependTo($container);

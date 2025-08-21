@@ -42,6 +42,16 @@
       "label": "Nõutud sisestusväli on tühi",
       "description": "Veateave, mida näidatakse, kui üks või mitu sisestusvälja on täitmata. @pages asendatakse mõjutatud lehekülgede pealkirjadega.",
       "default": "Järgmistel lehekülgedel on väljad, mis tuleb täita enne selle dokumendi esitamist või ülevaatamist: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

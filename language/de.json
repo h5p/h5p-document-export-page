@@ -42,6 +42,16 @@
       "label": "Fehlende erforderliche Eingabe",
       "description": "Es wird eine Fehlermitteilung angezeigt, wenn eines oder mehrere erforderliche Eingabefelder nicht ausgefüllt wurden. @pages wird durch den betreffenden Seitentitel ersetzt.",
       "default": "Die folgenden Seiten enthalten erforderliche Felder, die ausgefüllt werden müssen, um die Eingaben zu begutachten oder abzusenden: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

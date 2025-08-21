@@ -42,6 +42,16 @@
       "label": "필수 입력 누락시 텍스트",
       "description": "필수 입력 필드를 하나 이상 채우지 않은 경우 표시되는 오류 메시지. @page는 영향을 받는 페이지의 제목으로 대체될 것이다.",
       "default": "다음 페이지에는 이 문서를 검토하거나 제출하기 위해 채워야 하는 필수 필드가 포함되어 있음: @pages"
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }

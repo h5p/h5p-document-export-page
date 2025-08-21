@@ -42,6 +42,16 @@
       "label": "Text per indicar que falta introduir text obligatori",
       "description": "Missatge d’error que es mostrarà si no s’emplenen un o més camps d’entrada obligatoris @pages se substituirà pel títol de les pàgines en qüestió.",
       "default": "Les pàgines següents contenen camps obligatoris que s’han d’emplenar perquè aquest document es pugui revisar o enviar: @pages."
+    },
+    {
+      "label": "Tooltip text for exit document button",
+      "description": "Tooltip text when hovering over the exit (X-) button",
+      "default": "Exit"
+    },
+    {
+      "label": "Aria-label for exit document button",
+      "description": "Aria label to be read when reading the exit (X-) button",
+      "default": "Exit"
     }
   ]
 }
