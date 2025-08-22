@@ -169,12 +169,6 @@
   margin-right: 0;
 }
 
-.joubel-create-document .joubel-exportable-header-inner button:disabled {
-  color: #A8A8A8;
-  cursor: default;
-}
-
-
 /* ----------------------------- Responsive Design -------------------------- */
 
 .joubel-create-document.responsive {
@@ -196,19 +190,6 @@
 }
 
 .joubel-create-document.responsive .joubel-export-page-close {
-  margin-right: 0;
-}
-
-.joubel-create-document.responsive .joubel-exportable-submit-button span,
-.joubel-create-document.responsive .joubel-exportable-export-button span,
-.joubel-create-document.responsive .joubel-exportable-copy-button span {
-  display: none;
-}
-
-/* Responsive button margins */
-.joubel-create-document.responsive .joubel-exportable-submit-button:before,
-.joubel-create-document.responsive .joubel-exportable-export-button:before,
-.joubel-create-document.responsive .joubel-exportable-copy-button:before {
   margin-right: 0;
 }
 
