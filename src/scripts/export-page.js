@@ -41,7 +41,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     this.headerButtons.appendChild(
       H5P.Components.Button({
         classes: 'joubel-exportable-submit-button',
-        icon: 'submit',
+        icon: 'show-results',
         label: standardSubmitTextLabel,
         tooltip: standardSubmitTextLabel,
         tooltipPosition: 'bottom',
