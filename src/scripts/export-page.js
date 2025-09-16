@@ -38,30 +38,32 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     this.$inner = $(exportPageTemplate);
     this.headerButtons = this.$inner.find('.header-buttons').get(0);
 
-    this.headerButtons.appendChild(
-      H5P.Components.Button({
-        classes: 'joubel-exportable-submit-button',
-        icon: 'submit',
-        label: standardSubmitTextLabel,
-        tooltip: standardSubmitTextLabel,
-        tooltipPosition: 'bottom',
-        onClick: () => {
-          this.$submitButton.attr('disabled','disabled');
-          this.$submitButton.addClass('joubel-exportable-button-disabled');
+    if (enableSubmit) {
+      this.headerButtons.appendChild(
+        H5P.Components.Button({
+          classes: 'joubel-exportable-submit-button',
+          icon: 'submit',
+          label: standardSubmitTextLabel,
+          tooltip: standardSubmitTextLabel,
+          tooltipPosition: 'bottom',
+          onClick: () => {
+            this.$submitButton.attr('disabled','disabled');
+            this.$submitButton.addClass('joubel-exportable-button-disabled');
 
-          // Trigger a submit event so the report can be saved via xAPI at the
-          // documentation tool level
-          this.trigger('submitted');
+            // Trigger a submit event so the report can be saved via xAPI at the
+            // documentation tool level
+            this.trigger('submitted');
 
-          this.$successDiv = $('<div/>', {
-            text: this.standardSubmitSuccessTextLabel,
-            'class': 'joubel-exportable-success-message'
-          });
+            this.$successDiv = $('<div/>', {
+              text: this.standardSubmitSuccessTextLabel,
+              'class': 'joubel-exportable-success-message'
+            });
 
-          this.$exportableBody.prepend(this.$successDiv);
-        }
-      })
-    );
+            this.$exportableBody.prepend(this.$successDiv);
+          }
+        })
+      );
+    }
 
     this.headerButtons.appendChild(
       H5P.Components.Button({
