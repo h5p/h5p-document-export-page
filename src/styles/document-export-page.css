@@ -95,10 +95,16 @@
 .joubel-exportable-header-inner {
   height: 100%;
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
+  flex-flow: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  container-type: inline-size;
+  container-name: exportable-header-inner;
+}
+@container exportable-header-inner (width <= 470px) {
+  .joubel-exportable-header-text {
+    display: none;
+  }
 }
 
 .h5p-column-content .joubel-exportable-header-inner {
@@ -120,7 +126,8 @@
 /* ----------------------------- header elements ---------------------------- */
 
 .joubel-exportable-header-text {
-  float: left;
+  flex: 1;
+  min-width: fit-content;
   margin-left: var(--h5p-theme-spacing-s);
   line-height: calc(var(--h5p-theme-font-size-xl)*2);
   font-size: var(--h5p-theme-font-size-xl);
