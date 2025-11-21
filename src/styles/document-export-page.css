@@ -95,10 +95,9 @@
 .joubel-exportable-header-inner {
   height: 100%;
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .h5p-column-content .joubel-exportable-header-inner {
@@ -129,6 +128,7 @@
 /* Buttons */
 .joubel-create-document .header-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--h5p-theme-spacing-xxs);
 }
 
