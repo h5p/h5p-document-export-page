@@ -80,7 +80,6 @@
 /* ------------------------------- main elements ---------------------------- */
 
 .joubel-exportable-header {
-  min-height: var(--header-height);
   color: var(--h5p-theme-text-primary);
   background-color: var(--h5p-theme-ui-base);
   border-bottom: var(--header-bottom-width) solid var(--h5p-theme-stroke-1);
@@ -93,7 +92,7 @@
 }
 
 .joubel-exportable-header-inner {
-  height: 100%;
+  min-height: var(--header-height);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
