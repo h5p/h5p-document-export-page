@@ -113,7 +113,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     this.$exportableBody = this.$inner.find('.joubel-exportable-body');
     this.$submitButton = this.$inner.find('.joubel-exportable-submit-button');
     this.$exportButton = this.$inner.find('.joubel-exportable-export-button');
-    this.$exportCloseButton = this.$inner.find('.joubel-export-page-close');
+    this.$exportCloseButton = this.$inner.find('.joubel-exportable-page-close');
     this.$exportCopyButton = this.$inner.find('.joubel-exportable-copy-button');
 
     // Replace newlines with html line breaks
@@ -224,23 +224,29 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    * Responsive resize function
    */
   ExportPage.prototype.resize = function () {
-    var self = this;
-    var $innerTmp = self.$inner.clone()
+    const self = this;
+    let $innerTmp = self.$inner.clone()
       .css('position', 'absolute')
       .removeClass('responsive')
       .removeClass('no-title')
       .appendTo(self.$inner.parent());
 
-    // Determine if view should be responsive
-    var $headerInner = $('.joubel-exportable-header-inner', $innerTmp);
-    var leftMargin = parseInt($('.joubel-exportable-header-text', $headerInner).css('font-size'), 10);
-    var rightMargin = parseInt($('.joubel-export-page-close', $headerInner).css('font-size'), 10);
+      $innerTmp.find('.header-buttons button').removeClass('icon-only');
 
-    var dynamicRemoveLabelsThreshold = this.calculateHeaderThreshold($innerTmp, (leftMargin + rightMargin));
-    var headerWidth = $headerInner.width();
+    // Determine if view should be responsive
+    const $headerInner = $('.joubel-exportable-header-inner', $innerTmp);
+    const leftMargin = parseInt($('.joubel-exportable-header-text', $headerInner).css('font-size'), 10);
+    const rightMargin = parseInt($('.joubel-exportable-page-close', $headerInner).css('font-size'), 10);
+
+    const dynamicRemoveLabelsThreshold = this.calculateHeaderThreshold($innerTmp, (leftMargin + rightMargin));
+    let headerWidth = $headerInner.width();
 
     if (headerWidth <= dynamicRemoveLabelsThreshold) {
       self.$inner.addClass('responsive');
+
+      self.$inner.find('.header-buttons button').addClass('icon-only');
+      $innerTmp.find('.header-buttons button').addClass('icon-only');
+
       $innerTmp.addClass('responsive');
 
       if (self.$successDiv) {
@@ -249,6 +255,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
     }
     else {
       self.$inner.removeClass('responsive');
+      self.$inner.find('.header-buttons button').removeClass('icon-only');
       $innerTmp.remove();
 
       if (self.$successDiv) {
@@ -257,10 +264,9 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
       return;
     }
 
-
     // Determine if view should have no title
     headerWidth = $headerInner.width();
-    var dynamicRemoveTitleThreshold = this.calculateHeaderThreshold($innerTmp, (leftMargin + rightMargin));
+    const dynamicRemoveTitleThreshold = this.calculateHeaderThreshold($innerTmp, (leftMargin + rightMargin));
 
     if (headerWidth <= dynamicRemoveTitleThreshold) {
       self.$inner.addClass('no-title');
@@ -276,24 +282,24 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    * Calculates width of header elements
    */
   ExportPage.prototype.calculateHeaderThreshold = function ($container, margin) {
-    var staticPadding = 1;
+    const staticPadding = 1;
 
     if (margin === undefined || isNaN(margin)) {
       margin = 0;
     }
 
     // Calculate elements width
-    var $submitButtonTmp = $('.joubel-exportable-submit-button', $container);
-    var $exportButtonTmp = $('.joubel-exportable-export-button', $container);
-    var $selectTextButtonTmp = $('.joubel-exportable-copy-button', $container);
-    var $removeDialogButtonTmp = $('.joubel-export-page-close', $container);
-    var $titleTmp = $('.joubel-exportable-header-text', $container);
+    const $submitButtonTmp = $('.joubel-exportable-submit-button', $container);
+    const $exportButtonTmp = $('.joubel-exportable-export-button', $container);
+    const $selectTextButtonTmp = $('.joubel-exportable-copy-button', $container);
+    const $removeDialogButtonTmp = $('.joubel-exportable-page-close', $container);
+    const $titleTmp = $('.joubel-exportable-header-text', $container);
 
     let buttonWidth = $submitButtonTmp.length ? $submitButtonTmp.outerWidth() : 0;
     buttonWidth += $selectTextButtonTmp.length ? $selectTextButtonTmp.outerWidth() : 0;
     buttonWidth += $exportButtonTmp.length ? $exportButtonTmp.outerWidth() : 0;
 
-    var dynamicThreshold = buttonWidth +
+    const dynamicThreshold = buttonWidth +
       $removeDialogButtonTmp.outerWidth() +
       $titleTmp.outerWidth();
 
