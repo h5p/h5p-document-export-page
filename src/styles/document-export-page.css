@@ -183,7 +183,6 @@
 .joubel-create-document.responsive.no-title {
   .joubel-exportable-header-text {
     display: none;
-    order: 1;
   }
 
   .joubel-exportable-header-inner {
