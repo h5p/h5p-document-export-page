@@ -180,7 +180,12 @@
 
 /* No title threshold */
 
-.joubel-create-document.responsive.no-title .joubel-exportable-header-text {
-  display: none;
-  order: 1;
+.joubel-create-document.responsive.no-title {
+  .joubel-exportable-header-text {
+    display: none;
+  }
+
+  .joubel-exportable-header-inner {
+    justify-content: flex-end;
+  }
 }
