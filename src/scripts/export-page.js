@@ -50,6 +50,9 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
             this.$submitButton.attr('disabled','disabled');
             this.$submitButton.addClass('joubel-exportable-button-disabled');
 
+            // Prevent losing focus when submit button gets disabled
+            this.$exportButton.focus();
+
             // Trigger a submit event so the report can be saved via xAPI at the
             // documentation tool level
             this.trigger('submitted');
@@ -142,7 +145,7 @@ H5P.DocumentExportPage.ExportPage = (function ($, EventDispatcher) {
    * Sets focus on page
    */
   ExportPage.prototype.focus = function () {
-    this.$submitButton ? this.$submitButton.focus() : this.$exportButton.focus();
+    this.$submitButton.length ? this.$submitButton.focus() : this.$exportButton.focus();
   };
 
   /**
