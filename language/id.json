@@ -1,0 +1,57 @@
+{
+  "semantics": [
+    {
+      "label": "Deskripsi",
+      "description": "Deskripsi halaman ekspor.",
+      "default": "Di halaman ini Anda dapat memilih untuk mengekspor teks, tujuan, dan penilaian tujuan Anda."
+    },
+    {
+      "label": "Label tombol buat dokumen",
+      "description": "Teks yang akan ditampilkan pada tombol \"Buat dokumen\".",
+      "default": "Buat dokumen"
+    },
+    {
+      "label": "Label tombol kirim",
+      "description": "Teks yang akan ditampilkan pada tombol \"Kirim\".",
+      "default": "Kirim"
+    },
+    {
+      "label": "Label sukses kirim",
+      "default": "Laporan Anda telah berhasil dikirim!"
+    },
+    {
+      "label": "Label tombol pilih semua teks yang dapat diekspor",
+      "description": "Teks yang akan ditampilkan pada tombol \"Pilih semua teks\".",
+      "default": "Pilih"
+    },
+    {
+      "label": "Label tombol ekspor teks",
+      "description": "Teks yang akan ditampilkan pada tombol \"Ekspor teks\".",
+      "default": "Ekspor"
+    },
+    {
+      "label": "Label untuk teks bantuan",
+      "description": "Label untuk menampilkan informasi tambahan yang membantu kepada pengguna.",
+      "default": "Informasi lebih lanjut"
+    },
+    {
+      "label": "Isi informasi bantuan tambahan",
+      "description": "Di sini Anda dapat mengisi informasi tambahan yang membantu untuk pengguna."
+    },
+    {
+      "label": "Teks masukan yang hilang diperlukan",
+      "description": "Pesan galat yang akan ditampilkan jika satu atau lebih kolom masukan yang diperlukan belum diisi. @pages akan diganti dengan judul halaman yang terpengaruh.",
+      "default": "Halaman berikut berisi kolom masukan yang diperlukan perlu diisi untuk meninjau atau mengirimkan dokumen ini: @pages"
+    },
+    {
+      "label": "Teks tooltip untuk tombol keluar dokumen",
+      "description": "Teks tooltip ketika mengarahkan ke tombol keluar (X-)",
+      "default": "Keluar"
+    },
+    {
+      "label": "Aria-label untuk tombol keluar dokumen",
+      "description": "Aria label untuk dibaca ketika membaca tombol keluar (X-)",
+      "default": "Keluar"
+    }
+  ]
+}
